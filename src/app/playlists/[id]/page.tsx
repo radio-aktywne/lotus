@@ -1,22 +1,36 @@
-import { notFound } from "next/navigation";
-import { getPlaylist } from "../../../actions";
-import { PlaylistWidget } from "../../../components";
+import { i18n } from "@lingui/core";
+import { msg, t } from "@lingui/macro";
+import { Metadata } from "next";
 
-type PlaylistPageParams = Readonly<{
-  id: string;
-}>;
-
-export type PlaylistPageProps = Readonly<{
-  params: PlaylistPageParams;
-}>;
+import { PlaylistPageMetadata } from "../../../components/metadata/playlists/playlist-page-metadata";
+import { PlaylistPageView } from "../../../components/views/playlists/playlist-page-view";
+import { getLanguage } from "../../../lib/i18n/get-language";
+import { loadLocale } from "../../../lib/i18n/load-locale";
+import { PlaylistPageInput } from "./types";
 
 export const dynamic = "force-dynamic";
 
-export default async function PlaylistPage({ params }: PlaylistPageProps) {
-  const { data: playlist, error } = await getPlaylist({ id: params.id });
+export async function generateMetadata({
+  params,
+}: PlaylistPageInput): Promise<Metadata> {
+  const id = params.id;
 
-  if (error !== undefined) throw new Error(error);
-  if (playlist === undefined) notFound();
+  const { language } = getLanguage();
+  await loadLocale({ i18n, language });
 
-  return <PlaylistWidget playlist={playlist} />;
+  return {
+    description: t(i18n)(msg({ message: `Playlist ${id} • lotus` })),
+    title: t(i18n)(msg({ message: "lotus" })),
+  };
+}
+
+export default function PlaylistPage({ params }: PlaylistPageInput) {
+  const id = params.id;
+
+  return (
+    <>
+      <PlaylistPageMetadata id={id} />
+      <PlaylistPageView id={id} />
+    </>
+  );
 }

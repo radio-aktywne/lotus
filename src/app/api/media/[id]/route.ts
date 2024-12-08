@@ -1,95 +1,87 @@
-import { pelican } from "../../../../api";
+import { NextRequest, NextResponse } from "next/server";
 
-type Params = {
-  id: string;
-};
+import {
+  downloadMediaContent,
+  MediaNotFoundError as DownloadMediaNotFoundError,
+} from "../../../../lib/pelican/media/content/download-media-content";
+import {
+  uploadMediaContent,
+  MediaNotFoundError as UploadMediaNotFoundError,
+} from "../../../../lib/pelican/media/content/upload-media-content";
+import { errors } from "./constants";
+import { RouteContext } from "./types";
 
-type Context = {
-  params: Params;
-};
-
-function createBadRequestResponse(error?: string) {
-  return Response.json(
-    { error: error || "Invalid request." },
-    { status: 400, statusText: "Bad Request" },
-  );
-}
-
-function createGenericErrorResponse(error?: string) {
-  return Response.json(
-    { error: error || "Internal Server Error." },
-    { status: 500, statusText: "Internal Server Error" },
-  );
-}
-
-function createNotFoundResponse(error?: string) {
-  return Response.json(
-    { error: error || "Media not found." },
-    { status: 404, statusText: "Not Found" },
-  );
-}
-
-export async function GET(request: Request, { params }: Context) {
+export async function GET(
+  request: NextRequest,
+  context: RouteContext,
+): Promise<NextResponse> {
   try {
-    const { data, error, response } = await pelican.GET("/media/{id}/content", {
-      params: {
-        path: { id: params.id },
-      },
-      parseAs: "stream",
+    const { id } = context.params;
+
+    const { data, etag, length, modified, type } = await downloadMediaContent({
+      id: id,
     });
 
-    if (error) {
-      if (response.status === 404) return createNotFoundResponse();
-      return createGenericErrorResponse("Downloading media content failed.");
-    }
+    const headers = {
+      "Content-Length": length.toString(),
+      "Content-Type": type,
+      ETag: etag,
+      "Last-Modified": modified,
+    };
 
-    const headers = new Headers();
-    const keepHeaders = [
-      "Content-Length",
-      "Content-Type",
-      "ETag",
-      "Last-Modified",
-    ];
-
-    for (const key of keepHeaders) {
-      const value = response.headers.get(key);
-      if (value !== null) headers.set(key, value);
-    }
-
-    const options = { status: 200, statusText: "OK", headers: headers };
-
-    return new Response(data, options);
+    return new NextResponse(data, {
+      headers: headers,
+      status: 200,
+      statusText: "OK",
+    });
   } catch (error) {
-    return createGenericErrorResponse("Downloading media content failed.");
+    if (error instanceof DownloadMediaNotFoundError) {
+      return NextResponse.json(
+        { error: errors.download.notFound },
+        { status: 404, statusText: "Not Found" },
+      );
+    }
+
+    return NextResponse.json(
+      { error: errors.download.generic },
+      { status: 500, statusText: "Internal Server Error" },
+    );
   }
 }
 
-export async function PUT(request: Request, { params }: Context) {
-  const contentType = request.headers.get("Content-Type");
-  if (contentType === null)
-    return createBadRequestResponse("Content-Type header is missing.");
-
+export async function PUT(
+  request: NextRequest,
+  context: RouteContext,
+): Promise<NextResponse> {
   try {
-    const { error, response } = await pelican.PUT("/media/{id}/content", {
-      params: {
-        path: { id: params.id },
-        header: { "Content-Type": contentType },
-      },
-      body: request.body as unknown as undefined,
-      bodySerializer: (body) => body,
-      duplex: "half",
+    const { id } = context.params;
+
+    const type = request.headers.get("Content-Type");
+
+    if (!type)
+      return NextResponse.json(
+        { error: errors.upload.missingContentType },
+        { status: 400, statusText: "Bad Request" },
+      );
+
+    await uploadMediaContent({
+      data: request.body!,
+      id: id,
+      type: type,
     });
 
-    if (error) {
-      if (response.status === 404) return createNotFoundResponse();
-      if (response.status === 400) return createBadRequestResponse();
-      return createGenericErrorResponse("Uploading media content failed.");
+    return new NextResponse(null, { status: 204, statusText: "No Content" });
+  } catch (error) {
+    if (error instanceof UploadMediaNotFoundError) {
+      return NextResponse.json(
+        { error: errors.upload.notFound },
+        { status: 404, statusText: "Not Found" },
+      );
     }
 
-    const options = { status: 204, statusText: "No Content" };
-
-    return new Response(null, options);
-  } catch (error) {
-    return createGenericErrorResponse("Uploading media content failed.");
+    return NextResponse.json(
+      { error: errors.upload.generic },
+      { status: 500, statusText: "Internal Server Error" },
+    );
   }
 }

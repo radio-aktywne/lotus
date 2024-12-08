@@ -1,6 +1,12 @@
-import { Title } from "@mantine/core";
-import { labels } from "../../../config/labels";
+import { PlaylistNotFoundMetadata } from "../../../components/metadata/playlists/playlist-not-found-metadata";
+import { PlaylistNotFoundView } from "../../../components/views/playlists/playlist-not-found-view";
+import { PlaylistNotFoundInput } from "./types";
 
-export default function PlaylistNotFound() {
-  return <Title>{labels.pages.playlistNotFound.text}</Title>;
+export default function PlaylistNotFound({}: PlaylistNotFoundInput) {
+  return (
+    <>
+      <PlaylistNotFoundMetadata />
+      <PlaylistNotFoundView />
+    </>
+  );
 }

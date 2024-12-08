@@ -1,2 +1,2 @@
-export * from "./store";
-export * from "./types";
+export { store } from "./main";
+export type { Store } from "./types";

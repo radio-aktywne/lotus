@@ -1,6 +1,12 @@
-import { Title } from "@mantine/core";
-import { labels } from "../../../config/labels";
+import { MediaNotFoundMetadata } from "../../../components/metadata/media/media-not-found-metadata";
+import { MediaNotFoundView } from "../../../components/views/media/media-not-found-view";
+import { MediaNotFoundInput } from "./types";
 
-export default function MediaNotFound() {
-  return <Title>{labels.pages.mediaNotFound.text}</Title>;
+export default function MediaNotFound({}: MediaNotFoundInput) {
+  return (
+    <>
+      <MediaNotFoundMetadata />
+      <MediaNotFoundView />
+    </>
+  );
 }

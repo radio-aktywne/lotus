@@ -1,9 +1,16 @@
-export type State = {
+import { StateCreator } from "zustand";
+import { PersistOptions } from "zustand/middleware";
+
+type StoreState = {
   [key: string]: never;
 };
 
-export type Actions = {
+type StoreActions = {
   [key: string]: never;
 };
 
-export type Store = State & Actions;
+export type Store = StoreActions & StoreState;
+
+export type StoreInitializer = StateCreator<Store, [["zustand/immer", never]]>;
+
+export type StorePersistOptions = PersistOptions<Store>;
