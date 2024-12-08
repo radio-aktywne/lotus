@@ -1,6 +1,12 @@
-import { Title } from "@mantine/core";
-import { labels } from "../../../config/labels";
+import { BindingNotFoundMetadata } from "../../../components/metadata/bindings/binding-not-found-metadata";
+import { BindingNotFoundView } from "../../../components/views/bindings/binding-not-found-view";
+import { BindingNotFoundInput } from "./types";
 
-export default function BindingNotFound() {
-  return <Title>{labels.pages.bindingNotFound.text}</Title>;
+export default function BindingNotFound({}: BindingNotFoundInput) {
+  return (
+    <>
+      <BindingNotFoundMetadata />
+      <BindingNotFoundView />
+    </>
+  );
 }

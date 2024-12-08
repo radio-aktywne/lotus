@@ -207,6 +207,7 @@ tasks:
       - src/**/*
       - flake.lock
       - "*.nix"
+      - lingui.config.ts
       - next.config.mjs
       - package-lock.json
       - package.json
@@ -228,6 +229,16 @@ tasks:
     cmds:
       - task: install-internal
       - task: build-internal
+  locales:
+    desc: Extract locales
+    cmds:
+      - task: install-internal
+      - >
+        npm
+        run
+        --
+        locales
+        {{ .CLI_ARGS }}
   dev:
     desc: Run in development mode
     interactive: true

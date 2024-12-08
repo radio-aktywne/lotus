@@ -1,32 +1,14 @@
 "use client";
 
-import { Button, Stack, Title } from "@mantine/core";
-import { IconRefresh } from "@tabler/icons-react";
-import { Metadata } from "next";
-import { labels } from "../config/labels";
+import { RootErrorMetadata } from "../components/metadata/root/root-error-metadata";
+import { RootErrorView } from "../components/views/root/root-error-view";
+import { RootErrorInput } from "./types";
 
-export const metadata: Metadata = {
-  title: labels.pages.error.title,
-  description: labels.pages.error.description,
-};
-
-export type ErrorProps = Readonly<{
-  error: Error & { digest?: string };
-  reset: () => void;
-}>;
-
-export default function Error({ reset }: ErrorProps) {
+export default function RootError({ reset }: RootErrorInput) {
   return (
-    <Stack>
-      <Title>{labels.pages.error.text}</Title>
-      <Button
-        variant="subtle"
-        color="gray"
-        onClick={reset}
-        leftSection={<IconRefresh />}
-      >
-        {labels.pages.error.buttons.retry.label}
-      </Button>
-    </Stack>
+    <>
+      <RootErrorMetadata />
+      <RootErrorView onRetry={reset} />
+    </>
   );
 }

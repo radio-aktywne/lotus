@@ -1,12 +1,12 @@
-import { Title } from "@mantine/core";
-import { Metadata } from "next";
-import { labels } from "../config/labels";
+import { RootNotFoundMetadata } from "../components/metadata/root/root-not-found-metadata";
+import { RootNotFoundView } from "../components/views/root/root-not-found-view";
+import { RootNotFoundInput } from "./types";
 
-export const metadata: Metadata = {
-  title: labels.pages.notFound.title,
-  description: labels.pages.notFound.description,
-};
-
-export default function NotFound() {
-  return <Title>{labels.pages.notFound.text}</Title>;
+export default function RootNotFound({}: RootNotFoundInput) {
+  return (
+    <>
+      <RootNotFoundMetadata />
+      <RootNotFoundView />
+    </>
+  );
 }

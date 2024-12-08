@@ -14,6 +14,15 @@ module.exports = {
     // Use recommended typescript-eslint rules
     "plugin:@typescript-eslint/recommended",
 
+    // Use stylistic typescript-eslint rules
+    "plugin:@typescript-eslint/stylistic",
+
+    // Use recommended Lingui rules
+    "plugin:lingui/recommended",
+
+    // Use recommended perfectionist rules
+    "plugin:perfectionist/recommended-alphabetical-legacy",
+
     // Turn off rules that might conflict with Prettier
     "prettier",
   ],
@@ -24,13 +33,10 @@ module.exports = {
       files: ["*.d.ts"],
       rules: {
         // Allow empty object types
-        "@typescript-eslint/ban-types": [
+        "@typescript-eslint/no-empty-object-type": [
           "error",
           {
-            extendDefaults: true,
-            types: {
-              "{}": false,
-            },
+            allowObjectTypes: "always",
           },
         ],
       },
@@ -46,14 +52,26 @@ module.exports = {
   },
 
   plugins: [
-    // Support typescript-eslint
+    // Use @typescript-eslint plugin
     "@typescript-eslint",
+
+    // Use perfectionist plugin
+    "perfectionist",
   ],
 
   // Ignore configuration files in directories above this one
   root: true,
 
   rules: {
+    // Use objects instead of records for empty types
+    "@typescript-eslint/consistent-indexed-object-style": [
+      "error",
+      "index-signature",
+    ],
+
+    // Use types instead of interfaces
+    "@typescript-eslint/consistent-type-definitions": ["error", "type"],
+
     // Allow anonymous default exports
     "import/no-anonymous-default-export": "off",
 

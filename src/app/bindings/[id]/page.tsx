@@ -1,22 +1,36 @@
-import { notFound } from "next/navigation";
-import { getBinding } from "../../../actions";
-import { BindingWidget } from "../../../components";
+import { i18n } from "@lingui/core";
+import { msg, t } from "@lingui/macro";
+import { Metadata } from "next";
 
-type BindingPageParams = Readonly<{
-  id: string;
-}>;
-
-export type BindingPageProps = Readonly<{
-  params: BindingPageParams;
-}>;
+import { BindingPageMetadata } from "../../../components/metadata/bindings/binding-page-metadata";
+import { BindingPageView } from "../../../components/views/bindings/binding-page-view";
+import { getLanguage } from "../../../lib/i18n/get-language";
+import { loadLocale } from "../../../lib/i18n/load-locale";
+import { BindingPageInput } from "./types";
 
 export const dynamic = "force-dynamic";
 
-export default async function BindingPage({ params }: BindingPageProps) {
-  const { data: binding, error } = await getBinding({ id: params.id });
+export async function generateMetadata({
+  params,
+}: BindingPageInput): Promise<Metadata> {
+  const id = params.id;
 
-  if (error !== undefined) throw new Error(error);
-  if (binding === undefined) notFound();
+  const { language } = getLanguage();
+  await loadLocale({ i18n, language });
 
-  return <BindingWidget binding={binding} />;
+  return {
+    description: t(i18n)(msg({ message: `Binding ${id} • lotus` })),
+    title: t(i18n)(msg({ message: "lotus" })),
+  };
+}
+
+export default function BindingPage({ params }: BindingPageInput) {
+  const id = params.id;
+
+  return (
+    <>
+      <BindingPageMetadata id={id} />
+      <BindingPageView id={id} />
+    </>
+  );
 }

@@ -18,6 +18,7 @@ name: Image
       - Dockerfile
       - flake.lock
       - "*.nix"
+      - lingui.config.ts
       - next.config.mjs
       - package-lock.json
       - package.json
@@ -37,6 +38,7 @@ name: Image
       - Dockerfile
       - flake.lock
       - "*.nix"
+      - lingui.config.ts
       - next.config.mjs
       - package-lock.json
       - package.json
