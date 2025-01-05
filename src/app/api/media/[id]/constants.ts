@@ -8,6 +8,9 @@ export const errors = {
     notFound: msg({
       message: "Media not found.",
     }),
+    unauthorized: msg({
+      message: "You are not authorized to download media content.",
+    }),
   },
   upload: {
     generic: msg({
@@ -18,6 +21,9 @@ export const errors = {
     }),
     notFound: msg({
       message: "Media not found.",
+    }),
+    unauthorized: msg({
+      message: "You are not authorized to upload media content.",
     }),
   },
 };

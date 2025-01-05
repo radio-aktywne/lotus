@@ -1,5 +1,6 @@
 "use server";
 
+import { auth } from "../../../../auth";
 import { PelicanError } from "../../../../lib/pelican/errors";
 import {
   getPlaylist as internalGetPlaylist,
@@ -12,6 +13,9 @@ import { GetPlaylistInput, GetPlaylistOutput } from "./types";
 export async function getPlaylist(
   input: GetPlaylistInput,
 ): Promise<GetPlaylistOutput> {
+  const session = await auth.auth();
+  if (!session) return { error: errors.unauthorized };
+
   const parsed = inputSchema.safeParse(input);
   if (!parsed.success) return { error: errors.invalidInput };
 

@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 
+import { auth } from "../../../../auth";
 import {
   downloadMediaContent,
   MediaNotFoundError as DownloadMediaNotFoundError,
@@ -16,6 +17,13 @@ export async function GET(
   context: RouteContext,
 ): Promise<NextResponse> {
   try {
+    const session = await auth.auth();
+    if (!session)
+      return NextResponse.json(
+        { error: errors.download.unauthorized },
+        { status: 401, statusText: "Unauthorized" },
+      );
+
     const { id } = context.params;
 
     const { data, etag, length, modified, type } = await downloadMediaContent({
@@ -54,6 +62,13 @@ export async function PUT(
   context: RouteContext,
 ): Promise<NextResponse> {
   try {
+    const session = await auth.auth();
+    if (!session)
+      return NextResponse.json(
+        { error: errors.upload.unauthorized },
+        { status: 401, statusText: "Unauthorized" },
+      );
+
     const { id } = context.params;
 
     const type = request.headers.get("Content-Type");

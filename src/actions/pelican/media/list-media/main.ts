@@ -1,5 +1,6 @@
 "use server";
 
+import { auth } from "../../../../auth";
 import { PelicanError } from "../../../../lib/pelican/errors";
 import { listMedia as internalListMedia } from "../../../../lib/pelican/media/list-media";
 import { errors } from "./constants";
@@ -9,6 +10,9 @@ import { ListMediaInput, ListMediaOutput } from "./types";
 export async function listMedia(
   input: ListMediaInput,
 ): Promise<ListMediaOutput> {
+  const session = await auth.auth();
+  if (!session) return { error: errors.unauthorized };
+
   const parsed = inputSchema.safeParse(input);
   if (!parsed.success) return { error: errors.invalidInput };
 

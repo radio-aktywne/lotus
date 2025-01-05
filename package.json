@@ -4,11 +4,12 @@
   "scripts": {
     "build": "next build",
     "clean": "rm --recursive --force build/",
-    "dev": "next dev --hostname \"${LOTUS__SERVER__HOST:-0.0.0.0}\" --port \"${LOTUS__SERVER__PORT:-10230}\"",
-    "generate-api": "npm run -- generate-api-pelican",
+    "dev": "AUTH_URL=\"${LOTUS__URLS__PUBLIC:-http://localhost:10230}\" next dev --hostname \"${LOTUS__SERVER__HOST:-0.0.0.0}\" --port \"${LOTUS__SERVER__PORT:-10230}\"",
+    "generate-api": "npm run -- generate-api-pelican && npm run -- generate-api-scorpion",
     "generate-api-pelican": "openapi-typescript openapi/pelican.yaml -o src/services/pelican/types.d.ts",
+    "generate-api-scorpion": "openapi-typescript openapi/scorpion.yaml -o src/services/scorpion/types.d.ts",
     "locales": "lingui extract --clean --overwrite",
-    "run": "next start --hostname \"${LOTUS__SERVER__HOST:-0.0.0.0}\" --port \"${LOTUS__SERVER__PORT:-10230}\"",
+    "run": "AUTH_URL=\"${LOTUS__URLS__PUBLIC:-http://localhost:10230}\" next start --hostname \"${LOTUS__SERVER__HOST:-0.0.0.0}\" --port \"${LOTUS__SERVER__PORT:-10230}\"",
     "update": "ncu --peer --upgrade && npm i --no-audit --no-fund"
   },
   "dependencies": {
@@ -20,8 +21,10 @@
     "@mantine/notifications": "^7.13.5",
     "@tabler/icons-react": "~3.17.0",
     "client-only": "^0.0.1",
+    "dayjs": "^1.11.13",
     "immer": "^10.1.1",
     "next": "14.2.17",
+    "next-auth": "^5.0.0-beta.25",
     "openapi-fetch": "^0.13.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",

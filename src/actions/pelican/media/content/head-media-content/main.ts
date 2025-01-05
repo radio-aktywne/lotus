@@ -1,5 +1,6 @@
 "use server";
 
+import { auth } from "../../../../../auth";
 import { PelicanError } from "../../../../../lib/pelican/errors";
 import {
   headMediaContent as internalHeadMediaContent,
@@ -12,6 +13,9 @@ import { HeadMediaContentInput, HeadMediaContentOutput } from "./types";
 export async function headMediaContent(
   input: HeadMediaContentInput,
 ): Promise<HeadMediaContentOutput> {
+  const session = await auth.auth();
+  if (!session) return { error: errors.unauthorized };
+
   const parsed = inputSchema.safeParse(input);
   if (!parsed.success) return { error: errors.invalidInput };
 

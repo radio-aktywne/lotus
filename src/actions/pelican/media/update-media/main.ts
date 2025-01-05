@@ -1,5 +1,6 @@
 "use server";
 
+import { auth } from "../../../../auth";
 import { PelicanError } from "../../../../lib/pelican/errors";
 import {
   updateMedia as internalUpdateMedia,
@@ -13,6 +14,9 @@ import { UpdateMediaInput, UpdateMediaOutput } from "./types";
 export async function updateMedia(
   input: UpdateMediaInput,
 ): Promise<UpdateMediaOutput> {
+  const session = await auth.auth();
+  if (!session) return { error: errors.unauthorized };
+
   const parsed = inputSchema.safeParse(input);
   if (!parsed.success) return { error: errors.invalidInput };
 

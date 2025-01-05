@@ -1,5 +1,6 @@
 "use server";
 
+import { auth } from "../../../../auth";
 import { PelicanError } from "../../../../lib/pelican/errors";
 import {
   deleteMedia as internalDeleteMedia,
@@ -12,6 +13,9 @@ import { DeleteMediaInput, DeleteMediaOutput } from "./types";
 export async function deleteMedia(
   input: DeleteMediaInput,
 ): Promise<DeleteMediaOutput> {
+  const session = await auth.auth();
+  if (!session) return { error: errors.unauthorized };
+
   const parsed = inputSchema.safeParse(input);
   if (!parsed.success) return { error: errors.invalidInput };
 
