@@ -1,5 +1,6 @@
 "use server";
 
+import { auth } from "../../../../auth";
 import {
   BindingNotFoundError,
   getBinding as internalGetBinding,
@@ -12,6 +13,9 @@ import { GetBindingInput, GetBindingOutput } from "./types";
 export async function getBinding(
   input: GetBindingInput,
 ): Promise<GetBindingOutput> {
+  const session = await auth.auth();
+  if (!session) return { error: errors.unauthorized };
+
   const parsed = inputSchema.safeParse(input);
   if (!parsed.success) return { error: errors.invalidInput };
 

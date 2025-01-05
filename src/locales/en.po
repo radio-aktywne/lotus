@@ -81,11 +81,16 @@ msgstr "An error occurred while updating the media."
 msgid "An error occurred while updating the playlist."
 msgstr "An error occurred while updating the playlist."
 
-#: src/app/api/media/[id]/constants.ts:13
+#: src/app/api/media/[id]/constants.ts:16
 msgid "An error occurred while uploading media content."
 msgstr "An error occurred while uploading media content."
 
-#: src/app/bindings/[id]/page.tsx:22
+#: src/app/auth/error/page.tsx:18
+#: src/components/metadata/auth/auth-error-page-metadata/main.tsx:14
+msgid "Auth error • lotus"
+msgstr "Auth error • lotus"
+
+#: src/app/(protected)/bindings/[id]/page.tsx:23
 #: src/components/metadata/bindings/binding-page-metadata/main.tsx:14
 msgid "Binding {id} • lotus"
 msgstr "Binding {id} • lotus"
@@ -117,12 +122,12 @@ msgstr "Binding updated successfully"
 msgid "Bindings"
 msgstr "Bindings"
 
-#: src/app/bindings/page.tsx:18
+#: src/app/(protected)/bindings/page.tsx:19
 #: src/components/metadata/bindings/binding-list-page-metadata/main.tsx:14
 msgid "Bindings • lotus"
 msgstr "Bindings • lotus"
 
-#: src/app/api/media/[id]/constants.ts:16
+#: src/app/api/media/[id]/constants.ts:19
 msgid "Content-Type header is missing."
 msgstr "Content-Type header is missing."
 
@@ -152,6 +157,10 @@ msgstr "Error"
 #: src/components/metadata/root/root-error-metadata/main.tsx:14
 msgid "Error • lotus"
 msgstr "Error • lotus"
+
+#: src/components/views/auth/auth-error-page-view/main.tsx:14
+msgid "Error in auth flow"
+msgstr "Error in auth flow"
 
 #: src/components/widgets/media/media-widget/main.tsx:92
 msgid "Failed to upload media content"
@@ -184,19 +193,25 @@ msgstr "Info"
 msgid "Invalid input."
 msgstr "Invalid input."
 
-#: src/app/bindings/[id]/page.tsx:23
-#: src/app/bindings/new/page.tsx:19
-#: src/app/bindings/page.tsx:19
+#: src/components/layouts/session-layout/components/user-menu/components/logout-button/main.tsx:23
+msgid "Logout"
+msgstr "Logout"
+
+#: src/app/(protected)/bindings/[id]/page.tsx:22
+#: src/app/(protected)/bindings/new/page.tsx:18
+#: src/app/(protected)/bindings/page.tsx:18
+#: src/app/(protected)/media/[id]/page.tsx:22
+#: src/app/(protected)/media/new/page.tsx:18
+#: src/app/(protected)/media/page.tsx:18
+#: src/app/(protected)/page.tsx:16
+#: src/app/(protected)/page.tsx:17
+#: src/app/(protected)/playlists/[id]/page.tsx:22
+#: src/app/(protected)/playlists/new/page.tsx:18
+#: src/app/(protected)/playlists/page.tsx:18
+#: src/app/auth/error/page.tsx:17
 #: src/app/layout.tsx:19
 #: src/app/layout.tsx:20
-#: src/app/media/[id]/page.tsx:23
-#: src/app/media/new/page.tsx:19
-#: src/app/media/page.tsx:19
-#: src/app/page.tsx:16
-#: src/app/page.tsx:17
-#: src/app/playlists/[id]/page.tsx:23
-#: src/app/playlists/new/page.tsx:19
-#: src/app/playlists/page.tsx:19
+#: src/components/metadata/auth/auth-error-page-metadata/main.tsx:13
 #: src/components/metadata/bindings/binding-list-page-metadata/main.tsx:13
 #: src/components/metadata/bindings/binding-not-found-metadata/main.tsx:13
 #: src/components/metadata/bindings/binding-page-metadata/main.tsx:13
@@ -222,12 +237,12 @@ msgstr "lotus"
 msgid "Media"
 msgstr "Media"
 
-#: src/app/media/[id]/page.tsx:22
+#: src/app/(protected)/media/[id]/page.tsx:23
 #: src/components/metadata/media/media-page-metadata/main.tsx:14
 msgid "Media {id} • lotus"
 msgstr "Media {id} • lotus"
 
-#: src/app/media/page.tsx:18
+#: src/app/(protected)/media/page.tsx:19
 #: src/components/metadata/media/media-list-page-metadata/main.tsx:14
 msgid "Media • lotus"
 msgstr "Media • lotus"
@@ -258,7 +273,7 @@ msgstr "Media not found • lotus"
 #: src/actions/pelican/media/get-media/constants.ts:6
 #: src/actions/pelican/media/update-media/constants.ts:6
 #: src/app/api/media/[id]/constants.ts:8
-#: src/app/api/media/[id]/constants.ts:19
+#: src/app/api/media/[id]/constants.ts:22
 #: src/components/views/media/media-not-found-view/main.tsx:12
 msgid "Media not found."
 msgstr "Media not found."
@@ -281,17 +296,17 @@ msgstr "Name"
 msgid "Name is required"
 msgstr "Name is required"
 
-#: src/app/bindings/new/page.tsx:18
+#: src/app/(protected)/bindings/new/page.tsx:19
 #: src/components/metadata/bindings/new-binding-page-metadata/main.tsx:14
 msgid "New binding • lotus"
 msgstr "New binding • lotus"
 
-#: src/app/media/new/page.tsx:18
+#: src/app/(protected)/media/new/page.tsx:19
 #: src/components/metadata/media/new-media-page-metadata/main.tsx:14
 msgid "New media • lotus"
 msgstr "New media • lotus"
 
-#: src/app/playlists/new/page.tsx:18
+#: src/app/(protected)/playlists/new/page.tsx:19
 #: src/components/metadata/playlists/new-playlist-page-metadata/main.tsx:14
 msgid "New playlist • lotus"
 msgstr "New playlist • lotus"
@@ -321,7 +336,7 @@ msgstr "Page not found"
 msgid "Playlist"
 msgstr "Playlist"
 
-#: src/app/playlists/[id]/page.tsx:22
+#: src/app/(protected)/playlists/[id]/page.tsx:23
 #: src/components/metadata/playlists/playlist-page-metadata/main.tsx:14
 msgid "Playlist {id} • lotus"
 msgstr "Playlist {id} • lotus"
@@ -358,7 +373,7 @@ msgstr "Playlist updated successfully"
 msgid "Playlists"
 msgstr "Playlists"
 
-#: src/app/playlists/page.tsx:18
+#: src/app/(protected)/playlists/page.tsx:19
 #: src/components/metadata/playlists/playlist-list-page-metadata/main.tsx:14
 msgid "Playlists • lotus"
 msgstr "Playlists • lotus"
@@ -398,3 +413,75 @@ msgstr "Upload"
 #: src/hooks/use-toasts/main.tsx:55
 msgid "Warning"
 msgstr "Warning"
+
+#: src/actions/pelican/bindings/create-binding/constants.ts:6
+msgid "You are not authorized to create the binding."
+msgstr "You are not authorized to create the binding."
+
+#: src/actions/pelican/media/create-media/constants.ts:6
+msgid "You are not authorized to create the media."
+msgstr "You are not authorized to create the media."
+
+#: src/actions/pelican/playlists/create-playlist/constants.ts:6
+msgid "You are not authorized to create the playlist."
+msgstr "You are not authorized to create the playlist."
+
+#: src/actions/pelican/bindings/delete-binding/constants.ts:7
+msgid "You are not authorized to delete the binding."
+msgstr "You are not authorized to delete the binding."
+
+#: src/actions/pelican/media/delete-media/constants.ts:7
+msgid "You are not authorized to delete the media."
+msgstr "You are not authorized to delete the media."
+
+#: src/actions/pelican/playlists/delete-playlist/constants.ts:7
+msgid "You are not authorized to delete the playlist."
+msgstr "You are not authorized to delete the playlist."
+
+#: src/app/api/media/[id]/constants.ts:11
+msgid "You are not authorized to download media content."
+msgstr "You are not authorized to download media content."
+
+#: src/actions/pelican/media/content/head-media-content/constants.ts:9
+msgid "You are not authorized to fetch media content headers."
+msgstr "You are not authorized to fetch media content headers."
+
+#: src/actions/pelican/bindings/get-binding/constants.ts:7
+msgid "You are not authorized to fetch the binding."
+msgstr "You are not authorized to fetch the binding."
+
+#: src/actions/pelican/media/get-media/constants.ts:7
+msgid "You are not authorized to fetch the media."
+msgstr "You are not authorized to fetch the media."
+
+#: src/actions/pelican/playlists/get-playlist/constants.ts:7
+msgid "You are not authorized to fetch the playlist."
+msgstr "You are not authorized to fetch the playlist."
+
+#: src/actions/pelican/bindings/list-bindings/constants.ts:6
+msgid "You are not authorized to list bindings."
+msgstr "You are not authorized to list bindings."
+
+#: src/actions/pelican/media/list-media/constants.ts:6
+msgid "You are not authorized to list media."
+msgstr "You are not authorized to list media."
+
+#: src/actions/pelican/playlists/list-playlists/constants.ts:6
+msgid "You are not authorized to list playlists."
+msgstr "You are not authorized to list playlists."
+
+#: src/actions/pelican/bindings/update-binding/constants.ts:7
+msgid "You are not authorized to update the binding."
+msgstr "You are not authorized to update the binding."
+
+#: src/actions/pelican/media/update-media/constants.ts:7
+msgid "You are not authorized to update the media."
+msgstr "You are not authorized to update the media."
+
+#: src/actions/pelican/playlists/update-playlist/constants.ts:7
+msgid "You are not authorized to update the playlist."
+msgstr "You are not authorized to update the playlist."
+
+#: src/app/api/media/[id]/constants.ts:25
+msgid "You are not authorized to upload media content."
+msgstr "You are not authorized to upload media content."
