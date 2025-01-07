@@ -1,6 +1,6 @@
 "use server";
 
-import { auth } from "../../../../auth";
+import { getSession } from "../../../../lib/auth/get-session";
 import { PelicanError } from "../../../../lib/pelican/errors";
 import {
   createMedia as internalCreateMedia,
@@ -13,7 +13,7 @@ import { CreateMediaInput, CreateMediaOutput } from "./types";
 export async function createMedia(
   input: CreateMediaInput,
 ): Promise<CreateMediaOutput> {
-  const session = await auth.auth();
+  const { session } = await getSession();
   if (!session) return { error: errors.unauthorized };
 
   const parsed = inputSchema.safeParse(input);

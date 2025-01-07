@@ -20,9 +20,7 @@ export function getDurationInSeconds(duration: string) {
 export function transformProfile(profile: Profile) {
   return {
     custom: {
-      issuer: profile.iss,
-      sessionId: profile.sid,
-      subject: profile.sub,
+      subject: profile.sub!,
     },
   } satisfies User;
 }
@@ -39,10 +37,9 @@ async function refreshTokens(token: JWT) {
   const now = dayjs.utc().unix();
 
   try {
-    const { accessToken, expiresIn, refreshToken } =
-      await internalRefreshTokens({
-        refreshToken: token.custom.tokens.refresh.token,
-      });
+    const { expiresIn, refreshToken } = await internalRefreshTokens({
+      refreshToken: token.custom.tokens.refresh.token,
+    });
 
     const expiresAt = now + expiresIn;
 
@@ -50,7 +47,6 @@ async function refreshTokens(token: JWT) {
       access: {
         expiresAt: expiresAt,
         expiresIn: expiresIn,
-        token: accessToken,
       },
       id: token.custom.tokens.id,
       refresh: {
@@ -58,12 +54,17 @@ async function refreshTokens(token: JWT) {
       },
     } satisfies TokensData;
   } catch (error) {
-    if (error instanceof InvalidTokenError) throw error;
-    return null;
+    if (error instanceof InvalidTokenError) return null;
+    return token.custom.tokens;
   }
 }
 
-function createNewToken(account: Account, token: Partial<JWT>, user: User) {
+function createNewToken(
+  account: Account,
+  profile: Profile,
+  token: Partial<JWT>,
+  user: User,
+) {
   return {
     ...token,
     custom: {
@@ -71,9 +72,10 @@ function createNewToken(account: Account, token: Partial<JWT>, user: User) {
         access: {
           expiresAt: account.expires_at!,
           expiresIn: account.expires_in!,
-          token: account.access_token!,
         },
         id: {
+          issuer: profile.iss,
+          sessionId: profile.sid,
           token: account.id_token!,
         },
         refresh: {
@@ -87,28 +89,35 @@ function createNewToken(account: Account, token: Partial<JWT>, user: User) {
 
 export async function transformToken({
   account,
+  profile,
   token,
   trigger,
   user,
 }: TranformTokenInput) {
-  if (trigger === "signIn") return createNewToken(account!, token, user);
+  if (trigger === "signIn")
+    return createNewToken(account!, profile!, token, user);
 
-  if (shouldRefreshTokens(token)) {
-    const tokens = await refreshTokens(token);
-    if (tokens) token.custom.tokens = tokens;
-  }
+  if (!shouldRefreshTokens(token)) return token;
 
-  return token;
+  const tokens = await refreshTokens(token);
+  if (!tokens) return null;
+
+  return {
+    ...token,
+    custom: {
+      ...token.custom,
+      tokens: tokens,
+    },
+  } satisfies JWT;
 }
 
 export function transformSession({ session, token }: TransformSessionInput) {
   return {
     ...session,
     custom: {
-      tokens: {
-        id: token.custom.tokens.id,
+      user: {
+        subject: token.custom.user.subject,
       },
-      user: token.custom.user,
     },
   } satisfies Session;
 }

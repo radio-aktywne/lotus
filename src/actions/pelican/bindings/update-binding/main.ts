@@ -1,6 +1,6 @@
 "use server";
 
-import { auth } from "../../../../auth";
+import { getSession } from "../../../../lib/auth/get-session";
 import {
   BindingNotFoundError,
   updateBinding as internalUpdateBinding,
@@ -14,7 +14,7 @@ import { UpdateBindingInput, UpdateBindingOutput } from "./types";
 export async function updateBinding(
   input: UpdateBindingInput,
 ): Promise<UpdateBindingOutput> {
-  const session = await auth.auth();
+  const { session } = await getSession();
   if (!session) return { error: errors.unauthorized };
 
   const parsed = inputSchema.safeParse(input);

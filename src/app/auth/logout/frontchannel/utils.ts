@@ -1,6 +1,6 @@
 import { NextRequest } from "next/server";
 
-import { auth } from "../../../../auth";
+import { getToken } from "../../../../lib/auth/get-token";
 import { parseQueryParams } from "../../../../lib/urls/parse-query-params";
 import { searchParamsSchema } from "./schemas";
 
@@ -12,15 +12,11 @@ export function parseParams(request: NextRequest) {
 }
 
 export async function checkSession(iss: string, sid: string) {
-  const session = await auth.auth();
+  const { token } = await getToken();
 
   return (
-    session &&
-    session.custom.user.issuer === iss &&
-    session.custom.user.sessionId === sid
+    token &&
+    token.custom.tokens.id.issuer === iss &&
+    token.custom.tokens.id.sessionId === sid
   );
-}
-
-export async function signOut() {
-  return auth.signOut({ redirect: false });
 }

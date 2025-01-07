@@ -1,7 +1,8 @@
 import { redirect } from "next/navigation";
 import { NextRequest, NextResponse } from "next/server";
 
-import { createAuthorizationParams, parseParams, signIn } from "./utils";
+import { logIn } from "../../../lib/auth/login";
+import { parseParams } from "./utils";
 
 export async function GET(request: NextRequest): Promise<NextResponse> {
   const { data: queryParams, error: paramsError } = parseParams(request);
@@ -12,7 +13,12 @@ export async function GET(request: NextRequest): Promise<NextResponse> {
 
   if (!callbackUrl && authError) redirect(`/auth/error?error=${authError}`);
 
-  const authorizationParams = await createAuthorizationParams(prompt);
+  const { error: loginError, url: redirectUrl } = await logIn({
+    callback: callbackUrl ?? "/",
+    prompt: prompt,
+  });
 
-  return await signIn(callbackUrl, authorizationParams);
+  if (loginError !== undefined) redirect(`/auth/error?error=${loginError}`);
+
+  redirect(redirectUrl);
 }

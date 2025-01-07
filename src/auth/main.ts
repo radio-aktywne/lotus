@@ -21,39 +21,21 @@ export const authConfig = {
   cookies: {
     callbackUrl: {
       name: cookies.callbackUrl,
-      options: {
-        domain: process.env.LOTUS__COOKIES__DOMAIN || undefined,
-      },
     },
     csrfToken: {
       name: cookies.csrfToken,
-      options: {
-        domain: process.env.LOTUS__COOKIES__DOMAIN || undefined,
-      },
     },
     nonce: {
       name: cookies.nonce,
-      options: {
-        domain: process.env.LOTUS__COOKIES__DOMAIN || undefined,
-      },
     },
     pkceCodeVerifier: {
       name: cookies.pkceCodeVerifier,
-      options: {
-        domain: process.env.LOTUS__COOKIES__DOMAIN || undefined,
-      },
     },
     sessionToken: {
       name: cookies.sessionToken,
-      options: {
-        domain: process.env.LOTUS__COOKIES__DOMAIN || undefined,
-      },
     },
     state: {
       name: cookies.state,
-      options: {
-        domain: process.env.LOTUS__COOKIES__DOMAIN || undefined,
-      },
     },
   },
   debug: (process.env.LOTUS__DEBUG || "true") === "true",

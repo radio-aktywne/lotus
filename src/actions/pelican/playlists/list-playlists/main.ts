@@ -1,6 +1,6 @@
 "use server";
 
-import { auth } from "../../../../auth";
+import { getSession } from "../../../../lib/auth/get-session";
 import { PelicanError } from "../../../../lib/pelican/errors";
 import { listPlaylists as internalListPlaylists } from "../../../../lib/pelican/playlists/list-playlists";
 import { errors } from "./constants";
@@ -10,7 +10,7 @@ import { ListPlaylistsInput, ListPlaylistsOutput } from "./types";
 export async function listPlaylists(
   input: ListPlaylistsInput,
 ): Promise<ListPlaylistsOutput> {
-  const session = await auth.auth();
+  const { session } = await getSession();
   if (!session) return { error: errors.unauthorized };
 
   const parsed = inputSchema.safeParse(input);
