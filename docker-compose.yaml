@@ -6,7 +6,6 @@ services:
     environment:
       - "LOTUS__SERVER__HOST=${LOTUS__SERVER__HOST:-0.0.0.0}"
       - "LOTUS__SERVER__PORT=${LOTUS__SERVER__PORT:-10230}"
-      - "LOTUS__COOKIES__DOMAIN=${LOTUS__COOKIES__DOMAIN:-}"
       - "LOTUS__SECRETS__AUTH=${LOTUS__SECRETS__AUTH:-secret}"
       - "LOTUS__URLS__PUBLIC=${LOTUS__URLS__PUBLIC:-http://localhost:10230}"
       - "LOTUS__PELICAN__HTTP__SCHEME=${LOTUS__PELICAN__HTTP__SCHEME:-http}"

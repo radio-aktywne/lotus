@@ -1,21 +1,8 @@
 import { NextAuthConfig, NextAuthResult } from "next-auth";
 
-export type ProfileData = {
-  iss: string;
-  sid: string;
-  sub: string;
-};
-
-export type CustomUserData = {
-  issuer: string;
-  sessionId: string;
-  subject: string;
-};
-
 export type AccessTokenData = {
   expiresAt: number;
   expiresIn: number;
-  token: string;
 };
 
 export type RefreshTokenData = {
@@ -23,6 +10,8 @@ export type RefreshTokenData = {
 };
 
 export type IdTokenData = {
+  issuer: string;
+  sessionId: string;
   token: string;
 };
 
@@ -32,14 +21,21 @@ export type TokensData = {
   refresh: RefreshTokenData;
 };
 
+export type PublicUserData = {
+  subject: string;
+};
+
+export type CustomUserData = {
+  subject: string;
+};
+
 export type CustomTokenData = {
   tokens: TokensData;
   user: CustomUserData;
 };
 
 export type CustomSessionData = {
-  tokens: Pick<TokensData, "id">;
-  user: CustomUserData;
+  user: PublicUserData;
 };
 
 export type TranformTokenInput = Parameters<

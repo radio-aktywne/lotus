@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 
-import { auth } from "../../../../auth";
+import { getSession } from "../../../../lib/auth/get-session";
 import {
   downloadMediaContent,
   MediaNotFoundError as DownloadMediaNotFoundError,
@@ -17,7 +17,7 @@ export async function GET(
   context: RouteContext,
 ): Promise<NextResponse> {
   try {
-    const session = await auth.auth();
+    const { session } = await getSession();
     if (!session)
       return NextResponse.json(
         { error: errors.download.unauthorized },
@@ -62,7 +62,7 @@ export async function PUT(
   context: RouteContext,
 ): Promise<NextResponse> {
   try {
-    const session = await auth.auth();
+    const { session } = await getSession();
     if (!session)
       return NextResponse.json(
         { error: errors.upload.unauthorized },

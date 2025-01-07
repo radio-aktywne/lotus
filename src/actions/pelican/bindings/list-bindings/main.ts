@@ -1,6 +1,6 @@
 "use server";
 
-import { auth } from "../../../../auth";
+import { getSession } from "../../../../lib/auth/get-session";
 import { listBindings as internalListBindings } from "../../../../lib/pelican/bindings/list-bindings";
 import { PelicanError } from "../../../../lib/pelican/errors";
 import { errors } from "./constants";
@@ -10,7 +10,7 @@ import { ListBindingsInput, ListBindingsOutput } from "./types";
 export async function listBindings(
   input: ListBindingsInput,
 ): Promise<ListBindingsOutput> {
-  const session = await auth.auth();
+  const { session } = await getSession();
   if (!session) return { error: errors.unauthorized };
 
   const parsed = inputSchema.safeParse(input);

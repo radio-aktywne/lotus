@@ -1,6 +1,6 @@
 "use server";
 
-import { auth } from "../../../../auth";
+import { getSession } from "../../../../lib/auth/get-session";
 import {
   createBinding as internalCreateBinding,
   InvalidInputError,
@@ -13,7 +13,7 @@ import { CreateBindingInput, CreateBindingOutput } from "./types";
 export async function createBinding(
   input: CreateBindingInput,
 ): Promise<CreateBindingOutput> {
-  const session = await auth.auth();
+  const { session } = await getSession();
   if (!session) return { error: errors.unauthorized };
 
   const parsed = inputSchema.safeParse(input);

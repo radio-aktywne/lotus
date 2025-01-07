@@ -1,6 +1,6 @@
 "use server";
 
-import { auth } from "../../../../auth";
+import { getSession } from "../../../../lib/auth/get-session";
 import {
   BindingNotFoundError,
   deleteBinding as internalDeleteBinding,
@@ -13,7 +13,7 @@ import { DeleteBindingInput, DeleteBindingOutput } from "./types";
 export async function deleteBinding(
   input: DeleteBindingInput,
 ): Promise<DeleteBindingOutput> {
-  const session = await auth.auth();
+  const { session } = await getSession();
   if (!session) return { error: errors.unauthorized };
 
   const parsed = inputSchema.safeParse(input);
