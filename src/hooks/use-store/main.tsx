@@ -11,10 +11,12 @@ export function useStore<T>({ selector }: UseStoreInput<T>): UseStoreOutput<T> {
   const persist = store.persist;
 
   useEffect(() => {
-    const unsubHydrate = persist.onHydrate(() => setHydrated(false));
-    const unsubFinishHydration = persist.onFinishHydration(() =>
-      setHydrated(true),
-    );
+    const unsubHydrate = persist.onHydrate(() => {
+      setHydrated(false);
+    });
+    const unsubFinishHydration = persist.onFinishHydration(() => {
+      setHydrated(true);
+    });
 
     setHydrated(persist.hasHydrated());
 

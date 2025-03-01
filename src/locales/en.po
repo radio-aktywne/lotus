@@ -85,13 +85,13 @@ msgstr "An error occurred while updating the playlist."
 msgid "An error occurred while uploading media content."
 msgstr "An error occurred while uploading media content."
 
-#: src/app/auth/error/page.tsx:18
 #: src/components/metadata/auth/auth-error-page-metadata/main.tsx:14
+#: src/app/auth/error/page.tsx:18
 msgid "Auth error • lotus"
 msgstr "Auth error • lotus"
 
-#: src/app/(protected)/bindings/[id]/page.tsx:23
 #: src/components/metadata/bindings/binding-page-metadata/main.tsx:14
+#: src/app/(protected)/bindings/[id]/page.tsx:23
 msgid "Binding {id} • lotus"
 msgstr "Binding {id} • lotus"
 
@@ -107,10 +107,10 @@ msgstr "Binding deleted successfully"
 msgid "Binding not found • lotus"
 msgstr "Binding not found • lotus"
 
-#: src/actions/pelican/bindings/delete-binding/constants.ts:6
-#: src/actions/pelican/bindings/get-binding/constants.ts:6
-#: src/actions/pelican/bindings/update-binding/constants.ts:6
 #: src/components/views/bindings/binding-not-found-view/main.tsx:12
+#: src/actions/pelican/bindings/update-binding/constants.ts:6
+#: src/actions/pelican/bindings/get-binding/constants.ts:6
+#: src/actions/pelican/bindings/delete-binding/constants.ts:6
 msgid "Binding not found."
 msgstr "Binding not found."
 
@@ -122,8 +122,8 @@ msgstr "Binding updated successfully"
 msgid "Bindings"
 msgstr "Bindings"
 
-#: src/app/(protected)/bindings/page.tsx:19
 #: src/components/metadata/bindings/binding-list-page-metadata/main.tsx:14
+#: src/app/(protected)/bindings/page.tsx:19
 msgid "Bindings • lotus"
 msgstr "Bindings • lotus"
 
@@ -131,18 +131,18 @@ msgstr "Bindings • lotus"
 msgid "Content-Type header is missing."
 msgstr "Content-Type header is missing."
 
-#: src/components/widgets/bindings/binding-list-widget/main.tsx:54
-#: src/components/widgets/bindings/new-binding-widget/components/create-binding-form/main.tsx:75
-#: src/components/widgets/media/media-list-widget/main.tsx:54
-#: src/components/widgets/media/new-media-widget/components/create-media-form/main.tsx:49
-#: src/components/widgets/playlists/new-playlist-widget/components/create-playlist-form/main.tsx:52
 #: src/components/widgets/playlists/playlist-list-widget/main.tsx:54
+#: src/components/widgets/playlists/new-playlist-widget/components/create-playlist-form/main.tsx:52
+#: src/components/widgets/media/new-media-widget/components/create-media-form/main.tsx:49
+#: src/components/widgets/media/media-list-widget/main.tsx:54
+#: src/components/widgets/bindings/new-binding-widget/components/create-binding-form/main.tsx:75
+#: src/components/widgets/bindings/binding-list-widget/main.tsx:54
 msgid "Create"
 msgstr "Create"
 
-#: src/components/widgets/bindings/binding-widget/components/edit-binding-form/main.tsx:81
-#: src/components/widgets/media/media-widget/components/edit-media-form/main.tsx:58
 #: src/components/widgets/playlists/playlist-widget/components/edit-playlist-form/main.tsx:58
+#: src/components/widgets/media/media-widget/components/edit-media-form/main.tsx:58
+#: src/components/widgets/bindings/binding-widget/components/edit-binding-form/main.tsx:81
 msgid "Delete"
 msgstr "Delete"
 
@@ -174,22 +174,22 @@ msgstr "File is required"
 msgid "Info"
 msgstr "Info"
 
-#: src/actions/pelican/bindings/create-binding/constants.ts:5
-#: src/actions/pelican/bindings/delete-binding/constants.ts:5
-#: src/actions/pelican/bindings/get-binding/constants.ts:5
-#: src/actions/pelican/bindings/list-bindings/constants.ts:5
-#: src/actions/pelican/bindings/update-binding/constants.ts:5
-#: src/actions/pelican/media/content/head-media-content/constants.ts:7
-#: src/actions/pelican/media/create-media/constants.ts:5
-#: src/actions/pelican/media/delete-media/constants.ts:5
-#: src/actions/pelican/media/get-media/constants.ts:5
-#: src/actions/pelican/media/list-media/constants.ts:5
-#: src/actions/pelican/media/update-media/constants.ts:5
-#: src/actions/pelican/playlists/create-playlist/constants.ts:5
-#: src/actions/pelican/playlists/delete-playlist/constants.ts:5
-#: src/actions/pelican/playlists/get-playlist/constants.ts:5
-#: src/actions/pelican/playlists/list-playlists/constants.ts:5
 #: src/actions/pelican/playlists/update-playlist/constants.ts:5
+#: src/actions/pelican/playlists/list-playlists/constants.ts:5
+#: src/actions/pelican/playlists/get-playlist/constants.ts:5
+#: src/actions/pelican/playlists/delete-playlist/constants.ts:5
+#: src/actions/pelican/playlists/create-playlist/constants.ts:5
+#: src/actions/pelican/media/update-media/constants.ts:5
+#: src/actions/pelican/media/list-media/constants.ts:5
+#: src/actions/pelican/media/get-media/constants.ts:5
+#: src/actions/pelican/media/delete-media/constants.ts:5
+#: src/actions/pelican/media/create-media/constants.ts:5
+#: src/actions/pelican/media/content/head-media-content/constants.ts:7
+#: src/actions/pelican/bindings/update-binding/constants.ts:5
+#: src/actions/pelican/bindings/list-bindings/constants.ts:5
+#: src/actions/pelican/bindings/get-binding/constants.ts:5
+#: src/actions/pelican/bindings/delete-binding/constants.ts:5
+#: src/actions/pelican/bindings/create-binding/constants.ts:5
 msgid "Invalid input."
 msgstr "Invalid input."
 
@@ -197,53 +197,53 @@ msgstr "Invalid input."
 msgid "Logout"
 msgstr "Logout"
 
-#: src/app/(protected)/bindings/[id]/page.tsx:22
-#: src/app/(protected)/bindings/new/page.tsx:18
-#: src/app/(protected)/bindings/page.tsx:18
-#: src/app/(protected)/media/[id]/page.tsx:22
-#: src/app/(protected)/media/new/page.tsx:18
-#: src/app/(protected)/media/page.tsx:18
-#: src/app/(protected)/page.tsx:16
-#: src/app/(protected)/page.tsx:17
-#: src/app/(protected)/playlists/[id]/page.tsx:22
-#: src/app/(protected)/playlists/new/page.tsx:18
-#: src/app/(protected)/playlists/page.tsx:18
-#: src/app/auth/error/page.tsx:17
-#: src/app/layout.tsx:19
-#: src/app/layout.tsx:20
-#: src/components/metadata/auth/auth-error-page-metadata/main.tsx:13
-#: src/components/metadata/bindings/binding-list-page-metadata/main.tsx:13
-#: src/components/metadata/bindings/binding-not-found-metadata/main.tsx:13
-#: src/components/metadata/bindings/binding-page-metadata/main.tsx:13
-#: src/components/metadata/bindings/new-binding-page-metadata/main.tsx:13
-#: src/components/metadata/media/media-list-page-metadata/main.tsx:13
-#: src/components/metadata/media/media-not-found-metadata/main.tsx:13
-#: src/components/metadata/media/media-page-metadata/main.tsx:13
-#: src/components/metadata/media/new-media-page-metadata/main.tsx:13
-#: src/components/metadata/playlists/new-playlist-page-metadata/main.tsx:13
-#: src/components/metadata/playlists/playlist-list-page-metadata/main.tsx:13
-#: src/components/metadata/playlists/playlist-not-found-metadata/main.tsx:13
-#: src/components/metadata/playlists/playlist-page-metadata/main.tsx:13
-#: src/components/metadata/root/root-error-metadata/main.tsx:13
-#: src/components/metadata/root/root-not-found-metadata/main.tsx:13
 #: src/components/metadata/root/root-page-metadata/main.tsx:13
 #: src/components/metadata/root/root-page-metadata/main.tsx:14
+#: src/components/metadata/root/root-not-found-metadata/main.tsx:13
+#: src/components/metadata/root/root-error-metadata/main.tsx:13
+#: src/components/metadata/playlists/playlist-page-metadata/main.tsx:13
+#: src/components/metadata/playlists/playlist-not-found-metadata/main.tsx:13
+#: src/components/metadata/playlists/playlist-list-page-metadata/main.tsx:13
+#: src/components/metadata/playlists/new-playlist-page-metadata/main.tsx:13
+#: src/components/metadata/media/new-media-page-metadata/main.tsx:13
+#: src/components/metadata/media/media-page-metadata/main.tsx:13
+#: src/components/metadata/media/media-not-found-metadata/main.tsx:13
+#: src/components/metadata/media/media-list-page-metadata/main.tsx:13
+#: src/components/metadata/bindings/new-binding-page-metadata/main.tsx:13
+#: src/components/metadata/bindings/binding-page-metadata/main.tsx:13
+#: src/components/metadata/bindings/binding-not-found-metadata/main.tsx:13
+#: src/components/metadata/bindings/binding-list-page-metadata/main.tsx:13
+#: src/components/metadata/auth/auth-error-page-metadata/main.tsx:13
+#: src/app/layout.tsx:19
+#: src/app/layout.tsx:20
+#: src/app/auth/error/page.tsx:17
+#: src/app/(protected)/page.tsx:16
+#: src/app/(protected)/page.tsx:17
+#: src/app/(protected)/playlists/page.tsx:18
+#: src/app/(protected)/playlists/new/page.tsx:18
+#: src/app/(protected)/playlists/[id]/page.tsx:22
+#: src/app/(protected)/media/page.tsx:18
+#: src/app/(protected)/media/new/page.tsx:18
+#: src/app/(protected)/media/[id]/page.tsx:22
+#: src/app/(protected)/bindings/page.tsx:18
+#: src/app/(protected)/bindings/new/page.tsx:18
+#: src/app/(protected)/bindings/[id]/page.tsx:22
 msgid "lotus"
 msgstr "lotus"
 
-#: src/components/views/root/root-page-view/main.tsx:16
-#: src/components/widgets/bindings/binding-widget/components/edit-binding-form/main.tsx:62
 #: src/components/widgets/bindings/new-binding-widget/components/create-binding-form/main.tsx:59
+#: src/components/widgets/bindings/binding-widget/components/edit-binding-form/main.tsx:62
+#: src/components/views/root/root-page-view/main.tsx:16
 msgid "Media"
 msgstr "Media"
 
-#: src/app/(protected)/media/[id]/page.tsx:23
 #: src/components/metadata/media/media-page-metadata/main.tsx:14
+#: src/app/(protected)/media/[id]/page.tsx:23
 msgid "Media {id} • lotus"
 msgstr "Media {id} • lotus"
 
-#: src/app/(protected)/media/page.tsx:19
 #: src/components/metadata/media/media-list-page-metadata/main.tsx:14
+#: src/app/(protected)/media/page.tsx:19
 msgid "Media • lotus"
 msgstr "Media • lotus"
 
@@ -259,8 +259,8 @@ msgstr "Media created successfully"
 msgid "Media deleted successfully"
 msgstr "Media deleted successfully"
 
-#: src/components/widgets/bindings/binding-widget/main.tsx:64
 #: src/components/widgets/bindings/new-binding-widget/main.tsx:46
+#: src/components/widgets/bindings/binding-widget/main.tsx:64
 msgid "Media is required"
 msgstr "Media is required"
 
@@ -268,13 +268,13 @@ msgstr "Media is required"
 msgid "Media not found • lotus"
 msgstr "Media not found • lotus"
 
-#: src/actions/pelican/media/content/head-media-content/constants.ts:8
-#: src/actions/pelican/media/delete-media/constants.ts:6
-#: src/actions/pelican/media/get-media/constants.ts:6
-#: src/actions/pelican/media/update-media/constants.ts:6
+#: src/components/views/media/media-not-found-view/main.tsx:12
 #: src/app/api/media/[id]/constants.ts:8
 #: src/app/api/media/[id]/constants.ts:22
-#: src/components/views/media/media-not-found-view/main.tsx:12
+#: src/actions/pelican/media/update-media/constants.ts:6
+#: src/actions/pelican/media/get-media/constants.ts:6
+#: src/actions/pelican/media/delete-media/constants.ts:6
+#: src/actions/pelican/media/content/head-media-content/constants.ts:8
 msgid "Media not found."
 msgstr "Media not found."
 
@@ -282,32 +282,32 @@ msgstr "Media not found."
 msgid "Media updated successfully"
 msgstr "Media updated successfully"
 
-#: src/components/widgets/media/media-widget/components/edit-media-form/main.tsx:50
-#: src/components/widgets/media/new-media-widget/components/create-media-form/main.tsx:44
-#: src/components/widgets/playlists/new-playlist-widget/components/create-playlist-form/main.tsx:47
 #: src/components/widgets/playlists/playlist-widget/components/edit-playlist-form/main.tsx:50
+#: src/components/widgets/playlists/new-playlist-widget/components/create-playlist-form/main.tsx:47
+#: src/components/widgets/media/new-media-widget/components/create-media-form/main.tsx:44
+#: src/components/widgets/media/media-widget/components/edit-media-form/main.tsx:50
 msgid "Name"
 msgstr "Name"
 
-#: src/components/widgets/media/media-widget/main.tsx:57
-#: src/components/widgets/media/new-media-widget/main.tsx:43
-#: src/components/widgets/playlists/new-playlist-widget/main.tsx:43
 #: src/components/widgets/playlists/playlist-widget/main.tsx:59
+#: src/components/widgets/playlists/new-playlist-widget/main.tsx:43
+#: src/components/widgets/media/new-media-widget/main.tsx:43
+#: src/components/widgets/media/media-widget/main.tsx:57
 msgid "Name is required"
 msgstr "Name is required"
 
-#: src/app/(protected)/bindings/new/page.tsx:19
 #: src/components/metadata/bindings/new-binding-page-metadata/main.tsx:14
+#: src/app/(protected)/bindings/new/page.tsx:19
 msgid "New binding • lotus"
 msgstr "New binding • lotus"
 
-#: src/app/(protected)/media/new/page.tsx:19
 #: src/components/metadata/media/new-media-page-metadata/main.tsx:14
+#: src/app/(protected)/media/new/page.tsx:19
 msgid "New media • lotus"
 msgstr "New media • lotus"
 
-#: src/app/(protected)/playlists/new/page.tsx:19
 #: src/components/metadata/playlists/new-playlist-page-metadata/main.tsx:14
+#: src/app/(protected)/playlists/new/page.tsx:19
 msgid "New playlist • lotus"
 msgstr "New playlist • lotus"
 
@@ -331,13 +331,13 @@ msgstr "Not Found • lotus"
 msgid "Page not found"
 msgstr "Page not found"
 
-#: src/components/widgets/bindings/binding-widget/components/edit-binding-form/main.tsx:68
 #: src/components/widgets/bindings/new-binding-widget/components/create-binding-form/main.tsx:65
+#: src/components/widgets/bindings/binding-widget/components/edit-binding-form/main.tsx:68
 msgid "Playlist"
 msgstr "Playlist"
 
-#: src/app/(protected)/playlists/[id]/page.tsx:23
 #: src/components/metadata/playlists/playlist-page-metadata/main.tsx:14
+#: src/app/(protected)/playlists/[id]/page.tsx:23
 msgid "Playlist {id} • lotus"
 msgstr "Playlist {id} • lotus"
 
@@ -349,8 +349,8 @@ msgstr "Playlist created successfully"
 msgid "Playlist deleted successfully"
 msgstr "Playlist deleted successfully"
 
-#: src/components/widgets/bindings/binding-widget/main.tsx:67
 #: src/components/widgets/bindings/new-binding-widget/main.tsx:49
+#: src/components/widgets/bindings/binding-widget/main.tsx:67
 msgid "Playlist is required"
 msgstr "Playlist is required"
 
@@ -358,10 +358,10 @@ msgstr "Playlist is required"
 msgid "Playlist not found • lotus"
 msgstr "Playlist not found • lotus"
 
-#: src/actions/pelican/playlists/delete-playlist/constants.ts:6
-#: src/actions/pelican/playlists/get-playlist/constants.ts:6
-#: src/actions/pelican/playlists/update-playlist/constants.ts:6
 #: src/components/views/playlists/playlist-not-found-view/main.tsx:12
+#: src/actions/pelican/playlists/update-playlist/constants.ts:6
+#: src/actions/pelican/playlists/get-playlist/constants.ts:6
+#: src/actions/pelican/playlists/delete-playlist/constants.ts:6
 msgid "Playlist not found."
 msgstr "Playlist not found."
 
@@ -373,18 +373,18 @@ msgstr "Playlist updated successfully"
 msgid "Playlists"
 msgstr "Playlists"
 
-#: src/app/(protected)/playlists/page.tsx:19
 #: src/components/metadata/playlists/playlist-list-page-metadata/main.tsx:14
+#: src/app/(protected)/playlists/page.tsx:19
 msgid "Playlists • lotus"
 msgstr "Playlists • lotus"
 
-#: src/components/widgets/bindings/binding-widget/components/edit-binding-form/main.tsx:73
 #: src/components/widgets/bindings/new-binding-widget/components/create-binding-form/main.tsx:70
+#: src/components/widgets/bindings/binding-widget/components/edit-binding-form/main.tsx:73
 msgid "Rank"
 msgstr "Rank"
 
-#: src/components/widgets/bindings/binding-widget/main.tsx:69
 #: src/components/widgets/bindings/new-binding-widget/main.tsx:51
+#: src/components/widgets/bindings/binding-widget/main.tsx:69
 msgid "Rank is required"
 msgstr "Rank is required"
 
@@ -392,9 +392,9 @@ msgstr "Rank is required"
 msgid "Retry"
 msgstr "Retry"
 
-#: src/components/widgets/bindings/binding-widget/components/edit-binding-form/main.tsx:78
-#: src/components/widgets/media/media-widget/components/edit-media-form/main.tsx:55
 #: src/components/widgets/playlists/playlist-widget/components/edit-playlist-form/main.tsx:55
+#: src/components/widgets/media/media-widget/components/edit-media-form/main.tsx:55
+#: src/components/widgets/bindings/binding-widget/components/edit-binding-form/main.tsx:78
 msgid "Save"
 msgstr "Save"
 

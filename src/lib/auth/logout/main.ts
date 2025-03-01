@@ -8,10 +8,10 @@ export async function logOut({
   callback,
 }: LogOutInput = {}): Promise<LogOutOutput> {
   try {
-    const url: string = await auth.signOut({
+    const url = (await auth.signOut({
       redirect: false,
       redirectTo: callback,
-    });
+    })) as string;
 
     return { url: url };
   } catch (error) {

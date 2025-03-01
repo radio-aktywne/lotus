@@ -2,6 +2,11 @@ import { I18n, Messages } from "@lingui/core";
 
 import { defaultLocale } from "../../../constants";
 
+export function activate(i18n: I18n, locale: string, messages: Messages) {
+  i18n.load(locale, messages);
+  i18n.activate(locale);
+}
+
 export function getLocale(language: string) {
   try {
     return new Intl.Locale(language);
@@ -12,14 +17,9 @@ export function getLocale(language: string) {
 
 export async function tryImport(locale: string) {
   try {
-    const imported = await import(`../../../locales/${locale}.po`);
+    const imported = (await import(`../../../locales/${locale}.po`)) as unknown;
     return imported as { messages: Messages };
   } catch {
     return null;
   }
-}
-
-export function activate(i18n: I18n, locale: string, messages: Messages) {
-  i18n.load(locale, messages);
-  i18n.activate(locale);
 }
