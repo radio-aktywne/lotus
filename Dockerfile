@@ -1,5 +1,5 @@
 # Use generic base image with Nix installed
-FROM nixos/nix:2.20.5 AS base-env
+FROM nixos/nix:2.26.2 AS base-env
 
 # Configure Nix
 RUN echo "extra-experimental-features = nix-command flakes" >> /etc/nix/nix.conf
@@ -33,8 +33,8 @@ RUN \
     --mount=type=cache,target=/root/.cache/nix/ \
     ./scripts/env.sh runtime build/ /nix-store-cache/
 
-# Ubuntu is probably the safest choice for a runtime container right now
-FROM ubuntu:23.10 as build
+# Use ubuntu for building
+FROM ubuntu:24.04 AS build
 
 # Use bash as default shell
 SHELL ["/bin/bash", "-c"]
@@ -64,8 +64,8 @@ COPY ./ ./
 # hadolint ignore=SC2239
 RUN npm run build && npm prune --production
 
-# Ubuntu is probably the safest choice
-FROM ubuntu:23.10 AS runtime
+# Ubuntu is probably the safest choice for a runtime container right now
+FROM ubuntu:24.04 AS runtime
 
 # Use bash as default shell
 SHELL ["/bin/bash", "-c"]

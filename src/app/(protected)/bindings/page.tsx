@@ -1,5 +1,5 @@
 import { i18n } from "@lingui/core";
-import { msg, t } from "@lingui/macro";
+import { msg } from "@lingui/core/macro";
 import { Metadata } from "next";
 
 import { BindingListPageMetadata } from "../../../components/metadata/bindings/binding-list-page-metadata";
@@ -15,8 +15,8 @@ export async function generateMetadata(): Promise<Metadata> {
   await loadLocale({ i18n, language });
 
   return {
-    description: t(i18n)(msg({ message: "lotus" })),
-    title: t(i18n)(msg({ message: "Bindings • lotus" })),
+    description: i18n._(msg({ message: "lotus" })),
+    title: i18n._(msg({ message: "Bindings • lotus" })),
   };
 }
 

@@ -1,6 +1,6 @@
 "use client";
 
-import { msg } from "@lingui/macro";
+import { msg } from "@lingui/core/macro";
 import { useLingui } from "@lingui/react";
 import { Button, Stack, Title } from "@mantine/core";
 import { IconRefresh } from "@tabler/icons-react";

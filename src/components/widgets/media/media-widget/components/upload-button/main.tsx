@@ -18,7 +18,7 @@ export function UploadButton({ label, media, onUpload }: UploadButtonInput) {
         await onUpload?.(file);
       } finally {
         setUploading(false);
-        refresh();
+        void refresh();
       }
     },
     [onUpload, refresh],

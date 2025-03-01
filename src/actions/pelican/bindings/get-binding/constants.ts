@@ -1,4 +1,4 @@
-import { msg } from "@lingui/macro";
+import { msg } from "@lingui/core/macro";
 
 export const errors = {
   generic: msg({ message: "An error occurred while fetching the binding." }),

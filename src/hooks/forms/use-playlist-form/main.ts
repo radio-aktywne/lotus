@@ -15,10 +15,7 @@ export function usePlaylistForm({
 }: UsePlaylistFormInput): UsePlaylistFormOutput {
   const form = useForm<UsePlaylistFormValues>({
     initialValues: {
-      name:
-        initialValues?.name === undefined
-          ? defaultValues.name
-          : initialValues.name,
+      name: initialValues?.name ?? defaultValues.name,
     },
     validate: validate,
   });

@@ -16,7 +16,9 @@ export function I18nProvider({ children }: I18nProviderInput) {
   const { language } = useLanguage();
 
   useEffect(() => {
-    loadLocale({ i18n, language }).then(({ locale }) => setLocale(locale));
+    void loadLocale({ i18n, language }).then(({ locale }) => {
+      setLocale(locale);
+    });
   }, [language]);
 
   useDocumentMetadata({ language: locale });

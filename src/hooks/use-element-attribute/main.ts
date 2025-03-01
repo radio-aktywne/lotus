@@ -16,6 +16,6 @@ export function useElementAttribute({
     )
       return;
 
-    document?.querySelector(selector)?.setAttribute(attribute, value);
+    document.querySelector(selector)?.setAttribute(attribute, value);
   }, [attribute, selector, value]);
 }

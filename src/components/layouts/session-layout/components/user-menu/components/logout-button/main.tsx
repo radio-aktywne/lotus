@@ -1,6 +1,6 @@
 "use client";
 
-import { msg } from "@lingui/macro";
+import { msg } from "@lingui/core/macro";
 import { useLingui } from "@lingui/react";
 import { MenuItem } from "@mantine/core";
 import { IconLogout } from "@tabler/icons-react";

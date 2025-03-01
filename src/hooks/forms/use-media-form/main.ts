@@ -15,10 +15,7 @@ export function useMediaForm({
 }: UseMediaFormInput): UseMediaFormOutput {
   const form = useForm<UseMediaFormValues>({
     initialValues: {
-      name:
-        initialValues?.name === undefined
-          ? defaultValues.name
-          : initialValues.name,
+      name: initialValues?.name ?? defaultValues.name,
     },
     validate: validate,
   });

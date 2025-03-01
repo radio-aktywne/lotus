@@ -17,18 +17,9 @@ export function useBindingForm({
 }: UseBindingFormInput): UseBindingFormOutput {
   const form = useForm<UseBindingFormValues>({
     initialValues: {
-      media:
-        initialValues?.media === undefined
-          ? defaultValues.media
-          : initialValues.media,
-      playlist:
-        initialValues?.playlist === undefined
-          ? defaultValues.playlist
-          : initialValues.playlist,
-      rank:
-        initialValues?.rank === undefined
-          ? defaultValues.rank
-          : initialValues.rank,
+      media: initialValues?.media ?? defaultValues.media,
+      playlist: initialValues?.playlist ?? defaultValues.playlist,
+      rank: initialValues?.rank ?? defaultValues.rank,
     },
     validate: validate,
   });

@@ -12,11 +12,11 @@ export async function logIn({
   const parameters = await createAuthorizationParameters(prompt);
 
   try {
-    const url: string = await auth.signIn(
+    const url = (await auth.signIn(
       "scorpion",
       { redirect: false, redirectTo: callback },
       parameters,
-    );
+    )) as string;
 
     return { url: url };
   } catch (error) {
