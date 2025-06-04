@@ -2,7 +2,7 @@
 
 import { msg } from "@lingui/core/macro";
 import { useLingui } from "@lingui/react";
-import { Button, Loader, Stack, TextInput } from "@mantine/core";
+import { Button, Stack, TextInput } from "@mantine/core";
 import { useCallback, useState } from "react";
 
 import {
@@ -21,7 +21,7 @@ export function EditPlaylistForm({
 
   const { _ } = useLingui();
 
-  const { form, loading } = usePlaylistForm({
+  const { form } = usePlaylistForm({
     initialValues: initialData,
     validate: validate,
   });
@@ -40,8 +40,6 @@ export function EditPlaylistForm({
     },
     [formSetErrors, onSave],
   );
-
-  if (loading) return <Loader />;
 
   return (
     <form onSubmit={form.onSubmit(handleSave)}>

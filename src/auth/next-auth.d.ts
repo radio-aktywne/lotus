@@ -9,6 +9,21 @@ declare module "next-auth" {
     iss: string;
     sid: string;
     sub: string;
+    traits: {
+      locales?: {
+        preferred?: string;
+      };
+
+      names: {
+        display: string;
+      };
+
+      pictures?: {
+        profile?: {
+          url?: string;
+        };
+      };
+    };
   }
 
   // eslint-disable-next-line @typescript-eslint/consistent-type-definitions

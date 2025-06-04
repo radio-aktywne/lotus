@@ -1,5 +1,5 @@
-import { MediaNotFoundMetadata } from "../../../../components/metadata/media/media-not-found-metadata";
-import { MediaNotFoundView } from "../../../../components/views/media/media-not-found-view";
+import { MediaNotFoundMetadata } from "../../../../components/metadata/media/media/media-not-found-metadata";
+import { MediaNotFoundView } from "../../../../components/views/media/media/media-not-found-view";
 import { MediaNotFoundInput } from "./types";
 
 export default function MediaNotFound({}: MediaNotFoundInput) {

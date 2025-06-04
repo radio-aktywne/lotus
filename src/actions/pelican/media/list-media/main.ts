@@ -8,7 +8,7 @@ import { inputSchema } from "./schemas";
 import { ListMediaInput, ListMediaOutput } from "./types";
 
 export async function listMedia(
-  input: ListMediaInput,
+  input: ListMediaInput = {},
 ): Promise<ListMediaOutput> {
   const { session } = await getSession();
   if (!session) return { error: errors.unauthorized };

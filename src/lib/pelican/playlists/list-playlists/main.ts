@@ -10,7 +10,7 @@ export async function listPlaylists({
   offset,
   order,
   where,
-}: ListPlaylistsInput): Promise<ListPlaylistsOutput> {
+}: ListPlaylistsInput = {}): Promise<ListPlaylistsOutput> {
   const { data, error, response } = await pelican.GET("/playlists", {
     params: {
       query: {

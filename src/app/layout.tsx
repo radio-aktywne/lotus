@@ -1,9 +1,9 @@
 import { i18n } from "@lingui/core";
 import { msg } from "@lingui/core/macro";
 import { ColorSchemeScript } from "@mantine/core";
+import { PageLayout } from "@radio-aktywne/ui";
 import { Metadata } from "next";
 
-import { PageLayout } from "../components/layouts/page-layout";
 import { colorSchemeStorageKey, defaultColorScheme } from "../constants";
 import { getLanguage } from "../lib/i18n/get-language";
 import { loadLocale } from "../lib/i18n/load-locale";

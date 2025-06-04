@@ -1,6 +1,5 @@
 import { useForm } from "@mantine/form";
 import "client-only";
-import { useMemo } from "react";
 
 import { defaultValues } from "./constants";
 import {
@@ -20,12 +19,5 @@ export function useMediaForm({
     validate: validate,
   });
 
-  const allowedValues = useMemo(() => ({}), []);
-
-  return {
-    allowedValues,
-    defaultValues,
-    form,
-    loading: false,
-  };
+  return { defaultValues, form };
 }

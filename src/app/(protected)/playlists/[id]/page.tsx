@@ -2,8 +2,8 @@ import { i18n } from "@lingui/core";
 import { msg } from "@lingui/core/macro";
 import { Metadata } from "next";
 
-import { PlaylistPageMetadata } from "../../../../components/metadata/playlists/playlist-page-metadata";
-import { PlaylistPageView } from "../../../../components/views/playlists/playlist-page-view";
+import { PlaylistPageMetadata } from "../../../../components/metadata/playlists/playlist/playlist-page-metadata";
+import { PlaylistPageView } from "../../../../components/views/playlists/playlist/playlist-page-view";
 import { getLanguage } from "../../../../lib/i18n/get-language";
 import { loadLocale } from "../../../../lib/i18n/load-locale";
 import { PlaylistPageInput } from "./types";

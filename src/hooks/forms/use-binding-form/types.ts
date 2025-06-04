@@ -14,11 +14,6 @@ export type UseBindingFormValidators = {
   ) => null | string | undefined;
 };
 
-export type UseBindingFormAllowedValues = {
-  media: string[];
-  playlist: string[];
-};
-
 export type UseBindingFormDefaultValues = Partial<UseBindingFormValues>;
 
 export type UseBindingFormInput = {
@@ -27,8 +22,6 @@ export type UseBindingFormInput = {
 };
 
 export type UseBindingFormOutput = {
-  allowedValues: UseBindingFormAllowedValues;
   defaultValues: UseBindingFormDefaultValues;
   form: UseFormReturnType<UseBindingFormValues>;
-  loading: boolean;
 };

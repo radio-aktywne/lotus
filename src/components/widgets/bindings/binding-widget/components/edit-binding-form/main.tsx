@@ -9,6 +9,8 @@ import {
   useBindingForm,
   UseBindingFormValues,
 } from "../../../../../../hooks/forms/use-binding-form";
+import { useListMedia } from "../../../../../../hooks/pelican/media/use-list-media";
+import { useListPlaylists } from "../../../../../../hooks/pelican/playlists/use-list-playlists";
 import { EditBindingFormInput } from "./types";
 import { getMediaLabel, getPlaylistLabel } from "./utils";
 
@@ -22,7 +24,10 @@ export function EditBindingForm({
 
   const { _ } = useLingui();
 
-  const { allowedValues, form, loading } = useBindingForm({
+  const { data: media, loading: mediaLoading } = useListMedia();
+  const { data: playlists, loading: playlistsLoading } = useListPlaylists();
+
+  const { form } = useBindingForm({
     initialValues: initialData,
     validate: validate,
   });
@@ -42,16 +47,16 @@ export function EditBindingForm({
     [formSetErrors, onSave],
   );
 
-  if (loading) return <Loader />;
+  if (mediaLoading || playlistsLoading) return <Loader />;
 
-  const mediaSelectData = allowedValues.media.map((value) => ({
-    label: getMediaLabel(value),
-    value: value,
+  const mediaSelectData = media?.media.map((m) => ({
+    label: getMediaLabel(m),
+    value: m.id,
   }));
 
-  const playlistSelectData = allowedValues.playlist.map((value) => ({
-    label: getPlaylistLabel(value),
-    value: value,
+  const playlistSelectData = playlists?.playlists.map((playlist) => ({
+    label: getPlaylistLabel(playlist),
+    value: playlist.id,
   }));
 
   return (

@@ -21,6 +21,7 @@ export function transformProfile(profile: Profile) {
   return {
     custom: {
       subject: profile.sub!,
+      traits: profile.traits,
     },
   } satisfies User;
 }
@@ -117,6 +118,7 @@ export function transformSession({ session, token }: TransformSessionInput) {
     custom: {
       user: {
         subject: token.custom.user.subject,
+        traits: token.custom.user.traits,
       },
     },
   } satisfies Session;

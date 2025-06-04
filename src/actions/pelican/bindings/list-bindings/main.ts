@@ -8,7 +8,7 @@ import { inputSchema } from "./schemas";
 import { ListBindingsInput, ListBindingsOutput } from "./types";
 
 export async function listBindings(
-  input: ListBindingsInput,
+  input: ListBindingsInput = {},
 ): Promise<ListBindingsOutput> {
   const { session } = await getSession();
   if (!session) return { error: errors.unauthorized };
