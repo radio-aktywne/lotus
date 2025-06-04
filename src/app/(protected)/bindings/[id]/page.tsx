@@ -2,8 +2,8 @@ import { i18n } from "@lingui/core";
 import { msg } from "@lingui/core/macro";
 import { Metadata } from "next";
 
-import { BindingPageMetadata } from "../../../../components/metadata/bindings/binding-page-metadata";
-import { BindingPageView } from "../../../../components/views/bindings/binding-page-view";
+import { BindingPageMetadata } from "../../../../components/metadata/bindings/binding/binding-page-metadata";
+import { BindingPageView } from "../../../../components/views/bindings/binding/binding-page-view";
 import { getLanguage } from "../../../../lib/i18n/get-language";
 import { loadLocale } from "../../../../lib/i18n/load-locale";
 import { BindingPageInput } from "./types";

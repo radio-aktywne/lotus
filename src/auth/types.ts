@@ -21,12 +21,42 @@ export type TokensData = {
   refresh: RefreshTokenData;
 };
 
+export type UserLocales = {
+  preferred?: string;
+};
+
+export type UserNames = {
+  display: string;
+};
+
+export type UserProfilePicture = {
+  url?: string;
+};
+
+export type UserPictures = {
+  profile?: UserProfilePicture;
+};
+
+export type PublicUserTraits = {
+  locales?: UserLocales;
+  names: UserNames;
+  pictures?: UserPictures;
+};
+
+export type CustomUserTraits = {
+  locales?: UserLocales;
+  names: UserNames;
+  pictures?: UserPictures;
+};
+
 export type PublicUserData = {
   subject: string;
+  traits: PublicUserTraits;
 };
 
 export type CustomUserData = {
   subject: string;
+  traits: CustomUserTraits;
 };
 
 export type CustomTokenData = {

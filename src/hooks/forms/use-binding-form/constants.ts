@@ -3,7 +3,3 @@ export const defaultValues = {
   playlist: undefined,
   rank: undefined,
 };
-
-export const mediaLimit = 1000;
-
-export const playlistsLimit = 1000;

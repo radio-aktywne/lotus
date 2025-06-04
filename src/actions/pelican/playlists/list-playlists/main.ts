@@ -8,7 +8,7 @@ import { inputSchema } from "./schemas";
 import { ListPlaylistsInput, ListPlaylistsOutput } from "./types";
 
 export async function listPlaylists(
-  input: ListPlaylistsInput,
+  input: ListPlaylistsInput = {},
 ): Promise<ListPlaylistsOutput> {
   const { session } = await getSession();
   if (!session) return { error: errors.unauthorized };

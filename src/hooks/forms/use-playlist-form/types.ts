@@ -12,10 +12,6 @@ export type UsePlaylistFormValidators = {
   ) => null | string | undefined;
 };
 
-export type UsePlaylistFormAllowedValues = {
-  [key: string]: never;
-};
-
 export type UsePlaylistFormDefaultValues = Partial<UsePlaylistFormValues>;
 
 export type UsePlaylistFormInput = {
@@ -24,8 +20,6 @@ export type UsePlaylistFormInput = {
 };
 
 export type UsePlaylistFormOutput = {
-  allowedValues: UsePlaylistFormAllowedValues;
   defaultValues: UsePlaylistFormDefaultValues;
   form: UseFormReturnType<UsePlaylistFormValues>;
-  loading: boolean;
 };

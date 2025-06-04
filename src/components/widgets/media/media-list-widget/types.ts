@@ -5,6 +5,5 @@ import {
 
 export type MediaListWidgetInput = {
   media: ListMediaOutput["media"];
-  perPage?: number;
   where?: ListMediaInput["where"];
 };

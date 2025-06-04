@@ -10,7 +10,7 @@ export async function listMedia({
   offset,
   order,
   where,
-}: ListMediaInput): Promise<ListMediaOutput> {
+}: ListMediaInput = {}): Promise<ListMediaOutput> {
   const { data, error, response } = await pelican.GET("/media", {
     params: {
       query: {

@@ -2,32 +2,32 @@
 
 import { msg } from "@lingui/core/macro";
 import { useLingui } from "@lingui/react";
-import { Button, Center, Pagination, Stack, Title } from "@mantine/core";
+import {
+  ActionIcon,
+  Center,
+  Group,
+  Stack,
+  Title,
+  UnstyledButton,
+} from "@mantine/core";
+import { List, ListItem } from "@radio-aktywne/ui";
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
+import { MdAddCircleOutline } from "react-icons/md";
 
 import { useListPlaylists } from "../../../../hooks/pelican/playlists/use-list-playlists";
 import { useToasts } from "../../../../hooks/use-toasts";
-import { PlaylistTile } from "./components/playlist-tile";
+import { PlaylistItem } from "./components/playlist-item";
 import { PlaylistListWidgetInput } from "./types";
 
 export function PlaylistListWidget({
-  perPage = 5,
   playlists: prefetchedPlaylists,
   where,
 }: PlaylistListWidgetInput) {
-  const [page, setPage] = useState(1);
-
   const { _ } = useLingui();
   const toasts = useToasts();
 
-  const limit = perPage;
-  const offset = perPage * (page - 1);
-  const { data: currentPlaylists, error } = useListPlaylists({
-    limit: limit,
-    offset: offset,
-    where: where,
-  });
+  const { data: currentPlaylists, error } = useListPlaylists({ where: where });
   const playlists = currentPlaylists ?? prefetchedPlaylists;
 
   useEffect(() => {
@@ -38,23 +38,30 @@ export function PlaylistListWidget({
     return <Title>{_(msg({ message: "No playlists." }))}</Title>;
   }
 
-  const pages = Math.ceil(playlists.count / perPage);
-
   return (
-    <Stack>
-      <Stack>
-        {playlists.playlists.map((playlist) => (
-          <PlaylistTile key={playlist.id} playlist={playlist} />
-        ))}
-      </Stack>
+    <Stack mah="100%" w="100%">
       <Center>
-        <Stack>
-          <Pagination onChange={setPage} total={pages} value={page} withEdges />
-          <Button component={Link} href={"/playlists/new"}>
-            {_(msg({ message: "Create" }))}
-          </Button>
-        </Stack>
+        <Group>
+          <Title>{_(msg({ message: "Playlists" }))}</Title>
+          <ActionIcon
+            component={Link}
+            href={`/playlists/new`}
+            size="auto"
+            variant="transparent"
+          >
+            <MdAddCircleOutline size="2em" />
+          </ActionIcon>
+        </Group>
       </Center>
+      <List style={{ overflowY: "auto" }}>
+        {playlists.playlists.map((playlist) => (
+          <ListItem key={playlist.id}>
+            <UnstyledButton component={Link} href={`/playlists/${playlist.id}`}>
+              <PlaylistItem playlist={playlist} />
+            </UnstyledButton>
+          </ListItem>
+        ))}
+      </List>
     </Stack>
   );
 }

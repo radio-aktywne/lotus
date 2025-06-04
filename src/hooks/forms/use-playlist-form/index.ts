@@ -1,6 +1,5 @@
 export { usePlaylistForm } from "./main";
 export type {
-  UsePlaylistFormAllowedValues,
   UsePlaylistFormDefaultValues,
   UsePlaylistFormInitialValues,
   UsePlaylistFormInput,

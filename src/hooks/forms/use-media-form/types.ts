@@ -12,10 +12,6 @@ export type UseMediaFormValidators = {
   ) => null | string | undefined;
 };
 
-export type UseMediaFormAllowedValues = {
-  [key: string]: never;
-};
-
 export type UseMediaFormDefaultValues = Partial<UseMediaFormValues>;
 
 export type UseMediaFormInput = {
@@ -24,8 +20,6 @@ export type UseMediaFormInput = {
 };
 
 export type UseMediaFormOutput = {
-  allowedValues: UseMediaFormAllowedValues;
   defaultValues: UseMediaFormDefaultValues;
   form: UseFormReturnType<UseMediaFormValues>;
-  loading: boolean;
 };

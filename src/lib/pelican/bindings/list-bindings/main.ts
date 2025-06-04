@@ -10,7 +10,7 @@ export async function listBindings({
   offset,
   order,
   where,
-}: ListBindingsInput): Promise<ListBindingsOutput> {
+}: ListBindingsInput = {}): Promise<ListBindingsOutput> {
   const { data, error, response } = await pelican.GET("/bindings", {
     params: {
       query: {

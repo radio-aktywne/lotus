@@ -1,3 +1,5 @@
+import { MainLayout } from "@radio-aktywne/ui";
+
 import { SessionLayout } from "../../components/layouts/session-layout";
 import { getSession } from "../../lib/auth/get-session";
 import { SessionProvider } from "../../providers/session-provider";
@@ -10,7 +12,9 @@ export default async function ProtectedLayout({
 
   return (
     <SessionProvider session={session}>
-      <SessionLayout>{children}</SessionLayout>
+      <SessionLayout>
+        <MainLayout>{children}</MainLayout>
+      </SessionLayout>
     </SessionProvider>
   );
 }

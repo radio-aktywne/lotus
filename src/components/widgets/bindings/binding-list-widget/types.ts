@@ -5,6 +5,5 @@ import {
 
 export type BindingListWidgetInput = {
   bindings: ListBindingsOutput["bindings"];
-  perPage?: number;
   where?: ListBindingsInput["where"];
 };

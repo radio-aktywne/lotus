@@ -1,6 +1,5 @@
 export { useBindingForm } from "./main";
 export type {
-  UseBindingFormAllowedValues,
   UseBindingFormDefaultValues,
   UseBindingFormInitialValues,
   UseBindingFormInput,

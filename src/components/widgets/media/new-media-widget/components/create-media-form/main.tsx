@@ -2,7 +2,7 @@
 
 import { msg } from "@lingui/core/macro";
 import { useLingui } from "@lingui/react";
-import { Button, Loader, Stack, TextInput } from "@mantine/core";
+import { Button, Stack, TextInput } from "@mantine/core";
 import { useCallback, useState } from "react";
 
 import {
@@ -16,9 +16,7 @@ export function CreateMediaForm({ onCreate, validate }: CreateMediaFormInput) {
 
   const { _ } = useLingui();
 
-  const { form, loading } = useMediaForm({
-    validate: validate,
-  });
+  const { form } = useMediaForm({ validate: validate });
 
   const formSetErrors = form.setErrors;
 
@@ -34,8 +32,6 @@ export function CreateMediaForm({ onCreate, validate }: CreateMediaFormInput) {
     },
     [formSetErrors, onCreate],
   );
-
-  if (loading) return <Loader />;
 
   return (
     <form onSubmit={form.onSubmit(handleCreate)}>

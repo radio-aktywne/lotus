@@ -1,6 +1,5 @@
 export { useMediaForm } from "./main";
 export type {
-  UseMediaFormAllowedValues,
   UseMediaFormDefaultValues,
   UseMediaFormInitialValues,
   UseMediaFormInput,

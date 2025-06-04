@@ -2,32 +2,32 @@
 
 import { msg } from "@lingui/core/macro";
 import { useLingui } from "@lingui/react";
-import { Button, Center, Pagination, Stack, Title } from "@mantine/core";
+import {
+  ActionIcon,
+  Center,
+  Group,
+  Stack,
+  Title,
+  UnstyledButton,
+} from "@mantine/core";
+import { List, ListItem } from "@radio-aktywne/ui";
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
+import { MdAddCircleOutline } from "react-icons/md";
 
 import { useListMedia } from "../../../../hooks/pelican/media/use-list-media";
 import { useToasts } from "../../../../hooks/use-toasts";
-import { MediaTile } from "./components/media-tile";
+import { MediaItem } from "./components/media-item";
 import { MediaListWidgetInput } from "./types";
 
 export function MediaListWidget({
   media: prefetchedMedia,
-  perPage = 5,
   where,
 }: MediaListWidgetInput) {
-  const [page, setPage] = useState(1);
-
   const { _ } = useLingui();
   const toasts = useToasts();
 
-  const limit = perPage;
-  const offset = perPage * (page - 1);
-  const { data: currentMedia, error } = useListMedia({
-    limit: limit,
-    offset: offset,
-    where: where,
-  });
+  const { data: currentMedia, error } = useListMedia({ where: where });
   const media = currentMedia ?? prefetchedMedia;
 
   useEffect(() => {
@@ -38,23 +38,30 @@ export function MediaListWidget({
     return <Title>{_(msg({ message: "No media." }))}</Title>;
   }
 
-  const pages = Math.ceil(media.count / perPage);
-
   return (
-    <Stack>
-      <Stack>
-        {media.media.map((m) => (
-          <MediaTile key={m.id} media={m} />
-        ))}
-      </Stack>
+    <Stack mah="100%" w="100%">
       <Center>
-        <Stack>
-          <Pagination onChange={setPage} total={pages} value={page} withEdges />
-          <Button component={Link} href={"/media/new"}>
-            {_(msg({ message: "Create" }))}
-          </Button>
-        </Stack>
+        <Group>
+          <Title>{_(msg({ message: "Media" }))}</Title>
+          <ActionIcon
+            component={Link}
+            href={`/media/new`}
+            size="auto"
+            variant="transparent"
+          >
+            <MdAddCircleOutline size="2em" />
+          </ActionIcon>
+        </Group>
       </Center>
+      <List style={{ overflowY: "auto" }}>
+        {media.media.map((m) => (
+          <ListItem key={m.id}>
+            <UnstyledButton component={Link} href={`/media/${m.id}`}>
+              <MediaItem media={m} />
+            </UnstyledButton>
+          </ListItem>
+        ))}
+      </List>
     </Stack>
   );
 }
