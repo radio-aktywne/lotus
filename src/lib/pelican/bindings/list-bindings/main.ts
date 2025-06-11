@@ -12,6 +12,7 @@ export async function listBindings({
   where,
 }: ListBindingsInput = {}): Promise<ListBindingsOutput> {
   const { data, error, response } = await pelican.GET("/bindings", {
+    cache: "no-store",
     params: {
       query: {
         include: include,

@@ -18,6 +18,11 @@ export default {
       "@mantine/notifications",
     ],
 
+    staleTimes: {
+      // Disable client-side router cache for dynamic segments
+      dynamic: 0,
+    },
+
     // Include SWC plugins
     swcPlugins: [["@lingui/swc-plugin", {}]],
   },

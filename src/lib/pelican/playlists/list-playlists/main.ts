@@ -12,6 +12,7 @@ export async function listPlaylists({
   where,
 }: ListPlaylistsInput = {}): Promise<ListPlaylistsOutput> {
   const { data, error, response } = await pelican.GET("/playlists", {
+    cache: "no-store",
     params: {
       query: {
         include: include,

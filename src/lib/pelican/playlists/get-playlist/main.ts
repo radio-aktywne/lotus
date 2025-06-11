@@ -10,6 +10,7 @@ export async function getPlaylist({
   include,
 }: GetPlaylistInput): Promise<GetPlaylistOutput> {
   const { data, error, response } = await pelican.GET("/playlists/{id}", {
+    cache: "no-store",
     params: {
       path: { id: id },
       query: { include: include },

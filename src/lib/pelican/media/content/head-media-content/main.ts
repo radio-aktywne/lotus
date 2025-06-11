@@ -9,6 +9,7 @@ export async function headMediaContent({
   id,
 }: HeadMediaContentInput): Promise<HeadMediaContentOutput> {
   const { error, response } = await pelican.HEAD("/media/{id}/content", {
+    cache: "no-store",
     params: {
       path: { id: id },
     },

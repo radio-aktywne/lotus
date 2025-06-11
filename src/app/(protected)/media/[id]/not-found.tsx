@@ -2,6 +2,8 @@ import { MediaNotFoundMetadata } from "../../../../components/metadata/media/med
 import { MediaNotFoundView } from "../../../../components/views/media/media/media-not-found-view";
 import { MediaNotFoundInput } from "./types";
 
+export const dynamic = "force-dynamic";
+
 export default function MediaNotFound({}: MediaNotFoundInput) {
   return (
     <>

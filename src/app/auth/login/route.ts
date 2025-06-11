@@ -4,6 +4,8 @@ import { NextRequest, NextResponse } from "next/server";
 import { logIn } from "../../../lib/auth/login";
 import { parseParams } from "./utils";
 
+export const dynamic = "force-dynamic";
+
 export async function GET(request: NextRequest): Promise<NextResponse> {
   const { data: queryParams, error: paramsError } = parseParams(request);
 
