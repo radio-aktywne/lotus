@@ -9,6 +9,7 @@ export async function downloadMediaContent({
   id,
 }: DownloadMediaContentInput): Promise<DownloadMediaContentOutput> {
   const { data, error, response } = await pelican.GET("/media/{id}/content", {
+    cache: "no-store",
     params: {
       path: { id: id },
     },

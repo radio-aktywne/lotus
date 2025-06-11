@@ -9,6 +9,8 @@ import { loadLocale } from "../../../lib/i18n/load-locale";
 import { AuthErrorPageInput } from "./types";
 import { parseParams } from "./utils";
 
+export const dynamic = "force-dynamic";
+
 export async function generateMetadata(): Promise<Metadata> {
   const { language } = getLanguage();
   await loadLocale({ i18n, language });

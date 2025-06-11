@@ -8,6 +8,8 @@ import { getLanguage } from "../../lib/i18n/get-language";
 import { loadLocale } from "../../lib/i18n/load-locale";
 import { RootPageInput } from "./types";
 
+export const dynamic = "force-dynamic";
+
 export async function generateMetadata(): Promise<Metadata> {
   const { language } = getLanguage();
   await loadLocale({ i18n, language });

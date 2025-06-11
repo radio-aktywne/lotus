@@ -12,6 +12,7 @@ export async function listMedia({
   where,
 }: ListMediaInput = {}): Promise<ListMediaOutput> {
   const { data, error, response } = await pelican.GET("/media", {
+    cache: "no-store",
     params: {
       query: {
         include: include,

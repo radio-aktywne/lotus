@@ -2,6 +2,8 @@ import { PlaylistNotFoundMetadata } from "../../../../components/metadata/playli
 import { PlaylistNotFoundView } from "../../../../components/views/playlists/playlist/playlist-not-found-view";
 import { PlaylistNotFoundInput } from "./types";
 
+export const dynamic = "force-dynamic";
+
 export default function PlaylistNotFound({}: PlaylistNotFoundInput) {
   return (
     <>

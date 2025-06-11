@@ -11,6 +11,8 @@ import { I18nProvider } from "../providers/i18n-provider";
 import { ThemeProvider } from "../providers/theme-provider";
 import { RootLayoutInput } from "./types";
 
+export const dynamic = "force-dynamic";
+
 export async function generateMetadata(): Promise<Metadata> {
   const { language } = getLanguage();
   await loadLocale({ i18n, language });

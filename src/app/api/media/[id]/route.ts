@@ -12,6 +12,8 @@ import {
 import { errors } from "./constants";
 import { RouteContext } from "./types";
 
+export const dynamic = "force-dynamic";
+
 export async function GET(
   request: NextRequest,
   context: RouteContext,

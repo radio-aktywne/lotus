@@ -10,6 +10,7 @@ export async function getBinding({
   include,
 }: GetBindingInput): Promise<GetBindingOutput> {
   const { data, error, response } = await pelican.GET("/bindings/{id}", {
+    cache: "no-store",
     params: {
       path: { id: id },
       query: { include: include },
