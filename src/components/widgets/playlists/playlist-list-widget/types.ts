@@ -5,5 +5,4 @@ import {
 
 export type PlaylistListWidgetInput = {
   playlists: ListPlaylistsOutput["playlists"];
-  where?: ListPlaylistsInput["where"];
-};
+} & ListPlaylistsInput;

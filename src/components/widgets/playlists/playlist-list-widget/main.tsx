@@ -2,19 +2,12 @@
 
 import { msg } from "@lingui/core/macro";
 import { useLingui } from "@lingui/react";
-import {
-  ActionIcon,
-  Center,
-  Group,
-  Stack,
-  Title,
-  UnstyledButton,
-} from "@mantine/core";
+import { Button, Center, Stack, Title } from "@mantine/core";
 import { List, ListItem } from "@radio-aktywne/ui";
 import Link from "next/link";
-import { useEffect } from "react";
-import { MdAddCircleOutline } from "react-icons/md";
+import { useCallback, useEffect } from "react";
 
+import { deletePlaylist } from "../../../../actions/pelican/playlists/delete-playlist";
 import { useListPlaylists } from "../../../../hooks/pelican/playlists/use-list-playlists";
 import { useToasts } from "../../../../hooks/use-toasts";
 import { PlaylistItem } from "./components/playlist-item";
@@ -22,13 +15,25 @@ import { PlaylistListWidgetInput } from "./types";
 
 export function PlaylistListWidget({
   playlists: prefetchedPlaylists,
-  where,
+  ...props
 }: PlaylistListWidgetInput) {
   const { _ } = useLingui();
   const toasts = useToasts();
 
-  const { data: currentPlaylists, error } = useListPlaylists({ where: where });
+  const { data: currentPlaylists, error, refresh } = useListPlaylists(props);
   const playlists = currentPlaylists ?? prefetchedPlaylists;
+
+  const handleDelete = useCallback(
+    async (id: string) => {
+      const { error } = await deletePlaylist({ id: id });
+
+      if (error) toasts.error(_(error));
+      else toasts.success(_(msg({ message: "Playlist deleted." })));
+
+      await refresh();
+    },
+    [_, refresh, toasts],
+  );
 
   useEffect(() => {
     if (error) toasts.warning(_(error));
@@ -41,27 +46,21 @@ export function PlaylistListWidget({
   return (
     <Stack mah="100%" w="100%">
       <Center>
-        <Group>
-          <Title>{_(msg({ message: "Playlists" }))}</Title>
-          <ActionIcon
-            component={Link}
-            href={`/playlists/new`}
-            size="auto"
-            variant="transparent"
-          >
-            <MdAddCircleOutline size="2em" />
-          </ActionIcon>
-        </Group>
+        <Title>{_(msg({ message: "Playlists" }))}</Title>
       </Center>
       <List style={{ overflowY: "auto" }}>
         {playlists.playlists.map((playlist) => (
           <ListItem key={playlist.id}>
-            <UnstyledButton component={Link} href={`/playlists/${playlist.id}`}>
-              <PlaylistItem playlist={playlist} />
-            </UnstyledButton>
+            <PlaylistItem
+              onDelete={() => handleDelete(playlist.id)}
+              playlist={playlist}
+            />
           </ListItem>
         ))}
       </List>
+      <Button component={Link} href="/playlists/new">
+        {_(msg({ message: "Create" }))}
+      </Button>
     </Stack>
   );
 }
