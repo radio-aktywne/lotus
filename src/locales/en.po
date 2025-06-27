@@ -13,6 +13,16 @@ msgstr ""
 "Language-Team: \n"
 "Plural-Forms: \n"
 
+#: src/components/widgets/playlists/playlist-widget/main.tsx:80
+#: src/components/widgets/playlists/playlist-add-widget/components/playlist-add-form/main.tsx:62
+msgid "Add"
+msgstr "Add"
+
+#: src/components/metadata/playlists/playlist/add/playlist-add-page-metadata/main.tsx:14
+#: src/app/(protected)/(library)/playlists/[id]/add/page.tsx:23
+msgid "Add media to playlist {id} • lotus"
+msgstr "Add media to playlist {id} • lotus"
+
 #: src/actions/pelican/bindings/create-binding/constants.ts:4
 msgid "An error occurred while creating the binding."
 msgstr "An error occurred while creating the binding."
@@ -41,25 +51,9 @@ msgstr "An error occurred while deleting the playlist."
 msgid "An error occurred while downloading media content."
 msgstr "An error occurred while downloading media content."
 
-#: src/actions/pelican/media/content/head-media-content/constants.ts:4
-msgid "An error occurred while fetching media content headers."
-msgstr "An error occurred while fetching media content headers."
-
-#: src/actions/pelican/bindings/get-binding/constants.ts:4
-msgid "An error occurred while fetching the binding."
-msgstr "An error occurred while fetching the binding."
-
-#: src/actions/pelican/media/get-media/constants.ts:4
-msgid "An error occurred while fetching the media."
-msgstr "An error occurred while fetching the media."
-
 #: src/actions/pelican/playlists/get-playlist/constants.ts:4
 msgid "An error occurred while fetching the playlist."
 msgstr "An error occurred while fetching the playlist."
-
-#: src/actions/pelican/bindings/list-bindings/constants.ts:4
-msgid "An error occurred while listing bindings."
-msgstr "An error occurred while listing bindings."
 
 #: src/actions/pelican/media/list-media/constants.ts:4
 msgid "An error occurred while listing media."
@@ -86,67 +80,37 @@ msgid "An error occurred while uploading media content."
 msgstr "An error occurred while uploading media content."
 
 #: src/components/metadata/auth/auth-error-page-metadata/main.tsx:14
-#: src/app/auth/error/page.tsx:18
+#: src/app/auth/error/page.tsx:20
 msgid "Auth error • lotus"
 msgstr "Auth error • lotus"
 
-#: src/components/metadata/bindings/binding/binding-page-metadata/main.tsx:14
-#: src/app/(protected)/bindings/[id]/page.tsx:23
-msgid "Binding {id} • lotus"
-msgstr "Binding {id} • lotus"
-
-#: src/components/widgets/bindings/new-binding-widget/main.tsx:37
-msgid "Binding created successfully"
-msgstr "Binding created successfully"
-
-#: src/components/widgets/bindings/binding-widget/main.tsx:83
-msgid "Binding deleted successfully"
-msgstr "Binding deleted successfully"
-
-#: src/components/metadata/bindings/binding/binding-not-found-metadata/main.tsx:14
-msgid "Binding not found • lotus"
-msgstr "Binding not found • lotus"
-
-#: src/components/views/bindings/binding/binding-not-found-view/main.tsx:12
 #: src/actions/pelican/bindings/update-binding/constants.ts:6
-#: src/actions/pelican/bindings/get-binding/constants.ts:6
 #: src/actions/pelican/bindings/delete-binding/constants.ts:6
 msgid "Binding not found."
 msgstr "Binding not found."
 
-#: src/components/widgets/bindings/binding-widget/main.tsx:55
-msgid "Binding updated successfully"
-msgstr "Binding updated successfully"
-
-#: src/components/widgets/bindings/binding-list-widget/main.tsx:45
-#: src/components/views/root/root-page-view/main.tsx:22
-msgid "Bindings"
-msgstr "Bindings"
-
-#: src/components/metadata/bindings/binding-list-page-metadata/main.tsx:14
-#: src/app/(protected)/bindings/page.tsx:19
-msgid "Bindings • lotus"
-msgstr "Bindings • lotus"
+#: src/components/widgets/media/media-widget/components/upload-media-widget/main.tsx:69
+#: src/components/widgets/media/media-widget/components/edit-media-widget/main.tsx:55
+msgid "Cancel"
+msgstr "Cancel"
 
 #: src/app/api/media/[id]/constants.ts:19
 msgid "Content-Type header is missing."
 msgstr "Content-Type header is missing."
 
+#: src/components/widgets/playlists/playlist-list-widget/main.tsx:62
 #: src/components/widgets/playlists/new-playlist-widget/components/create-playlist-form/main.tsx:50
-#: src/components/widgets/media/new-media-widget/components/create-media-form/main.tsx:45
-#: src/components/widgets/bindings/new-binding-widget/components/create-binding-form/main.tsx:78
 msgid "Create"
 msgstr "Create"
 
-#: src/components/widgets/playlists/playlist-widget/components/edit-playlist-form/main.tsx:56
-#: src/components/widgets/media/media-widget/components/edit-media-form/main.tsx:56
-#: src/components/widgets/bindings/binding-widget/components/edit-binding-form/main.tsx:86
+#: src/components/widgets/playlists/playlist-widget/main.tsx:83
 msgid "Delete"
 msgstr "Delete"
 
-#: src/components/widgets/media/media-widget/main.tsx:109
-msgid "Download"
-msgstr "Download"
+#: src/components/metadata/playlists/playlist/edit/edit-playlist-page-metadata/main.tsx:16
+#: src/app/(protected)/(library)/playlists/[id]/edit/page.tsx:23
+msgid "Edit playlist {id} • lotus"
+msgstr "Edit playlist {id} • lotus"
 
 #: src/hooks/use-toasts/main.tsx:19
 msgid "Error"
@@ -160,11 +124,11 @@ msgstr "Error • lotus"
 msgid "Error in auth flow"
 msgstr "Error in auth flow"
 
-#: src/components/widgets/media/media-widget/main.tsx:92
-msgid "Failed to upload media content"
-msgstr "Failed to upload media content"
+#: src/components/widgets/media/media-widget/components/upload-media-widget/components/upload-media-form/main.tsx:45
+msgid "File"
+msgstr "File"
 
-#: src/components/widgets/media/media-widget/main.tsx:79
+#: src/components/widgets/media/media-widget/components/upload-media-widget/main.tsx:58
 msgid "File is required"
 msgstr "File is required"
 
@@ -179,13 +143,9 @@ msgstr "Info"
 #: src/actions/pelican/playlists/create-playlist/constants.ts:5
 #: src/actions/pelican/media/update-media/constants.ts:5
 #: src/actions/pelican/media/list-media/constants.ts:5
-#: src/actions/pelican/media/get-media/constants.ts:5
 #: src/actions/pelican/media/delete-media/constants.ts:5
 #: src/actions/pelican/media/create-media/constants.ts:5
-#: src/actions/pelican/media/content/head-media-content/constants.ts:7
 #: src/actions/pelican/bindings/update-binding/constants.ts:5
-#: src/actions/pelican/bindings/list-bindings/constants.ts:5
-#: src/actions/pelican/bindings/get-binding/constants.ts:5
 #: src/actions/pelican/bindings/delete-binding/constants.ts:5
 #: src/actions/pelican/bindings/create-binding/constants.ts:5
 msgid "Invalid input."
@@ -195,130 +155,86 @@ msgstr "Invalid input."
 msgid "Logout"
 msgstr "Logout"
 
-#: src/components/metadata/root/root-page-metadata/main.tsx:13
-#: src/components/metadata/root/root-page-metadata/main.tsx:14
 #: src/components/metadata/root/root-not-found-metadata/main.tsx:13
 #: src/components/metadata/root/root-error-metadata/main.tsx:13
 #: src/components/metadata/playlists/playlist-list-page-metadata/main.tsx:13
 #: src/components/metadata/playlists/playlist/playlist-page-metadata/main.tsx:13
 #: src/components/metadata/playlists/playlist/playlist-not-found-metadata/main.tsx:13
+#: src/components/metadata/playlists/playlist/edit/edit-playlist-page-metadata/main.tsx:15
+#: src/components/metadata/playlists/playlist/add/playlist-add-page-metadata/main.tsx:13
 #: src/components/metadata/playlists/new/new-playlist-page-metadata/main.tsx:13
-#: src/components/metadata/media/new/new-media-page-metadata/main.tsx:13
-#: src/components/metadata/media/media-list-page-metadata/main.tsx:13
-#: src/components/metadata/media/media/media-page-metadata/main.tsx:13
-#: src/components/metadata/media/media/media-not-found-metadata/main.tsx:13
-#: src/components/metadata/bindings/new/new-binding-page-metadata/main.tsx:13
-#: src/components/metadata/bindings/binding-list-page-metadata/main.tsx:13
-#: src/components/metadata/bindings/binding/binding-page-metadata/main.tsx:13
-#: src/components/metadata/bindings/binding/binding-not-found-metadata/main.tsx:13
 #: src/components/metadata/auth/auth-error-page-metadata/main.tsx:13
-#: src/app/layout.tsx:19
-#: src/app/layout.tsx:20
-#: src/app/auth/error/page.tsx:17
-#: src/app/(protected)/page.tsx:16
-#: src/app/(protected)/page.tsx:17
-#: src/app/(protected)/playlists/page.tsx:18
-#: src/app/(protected)/playlists/new/page.tsx:18
-#: src/app/(protected)/playlists/[id]/page.tsx:22
-#: src/app/(protected)/media/page.tsx:18
-#: src/app/(protected)/media/new/page.tsx:18
-#: src/app/(protected)/media/[id]/page.tsx:22
-#: src/app/(protected)/bindings/page.tsx:18
-#: src/app/(protected)/bindings/new/page.tsx:18
-#: src/app/(protected)/bindings/[id]/page.tsx:22
+#: src/app/layout.tsx:21
+#: src/app/layout.tsx:22
+#: src/app/auth/error/page.tsx:19
+#: src/app/(protected)/(library)/playlists/page.tsx:18
+#: src/app/(protected)/(library)/playlists/new/page.tsx:18
+#: src/app/(protected)/(library)/playlists/[id]/page.tsx:22
+#: src/app/(protected)/(library)/playlists/[id]/edit/page.tsx:22
+#: src/app/(protected)/(library)/playlists/[id]/add/page.tsx:22
 msgid "lotus"
 msgstr "lotus"
 
-#: src/components/widgets/media/media-list-widget/main.tsx:45
-#: src/components/widgets/bindings/new-binding-widget/components/create-binding-form/main.tsx:62
-#: src/components/widgets/bindings/binding-widget/components/edit-binding-form/main.tsx:67
-#: src/components/views/root/root-page-view/main.tsx:16
+#: src/components/widgets/playlists/playlist-add-widget/components/playlist-add-form/main.tsx:52
+#: src/components/widgets/media/media-widget/components/media-list-widget/main.tsx:49
 msgid "Media"
 msgstr "Media"
 
-#: src/components/metadata/media/media/media-page-metadata/main.tsx:14
-#: src/app/(protected)/media/[id]/page.tsx:23
-msgid "Media {id} • lotus"
-msgstr "Media {id} • lotus"
+#: src/components/widgets/playlists/playlist-add-widget/main.tsx:49
+msgid "Media added to playlist successfully"
+msgstr "Media added to playlist successfully"
 
-#: src/components/metadata/media/media-list-page-metadata/main.tsx:14
-#: src/app/(protected)/media/page.tsx:19
-msgid "Media • lotus"
-msgstr "Media • lotus"
+#: src/components/widgets/media/media-widget/components/media-list-widget/main.tsx:28
+msgid "Media deleted."
+msgstr "Media deleted."
 
-#: src/components/widgets/media/media-widget/main.tsx:90
-msgid "Media content uploaded successfully"
-msgstr "Media content uploaded successfully"
-
-#: src/components/widgets/media/new-media-widget/main.tsx:35
-msgid "Media created successfully"
-msgstr "Media created successfully"
-
-#: src/components/widgets/media/media-widget/main.tsx:71
-msgid "Media deleted successfully"
-msgstr "Media deleted successfully"
-
-#: src/components/widgets/bindings/new-binding-widget/main.tsx:46
-#: src/components/widgets/bindings/binding-widget/main.tsx:64
+#: src/components/widgets/playlists/playlist-add-widget/main.tsx:59
 msgid "Media is required"
 msgstr "Media is required"
 
-#: src/components/metadata/media/media/media-not-found-metadata/main.tsx:14
-msgid "Media not found • lotus"
-msgstr "Media not found • lotus"
-
-#: src/components/views/media/media/media-not-found-view/main.tsx:12
 #: src/app/api/media/[id]/constants.ts:8
 #: src/app/api/media/[id]/constants.ts:22
 #: src/actions/pelican/media/update-media/constants.ts:6
-#: src/actions/pelican/media/get-media/constants.ts:6
 #: src/actions/pelican/media/delete-media/constants.ts:6
-#: src/actions/pelican/media/content/head-media-content/constants.ts:8
 msgid "Media not found."
 msgstr "Media not found."
 
-#: src/components/widgets/media/media-widget/main.tsx:49
+#: src/components/widgets/playlists/playlist-widget/main.tsx:40
+msgid "Media removed from playlist."
+msgstr "Media removed from playlist."
+
+#: src/components/widgets/media/media-widget/components/edit-media-widget/main.tsx:36
 msgid "Media updated successfully"
 msgstr "Media updated successfully"
 
-#: src/components/widgets/playlists/playlist-widget/components/edit-playlist-form/main.tsx:48
+#: src/components/widgets/media/media-widget/components/upload-media-widget/main.tsx:48
+msgid "Media uploaded successfully"
+msgstr "Media uploaded successfully"
+
 #: src/components/widgets/playlists/new-playlist-widget/components/create-playlist-form/main.tsx:45
-#: src/components/widgets/media/new-media-widget/components/create-media-form/main.tsx:40
-#: src/components/widgets/media/media-widget/components/edit-media-form/main.tsx:48
+#: src/components/widgets/playlists/edit-playlist-widget/components/edit-playlist-form/main.tsx:47
+#: src/components/widgets/media/media-widget/components/upload-media-widget/components/upload-media-form/main.tsx:40
+#: src/components/widgets/media/media-widget/components/edit-media-widget/components/edit-media-form/main.tsx:47
 msgid "Name"
 msgstr "Name"
 
-#: src/components/widgets/playlists/playlist-widget/main.tsx:59
 #: src/components/widgets/playlists/new-playlist-widget/main.tsx:43
-#: src/components/widgets/media/new-media-widget/main.tsx:43
-#: src/components/widgets/media/media-widget/main.tsx:57
+#: src/components/widgets/playlists/edit-playlist-widget/main.tsx:57
+#: src/components/widgets/media/media-widget/components/upload-media-widget/main.tsx:56
+#: src/components/widgets/media/media-widget/components/edit-media-widget/main.tsx:44
 msgid "Name is required"
 msgstr "Name is required"
 
-#: src/components/metadata/bindings/new/new-binding-page-metadata/main.tsx:14
-#: src/app/(protected)/bindings/new/page.tsx:19
-msgid "New binding • lotus"
-msgstr "New binding • lotus"
-
-#: src/components/metadata/media/new/new-media-page-metadata/main.tsx:14
-#: src/app/(protected)/media/new/page.tsx:19
-msgid "New media • lotus"
-msgstr "New media • lotus"
-
 #: src/components/metadata/playlists/new/new-playlist-page-metadata/main.tsx:14
-#: src/app/(protected)/playlists/new/page.tsx:19
+#: src/app/(protected)/(library)/playlists/new/page.tsx:19
 msgid "New playlist • lotus"
 msgstr "New playlist • lotus"
 
-#: src/components/widgets/bindings/binding-list-widget/main.tsx:38
-msgid "No bindings."
-msgstr "No bindings."
-
-#: src/components/widgets/media/media-list-widget/main.tsx:38
+#: src/components/widgets/media/media-widget/components/media-list-widget/main.tsx:43
 msgid "No media."
 msgstr "No media."
 
-#: src/components/widgets/playlists/playlist-list-widget/main.tsx:38
+#: src/components/widgets/playlists/playlist-list-widget/main.tsx:43
 msgid "No playlists."
 msgstr "No playlists."
 
@@ -330,13 +246,8 @@ msgstr "Not Found • lotus"
 msgid "Page not found"
 msgstr "Page not found"
 
-#: src/components/widgets/bindings/new-binding-widget/components/create-binding-form/main.tsx:68
-#: src/components/widgets/bindings/binding-widget/components/edit-binding-form/main.tsx:73
-msgid "Playlist"
-msgstr "Playlist"
-
 #: src/components/metadata/playlists/playlist/playlist-page-metadata/main.tsx:14
-#: src/app/(protected)/playlists/[id]/page.tsx:23
+#: src/app/(protected)/(library)/playlists/[id]/page.tsx:23
 msgid "Playlist {id} • lotus"
 msgstr "Playlist {id} • lotus"
 
@@ -344,14 +255,13 @@ msgstr "Playlist {id} • lotus"
 msgid "Playlist created successfully"
 msgstr "Playlist created successfully"
 
-#: src/components/widgets/playlists/playlist-widget/main.tsx:73
+#: src/components/widgets/playlists/playlist-widget/main.tsx:54
 msgid "Playlist deleted successfully"
 msgstr "Playlist deleted successfully"
 
-#: src/components/widgets/bindings/new-binding-widget/main.tsx:49
-#: src/components/widgets/bindings/binding-widget/main.tsx:67
-msgid "Playlist is required"
-msgstr "Playlist is required"
+#: src/components/widgets/playlists/playlist-list-widget/main.tsx:31
+msgid "Playlist deleted."
+msgstr "Playlist deleted."
 
 #: src/components/metadata/playlists/playlist/playlist-not-found-metadata/main.tsx:14
 msgid "Playlist not found • lotus"
@@ -364,27 +274,24 @@ msgstr "Playlist not found • lotus"
 msgid "Playlist not found."
 msgstr "Playlist not found."
 
-#: src/components/widgets/playlists/playlist-widget/main.tsx:51
+#: src/components/widgets/playlists/edit-playlist-widget/main.tsx:49
 msgid "Playlist updated successfully"
 msgstr "Playlist updated successfully"
 
-#: src/components/widgets/playlists/playlist-list-widget/main.tsx:45
-#: src/components/views/root/root-page-view/main.tsx:19
+#: src/components/widgets/playlists/playlist-list-widget/main.tsx:49
 msgid "Playlists"
 msgstr "Playlists"
 
 #: src/components/metadata/playlists/playlist-list-page-metadata/main.tsx:14
-#: src/app/(protected)/playlists/page.tsx:19
+#: src/app/(protected)/(library)/playlists/page.tsx:19
 msgid "Playlists • lotus"
 msgstr "Playlists • lotus"
 
-#: src/components/widgets/bindings/new-binding-widget/components/create-binding-form/main.tsx:73
-#: src/components/widgets/bindings/binding-widget/components/edit-binding-form/main.tsx:78
+#: src/components/widgets/playlists/playlist-add-widget/components/playlist-add-form/main.tsx:57
 msgid "Rank"
 msgstr "Rank"
 
-#: src/components/widgets/bindings/new-binding-widget/main.tsx:51
-#: src/components/widgets/bindings/binding-widget/main.tsx:69
+#: src/components/widgets/playlists/playlist-add-widget/main.tsx:61
 msgid "Rank is required"
 msgstr "Rank is required"
 
@@ -392,9 +299,8 @@ msgstr "Rank is required"
 msgid "Retry"
 msgstr "Retry"
 
-#: src/components/widgets/playlists/playlist-widget/components/edit-playlist-form/main.tsx:53
-#: src/components/widgets/media/media-widget/components/edit-media-form/main.tsx:53
-#: src/components/widgets/bindings/binding-widget/components/edit-binding-form/main.tsx:83
+#: src/components/widgets/playlists/edit-playlist-widget/components/edit-playlist-form/main.tsx:52
+#: src/components/widgets/media/media-widget/components/edit-media-widget/components/edit-media-form/main.tsx:52
 msgid "Save"
 msgstr "Save"
 
@@ -406,7 +312,8 @@ msgstr "Something went wrong"
 msgid "Success"
 msgstr "Success"
 
-#: src/components/widgets/media/media-widget/main.tsx:105
+#: src/components/widgets/media/media-widget/components/upload-media-widget/components/upload-media-form/main.tsx:50
+#: src/components/widgets/media/media-widget/components/media-list-widget/main.tsx:62
 msgid "Upload"
 msgstr "Upload"
 
@@ -442,25 +349,9 @@ msgstr "You are not authorized to delete the playlist."
 msgid "You are not authorized to download media content."
 msgstr "You are not authorized to download media content."
 
-#: src/actions/pelican/media/content/head-media-content/constants.ts:9
-msgid "You are not authorized to fetch media content headers."
-msgstr "You are not authorized to fetch media content headers."
-
-#: src/actions/pelican/bindings/get-binding/constants.ts:7
-msgid "You are not authorized to fetch the binding."
-msgstr "You are not authorized to fetch the binding."
-
-#: src/actions/pelican/media/get-media/constants.ts:7
-msgid "You are not authorized to fetch the media."
-msgstr "You are not authorized to fetch the media."
-
 #: src/actions/pelican/playlists/get-playlist/constants.ts:7
 msgid "You are not authorized to fetch the playlist."
 msgstr "You are not authorized to fetch the playlist."
-
-#: src/actions/pelican/bindings/list-bindings/constants.ts:6
-msgid "You are not authorized to list bindings."
-msgstr "You are not authorized to list bindings."
 
 #: src/actions/pelican/media/list-media/constants.ts:6
 msgid "You are not authorized to list media."
