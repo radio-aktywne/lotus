@@ -13,10 +13,13 @@ msgstr ""
 "Language-Team: \n"
 "Plural-Forms: \n"
 
-#: src/components/widgets/playlists/playlist-widget/main.tsx:80
 #: src/components/widgets/playlists/playlist-add-widget/components/playlist-add-form/main.tsx:62
 msgid "Add"
 msgstr "Add"
+
+#: src/components/widgets/playlists/playlist-widget/main.tsx:93
+msgid "Add media"
+msgstr "Add media"
 
 #: src/components/metadata/playlists/playlist/add/playlist-add-page-metadata/main.tsx:14
 #: src/app/(protected)/(library)/playlists/[id]/add/page.tsx:23
@@ -98,12 +101,12 @@ msgstr "Cancel"
 msgid "Content-Type header is missing."
 msgstr "Content-Type header is missing."
 
-#: src/components/widgets/playlists/playlist-list-widget/main.tsx:62
+#: src/components/widgets/playlists/playlist-list-widget/main.tsx:66
 #: src/components/widgets/playlists/new-playlist-widget/components/create-playlist-form/main.tsx:50
 msgid "Create"
 msgstr "Create"
 
-#: src/components/widgets/playlists/playlist-widget/main.tsx:83
+#: src/components/widgets/playlists/playlist-widget/main.tsx:96
 msgid "Delete"
 msgstr "Delete"
 
@@ -176,7 +179,7 @@ msgid "lotus"
 msgstr "lotus"
 
 #: src/components/widgets/playlists/playlist-add-widget/components/playlist-add-form/main.tsx:52
-#: src/components/widgets/media/media-widget/components/media-list-widget/main.tsx:49
+#: src/components/widgets/media/media-widget/components/media-list-widget/main.tsx:51
 msgid "Media"
 msgstr "Media"
 
@@ -199,7 +202,7 @@ msgstr "Media is required"
 msgid "Media not found."
 msgstr "Media not found."
 
-#: src/components/widgets/playlists/playlist-widget/main.tsx:40
+#: src/components/widgets/playlists/playlist-widget/main.tsx:47
 msgid "Media removed from playlist."
 msgstr "Media removed from playlist."
 
@@ -230,11 +233,11 @@ msgstr "Name is required"
 msgid "New playlist • lotus"
 msgstr "New playlist • lotus"
 
-#: src/components/widgets/media/media-widget/components/media-list-widget/main.tsx:43
+#: src/components/widgets/media/media-widget/components/media-list-widget/main.tsx:46
 msgid "No media."
 msgstr "No media."
 
-#: src/components/widgets/playlists/playlist-list-widget/main.tsx:43
+#: src/components/widgets/playlists/playlist-list-widget/main.tsx:46
 msgid "No playlists."
 msgstr "No playlists."
 
@@ -255,13 +258,17 @@ msgstr "Playlist {id} • lotus"
 msgid "Playlist created successfully"
 msgstr "Playlist created successfully"
 
-#: src/components/widgets/playlists/playlist-widget/main.tsx:54
+#: src/components/widgets/playlists/playlist-widget/main.tsx:61
 msgid "Playlist deleted successfully"
 msgstr "Playlist deleted successfully"
 
 #: src/components/widgets/playlists/playlist-list-widget/main.tsx:31
 msgid "Playlist deleted."
 msgstr "Playlist deleted."
+
+#: src/components/widgets/playlists/playlist-widget/main.tsx:78
+msgid "Playlist is empty."
+msgstr "Playlist is empty."
 
 #: src/components/metadata/playlists/playlist/playlist-not-found-metadata/main.tsx:14
 msgid "Playlist not found • lotus"
@@ -278,7 +285,7 @@ msgstr "Playlist not found."
 msgid "Playlist updated successfully"
 msgstr "Playlist updated successfully"
 
-#: src/components/widgets/playlists/playlist-list-widget/main.tsx:49
+#: src/components/widgets/playlists/playlist-list-widget/main.tsx:51
 msgid "Playlists"
 msgstr "Playlists"
 
@@ -313,7 +320,7 @@ msgid "Success"
 msgstr "Success"
 
 #: src/components/widgets/media/media-widget/components/upload-media-widget/components/upload-media-form/main.tsx:50
-#: src/components/widgets/media/media-widget/components/media-list-widget/main.tsx:62
+#: src/components/widgets/media/media-widget/components/media-list-widget/main.tsx:66
 msgid "Upload"
 msgstr "Upload"
 

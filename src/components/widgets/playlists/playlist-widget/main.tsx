@@ -2,7 +2,14 @@
 
 import { msg } from "@lingui/core/macro";
 import { useLingui } from "@lingui/react";
-import { Button, Center, Stack, Title, UnstyledButton } from "@mantine/core";
+import {
+  Button,
+  Center,
+  Stack,
+  Text,
+  Title,
+  UnstyledButton,
+} from "@mantine/core";
 import { List, ListItem } from "@radio-aktywne/ui";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
@@ -66,18 +73,24 @@ export function PlaylistWidget({
           <Title>{formatDisplayName(playlist)}</Title>
         </UnstyledButton>
       </Center>
-      <List style={{ overflowY: "auto" }}>
-        {playlist.bindings?.map((binding) => (
-          <ListItem key={binding.rank}>
-            <BindingItem
-              binding={binding}
-              onRemove={() => handleBindingRemove(binding.id)}
-            />
-          </ListItem>
-        ))}
-      </List>
+      {(playlist.bindings?.length ?? 0) === 0 ? (
+        <Center>
+          <Text fw="bold">{_(msg({ message: "Playlist is empty." }))}</Text>
+        </Center>
+      ) : (
+        <List style={{ overflowY: "auto" }}>
+          {playlist.bindings?.map((binding) => (
+            <ListItem key={binding.rank}>
+              <BindingItem
+                binding={binding}
+                onRemove={() => handleBindingRemove(binding.id)}
+              />
+            </ListItem>
+          ))}
+        </List>
+      )}
       <Button component={Link} href={`/playlists/${playlist.id}/add`}>
-        {_(msg({ message: "Add" }))}
+        {_(msg({ message: "Add media" }))}
       </Button>
       <Button color="ra-red" onClick={handlePlaylistDelete}>
         {_(msg({ message: "Delete" }))}

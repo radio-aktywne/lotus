@@ -39,26 +39,30 @@ export function MediaListWidget({
     [onEdit],
   );
 
-  if (media.count === 0) {
-    return <Title>{_(msg({ message: "No media." }))}</Title>;
-  }
-
   return (
     <Stack mah="100%" w="100%">
-      <Center>
-        <Title>{_(msg({ message: "Media" }))}</Title>
-      </Center>
-      <List style={{ overflowY: "auto" }}>
-        {media.media.map((m) => (
-          <ListItem key={m.id}>
-            <MediaItem
-              media={m}
-              onDelete={() => handleDelete(m)}
-              onEdit={() => handleEdit(m)}
-            />
-          </ListItem>
-        ))}
-      </List>
+      {media.count === 0 ? (
+        <Center>
+          <Title>{_(msg({ message: "No media." }))}</Title>
+        </Center>
+      ) : (
+        <>
+          <Center>
+            <Title>{_(msg({ message: "Media" }))}</Title>
+          </Center>
+          <List style={{ overflowY: "auto" }}>
+            {media.media.map((m) => (
+              <ListItem key={m.id}>
+                <MediaItem
+                  media={m}
+                  onDelete={() => handleDelete(m)}
+                  onEdit={() => handleEdit(m)}
+                />
+              </ListItem>
+            ))}
+          </List>
+        </>
+      )}
       <Button onClick={onUpload}>{_(msg({ message: "Upload" }))}</Button>
     </Stack>
   );

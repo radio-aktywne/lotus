@@ -39,25 +39,29 @@ export function PlaylistListWidget({
     if (error) toasts.warning(_(error));
   }, [_, error, toasts]);
 
-  if (playlists.count === 0) {
-    return <Title>{_(msg({ message: "No playlists." }))}</Title>;
-  }
-
   return (
     <Stack mah="100%" w="100%">
-      <Center>
-        <Title>{_(msg({ message: "Playlists" }))}</Title>
-      </Center>
-      <List style={{ overflowY: "auto" }}>
-        {playlists.playlists.map((playlist) => (
-          <ListItem key={playlist.id}>
-            <PlaylistItem
-              onDelete={() => handleDelete(playlist.id)}
-              playlist={playlist}
-            />
-          </ListItem>
-        ))}
-      </List>
+      {playlists.count === 0 ? (
+        <Center>
+          <Title>{_(msg({ message: "No playlists." }))}</Title>
+        </Center>
+      ) : (
+        <>
+          <Center>
+            <Title>{_(msg({ message: "Playlists" }))}</Title>
+          </Center>
+          <List style={{ overflowY: "auto" }}>
+            {playlists.playlists.map((playlist) => (
+              <ListItem key={playlist.id}>
+                <PlaylistItem
+                  onDelete={() => handleDelete(playlist.id)}
+                  playlist={playlist}
+                />
+              </ListItem>
+            ))}
+          </List>
+        </>
+      )}
       <Button component={Link} href="/playlists/new">
         {_(msg({ message: "Create" }))}
       </Button>
