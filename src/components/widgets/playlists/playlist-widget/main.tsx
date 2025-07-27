@@ -2,19 +2,13 @@
 
 import { msg } from "@lingui/core/macro";
 import { useLingui } from "@lingui/react";
-import {
-  Button,
-  Center,
-  Stack,
-  Text,
-  Title,
-  UnstyledButton,
-} from "@mantine/core";
+import { Button, Center, Stack, Title, UnstyledButton } from "@mantine/core";
 import { List } from "@radio-aktywne/ui";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useCallback, useEffect } from "react";
 
+import { createBinding } from "../../../../actions/pelican/bindings/create-binding";
 import { deleteBinding } from "../../../../actions/pelican/bindings/delete-binding";
 import { updateBinding } from "../../../../actions/pelican/bindings/update-binding";
 import { deletePlaylist } from "../../../../actions/pelican/playlists/delete-playlist";
@@ -25,7 +19,12 @@ import {
 } from "../../../../hooks/use-drop-monitor";
 import { useToasts } from "../../../../hooks/use-toasts";
 import { BindingItem } from "./components/binding-item";
-import { PlaylistWidgetBinding, PlaylistWidgetInput } from "./types";
+import { EmptyNotice } from "./components/empty-notice";
+import {
+  PlaylistWidgetBinding,
+  PlaylistWidgetInput,
+  PlaylistWidgetMedia,
+} from "./types";
 import { findWithNeighbours, formatDisplayName, getRankBetween } from "./utils";
 
 export function PlaylistWidget({
@@ -97,6 +96,54 @@ export function PlaylistWidget({
     [_, refresh, toasts],
   );
 
+  const handleMediaMoveToBinding = useCallback(
+    async ({
+      edge,
+      source,
+      target,
+    }: UseDropMonitorDropData<PlaylistWidgetMedia, PlaylistWidgetBinding>) => {
+      const { item, next, previous } = findWithNeighbours(
+        playlist.bindings ?? [],
+        (binding) => binding.id === target.data.id,
+      );
+
+      if (!item) return;
+
+      const rank =
+        edge === "top"
+          ? getRankBetween(previous?.rank, item.rank)
+          : getRankBetween(item.rank, next?.rank);
+
+      const { error } = await createBinding({
+        media: source.data.id,
+        playlist: playlist.id,
+        rank: rank,
+      });
+
+      if (error) toasts.error(_(error));
+      else toasts.success(_(msg({ message: "Media added to playlist." })));
+
+      await refresh();
+    },
+    [_, playlist.id, playlist.bindings, refresh, toasts],
+  );
+
+  const handleMediaMoveToEmpty = useCallback(
+    async ({ source }: UseDropMonitorDropData<PlaylistWidgetMedia>) => {
+      const { error } = await createBinding({
+        media: source.data.id,
+        playlist: playlist.id,
+        rank: getRankBetween(undefined, undefined),
+      });
+
+      if (error) toasts.error(_(error));
+      else toasts.success(_(msg({ message: "Media added to playlist." })));
+
+      await refresh();
+    },
+    [_, playlist.id, refresh, toasts],
+  );
+
   const handlePlaylistDelete = useCallback(async () => {
     const { error: deleteError } = await deletePlaylist({ id: playlist.id });
 
@@ -115,6 +162,18 @@ export function PlaylistWidget({
     target: "binding",
   });
 
+  useDropMonitor({
+    onDrop: handleMediaMoveToBinding,
+    source: "media",
+    target: "binding",
+  });
+
+  useDropMonitor({
+    onDrop: handleMediaMoveToEmpty,
+    source: "media",
+    target: "playlist-empty",
+  });
+
   return (
     <Stack mah="100%" w="100%">
       <Center>
@@ -126,9 +185,7 @@ export function PlaylistWidget({
         </UnstyledButton>
       </Center>
       {(playlist.bindings?.length ?? 0) === 0 ? (
-        <Center>
-          <Text fw="bold">{_(msg({ message: "Playlist is empty." }))}</Text>
-        </Center>
+        <EmptyNotice />
       ) : (
         <List style={{ overflowY: "auto" }}>
           {playlist.bindings?.map((binding, index) => (
@@ -142,9 +199,6 @@ export function PlaylistWidget({
           ))}
         </List>
       )}
-      <Button component={Link} href={`/playlists/${playlist.id}/add`}>
-        {_(msg({ message: "Add media" }))}
-      </Button>
       <Button color="ra-red" onClick={handlePlaylistDelete}>
         {_(msg({ message: "Delete" }))}
       </Button>

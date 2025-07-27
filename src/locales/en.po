@@ -13,19 +13,6 @@ msgstr ""
 "Language-Team: \n"
 "Plural-Forms: \n"
 
-#: src/components/widgets/playlists/playlist-add-widget/components/playlist-add-form/main.tsx:62
-msgid "Add"
-msgstr "Add"
-
-#: src/components/widgets/playlists/playlist-widget/main.tsx:146
-msgid "Add media"
-msgstr "Add media"
-
-#: src/components/metadata/playlists/playlist/add/playlist-add-page-metadata/main.tsx:14
-#: src/app/(protected)/(library)/playlists/[id]/add/page.tsx:23
-msgid "Add media to playlist {id} • lotus"
-msgstr "Add media to playlist {id} • lotus"
-
 #: src/actions/pelican/bindings/create-binding/constants.ts:4
 msgid "An error occurred while creating the binding."
 msgstr "An error occurred while creating the binding."
@@ -106,7 +93,7 @@ msgstr "Content-Type header is missing."
 msgid "Create"
 msgstr "Create"
 
-#: src/components/widgets/playlists/playlist-widget/main.tsx:149
+#: src/components/widgets/playlists/playlist-widget/main.tsx:203
 msgid "Delete"
 msgstr "Delete"
 
@@ -164,7 +151,6 @@ msgstr "Logout"
 #: src/components/metadata/playlists/playlist/playlist-page-metadata/main.tsx:13
 #: src/components/metadata/playlists/playlist/playlist-not-found-metadata/main.tsx:13
 #: src/components/metadata/playlists/playlist/edit/edit-playlist-page-metadata/main.tsx:15
-#: src/components/metadata/playlists/playlist/add/playlist-add-page-metadata/main.tsx:13
 #: src/components/metadata/playlists/new/new-playlist-page-metadata/main.tsx:13
 #: src/components/metadata/auth/auth-error-page-metadata/main.tsx:13
 #: src/app/layout.tsx:21
@@ -174,28 +160,23 @@ msgstr "Logout"
 #: src/app/(protected)/(library)/playlists/new/page.tsx:18
 #: src/app/(protected)/(library)/playlists/[id]/page.tsx:22
 #: src/app/(protected)/(library)/playlists/[id]/edit/page.tsx:22
-#: src/app/(protected)/(library)/playlists/[id]/add/page.tsx:22
 msgid "lotus"
 msgstr "lotus"
 
-#: src/components/widgets/playlists/playlist-add-widget/components/playlist-add-form/main.tsx:52
 #: src/components/widgets/media/media-widget/components/media-list-widget/main.tsx:51
 msgid "Media"
 msgstr "Media"
 
-#: src/components/widgets/playlists/playlist-add-widget/main.tsx:49
-msgid "Media added to playlist successfully"
-msgstr "Media added to playlist successfully"
+#: src/components/widgets/playlists/playlist-widget/main.tsx:124
+#: src/components/widgets/playlists/playlist-widget/main.tsx:140
+msgid "Media added to playlist."
+msgstr "Media added to playlist."
 
 #: src/components/widgets/media/media-widget/components/media-list-widget/main.tsx:28
 msgid "Media deleted."
 msgstr "Media deleted."
 
-#: src/components/widgets/playlists/playlist-add-widget/main.tsx:59
-msgid "Media is required"
-msgstr "Media is required"
-
-#: src/components/widgets/playlists/playlist-widget/main.tsx:81
+#: src/components/widgets/playlists/playlist-widget/main.tsx:80
 msgid "Media moved successfully."
 msgstr "Media moved successfully."
 
@@ -206,7 +187,7 @@ msgstr "Media moved successfully."
 msgid "Media not found."
 msgstr "Media not found."
 
-#: src/components/widgets/playlists/playlist-widget/main.tsx:93
+#: src/components/widgets/playlists/playlist-widget/main.tsx:92
 msgid "Media removed from playlist."
 msgstr "Media removed from playlist."
 
@@ -262,7 +243,7 @@ msgstr "Playlist {id} • lotus"
 msgid "Playlist created successfully"
 msgstr "Playlist created successfully"
 
-#: src/components/widgets/playlists/playlist-widget/main.tsx:107
+#: src/components/widgets/playlists/playlist-widget/main.tsx:154
 msgid "Playlist deleted successfully"
 msgstr "Playlist deleted successfully"
 
@@ -270,7 +251,7 @@ msgstr "Playlist deleted successfully"
 msgid "Playlist deleted."
 msgstr "Playlist deleted."
 
-#: src/components/widgets/playlists/playlist-widget/main.tsx:130
+#: src/components/widgets/playlists/playlist-widget/components/empty-notice/main.tsx:23
 msgid "Playlist is empty."
 msgstr "Playlist is empty."
 
@@ -297,14 +278,6 @@ msgstr "Playlists"
 #: src/app/(protected)/(library)/playlists/page.tsx:19
 msgid "Playlists • lotus"
 msgstr "Playlists • lotus"
-
-#: src/components/widgets/playlists/playlist-add-widget/components/playlist-add-form/main.tsx:57
-msgid "Rank"
-msgstr "Rank"
-
-#: src/components/widgets/playlists/playlist-add-widget/main.tsx:61
-msgid "Rank is required"
-msgstr "Rank is required"
 
 #: src/components/views/root/root-error-view/main.tsx:22
 msgid "Retry"

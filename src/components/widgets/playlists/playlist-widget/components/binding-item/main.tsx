@@ -26,7 +26,10 @@ export function BindingItem({
     state: dragState,
   } = useDrag<HTMLDivElement>({ data: binding, type: "binding" });
 
-  const acceptDrop = useCallback((type: string) => type === "binding", []);
+  const acceptDrop = useCallback(
+    (type: string) => type === "binding" || type === "media",
+    [],
+  );
 
   const { ref: itemDropRef, state: dropState } = useDrop<HTMLDivElement>({
     accept: acceptDrop,
