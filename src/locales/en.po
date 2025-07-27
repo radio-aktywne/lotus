@@ -17,7 +17,7 @@ msgstr ""
 msgid "Add"
 msgstr "Add"
 
-#: src/components/widgets/playlists/playlist-widget/main.tsx:93
+#: src/components/widgets/playlists/playlist-widget/main.tsx:146
 msgid "Add media"
 msgstr "Add media"
 
@@ -106,7 +106,7 @@ msgstr "Content-Type header is missing."
 msgid "Create"
 msgstr "Create"
 
-#: src/components/widgets/playlists/playlist-widget/main.tsx:96
+#: src/components/widgets/playlists/playlist-widget/main.tsx:149
 msgid "Delete"
 msgstr "Delete"
 
@@ -195,6 +195,10 @@ msgstr "Media deleted."
 msgid "Media is required"
 msgstr "Media is required"
 
+#: src/components/widgets/playlists/playlist-widget/main.tsx:81
+msgid "Media moved successfully."
+msgstr "Media moved successfully."
+
 #: src/app/api/media/[id]/constants.ts:8
 #: src/app/api/media/[id]/constants.ts:22
 #: src/actions/pelican/media/update-media/constants.ts:6
@@ -202,7 +206,7 @@ msgstr "Media is required"
 msgid "Media not found."
 msgstr "Media not found."
 
-#: src/components/widgets/playlists/playlist-widget/main.tsx:47
+#: src/components/widgets/playlists/playlist-widget/main.tsx:93
 msgid "Media removed from playlist."
 msgstr "Media removed from playlist."
 
@@ -258,7 +262,7 @@ msgstr "Playlist {id} • lotus"
 msgid "Playlist created successfully"
 msgstr "Playlist created successfully"
 
-#: src/components/widgets/playlists/playlist-widget/main.tsx:61
+#: src/components/widgets/playlists/playlist-widget/main.tsx:107
 msgid "Playlist deleted successfully"
 msgstr "Playlist deleted successfully"
 
@@ -266,7 +270,7 @@ msgstr "Playlist deleted successfully"
 msgid "Playlist deleted."
 msgstr "Playlist deleted."
 
-#: src/components/widgets/playlists/playlist-widget/main.tsx:78
+#: src/components/widgets/playlists/playlist-widget/main.tsx:130
 msgid "Playlist is empty."
 msgstr "Playlist is empty."
 
