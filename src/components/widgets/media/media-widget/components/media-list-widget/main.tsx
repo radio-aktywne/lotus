@@ -3,7 +3,7 @@
 import { msg } from "@lingui/core/macro";
 import { useLingui } from "@lingui/react";
 import { Button, Center, Stack, Title } from "@mantine/core";
-import { List, ListItem } from "@radio-aktywne/ui";
+import { List } from "@radio-aktywne/ui";
 import { useCallback } from "react";
 
 import { deleteMedia } from "../../../../../../actions/pelican/media/delete-media";
@@ -51,14 +51,14 @@ export function MediaListWidget({
             <Title>{_(msg({ message: "Media" }))}</Title>
           </Center>
           <List style={{ overflowY: "auto" }}>
-            {media.media.map((m) => (
-              <ListItem key={m.id}>
-                <MediaItem
-                  media={m}
-                  onDelete={() => handleDelete(m)}
-                  onEdit={() => handleEdit(m)}
-                />
-              </ListItem>
+            {media.media.map((m, index) => (
+              <MediaItem
+                index={index}
+                key={m.id}
+                media={m}
+                onDelete={() => handleDelete(m)}
+                onEdit={() => handleEdit(m)}
+              />
             ))}
           </List>
         </>
