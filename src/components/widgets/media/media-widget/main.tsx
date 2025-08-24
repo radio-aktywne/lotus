@@ -15,27 +15,70 @@ export function MediaWidget({
   ...props
 }: MediaWidgetInput) {
   const [state, setState] = useState<MediaWidgetState>({ state: "display" });
+  const [page, setPage] = useState<number>();
+  const [query, setQuery] = useState<string>();
 
   const { _ } = useLingui();
   const toasts = useToasts();
 
-  const { data: currentMedia, error, refresh } = useListMedia(props);
-  const media = currentMedia ?? prefetchedMedia;
+  const {
+    data: currentMedia,
+    error,
+    refresh,
+  } = useListMedia({
+    ...props,
+    offset: page ? (page - 1) * props.limit : undefined,
+    where: JSON.stringify({
+      ...(props.where ? JSON.parse(props.where) : {}),
+      ...(query
+        ? {
+            name: {
+              contains: query,
+              mode: "insensitive",
+            },
+          }
+        : {}),
+    }),
+  });
+  const media = query ? currentMedia : (currentMedia ?? prefetchedMedia);
 
   useEffect(() => {
     if (error) toasts.warning(_(error));
   }, [_, error, toasts]);
 
-  const handleUploadSwitch = useCallback(() => {
-    setState({ state: "upload" });
-  }, []);
+  useEffect(() => {
+    if (media === undefined || page === undefined) return;
 
-  const handleDelete = useCallback(() => {
+    const pages = Math.ceil(media.count / props.limit);
+    if (page > pages) setPage(Math.max(1, pages));
+  }, [page, media, props.limit]);
+
+  const handleDisplayDelete = useCallback(() => {
     void refresh();
   }, [refresh]);
 
-  const handleEdit = useCallback((m: (typeof media)["media"][number]) => {
-    setState({ media: m, state: "edit" });
+  const handleDisplayEdit = useCallback(
+    (m: NonNullable<typeof media>["media"][number]) => {
+      setState({ media: m, state: "edit" });
+    },
+    [],
+  );
+
+  const handleDisplayPageChange = useCallback((page: number) => {
+    setPage(page);
+  }, []);
+
+  const handleDisplayQueryChange = useCallback((query: string) => {
+    setPage(1);
+    setQuery(query || undefined);
+  }, []);
+
+  const handleDisplayUpload = useCallback(() => {
+    setState({ state: "upload" });
+  }, []);
+
+  const handleEditCancel = useCallback(() => {
+    setState({ state: "display" });
   }, []);
 
   const handleEditSave = useCallback(() => {
@@ -43,18 +86,14 @@ export function MediaWidget({
     void refresh();
   }, [refresh]);
 
-  const handleEditCancel = useCallback(() => {
+  const handleUploadCancel = useCallback(() => {
     setState({ state: "display" });
   }, []);
 
-  const handleUpload = useCallback(() => {
+  const handleUploadUpload = useCallback(() => {
     setState({ state: "display" });
     void refresh();
   }, [refresh]);
-
-  const handleCancelUpload = useCallback(() => {
-    setState({ state: "display" });
-  }, []);
 
   return (() => {
     switch (state.state) {
@@ -62,9 +101,14 @@ export function MediaWidget({
         return (
           <MediaListWidget
             media={media}
-            onDelete={handleDelete}
-            onEdit={handleEdit}
-            onUpload={handleUploadSwitch}
+            onDelete={handleDisplayDelete}
+            onEdit={handleDisplayEdit}
+            onPageChange={handleDisplayPageChange}
+            onQueryChange={handleDisplayQueryChange}
+            onUpload={handleDisplayUpload}
+            page={page}
+            perPage={props.limit}
+            query={query}
           />
         );
       case "edit":
@@ -78,8 +122,8 @@ export function MediaWidget({
       case "upload":
         return (
           <UploadMediaWidget
-            onCancel={handleCancelUpload}
-            onUpload={handleUpload}
+            onCancel={handleUploadCancel}
+            onUpload={handleUploadUpload}
           />
         );
     }

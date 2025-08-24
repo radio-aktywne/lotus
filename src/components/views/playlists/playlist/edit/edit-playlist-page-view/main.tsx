@@ -8,10 +8,12 @@ import { EditPlaylistWidget } from "../../../../../widgets/playlists/edit-playli
 import { EditPlaylistPageViewInput } from "./types";
 
 export async function EditPlaylistPageView({ id }: EditPlaylistPageViewInput) {
-  try {
-    const { playlist } = await getPlaylist({ id: id });
+  const props = { id: id };
 
-    return <EditPlaylistWidget id={id} playlist={playlist} />;
+  try {
+    const { playlist } = await getPlaylist(props);
+
+    return <EditPlaylistWidget playlist={playlist} {...props} />;
   } catch (error) {
     if (error instanceof PlaylistNotFoundError) notFound();
     throw error;

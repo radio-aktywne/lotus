@@ -19,6 +19,10 @@ export function useListMedia({
 }: UseListMediaInput = {}): UseListMediaOutput {
   const [state, setState] = useState<UseListMediaState>({ loading: true });
 
+  useEffect(() => {
+    setState({ loading: true });
+  }, [include, limit, offset, order, where]);
+
   const refresh = useCallback(async () => {
     const { data, error } = await listMedia({
       include: include,

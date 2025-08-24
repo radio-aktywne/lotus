@@ -14,6 +14,7 @@ export function PlaylistItem({ onDelete, playlist }: PlaylistItemInput) {
         </Text>
       </UnstyledButton>
       <ActionIcon
+        bd="none"
         color="ra-red"
         onClick={onDelete}
         size="auto"

@@ -8,14 +8,17 @@ import { PlaylistWidget } from "../../../../widgets/playlists/playlist-widget";
 import { PlaylistPageViewInput } from "./types";
 
 export async function PlaylistPageView({ id }: PlaylistPageViewInput) {
-  const include = JSON.stringify({
-    bindings: { include: { media: true }, orderBy: { rank: "asc" } },
-  });
+  const props = {
+    id: id,
+    include: JSON.stringify({
+      bindings: { include: { media: true }, orderBy: { rank: "asc" } },
+    }),
+  };
 
   try {
-    const { playlist } = await getPlaylist({ id: id, include });
+    const { playlist } = await getPlaylist(props);
 
-    return <PlaylistWidget id={id} include={include} playlist={playlist} />;
+    return <PlaylistWidget playlist={playlist} {...props} />;
   } catch (error) {
     if (error instanceof PlaylistNotFoundError) notFound();
     throw error;

@@ -37,6 +37,7 @@ export function MediaItem({ index, media, onDelete, onEdit }: MediaItemInput) {
             </UnstyledButton>
           </Group>
           <ActionIcon
+            bd="none"
             component="a"
             download={formatFilename(media)}
             href={`/api/media/${media.id}`}
@@ -46,6 +47,7 @@ export function MediaItem({ index, media, onDelete, onEdit }: MediaItemInput) {
             <MdDownload size="1em" />
           </ActionIcon>
           <ActionIcon
+            bd="none"
             color="ra-red"
             onClick={onDelete}
             size="auto"

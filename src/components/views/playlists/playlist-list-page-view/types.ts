@@ -1,3 +1,4 @@
 export type PlaylistListPageViewInput = {
-  [key: string]: never;
+  page?: number;
+  query?: string;
 };

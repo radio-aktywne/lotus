@@ -1,9 +1,9 @@
 import { z } from "zod";
 
 export const inputSchema = z.object({
-  include: z.string().optional(),
-  limit: z.number().int().optional(),
-  offset: z.number().int().optional(),
-  order: z.string().optional(),
-  where: z.string().optional(),
+  include: z.string().nullable().optional(),
+  limit: z.number().nullable().optional(),
+  offset: z.number().nullable().optional(),
+  order: z.string().nullable().optional(),
+  where: z.string().nullable().optional(),
 });

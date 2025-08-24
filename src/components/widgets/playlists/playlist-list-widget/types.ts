@@ -4,5 +4,6 @@ import {
 } from "../../../../lib/pelican/playlists/list-playlists";
 
 export type PlaylistListWidgetInput = {
+  limit: NonNullable<ListPlaylistsInput["limit"]>;
   playlists: ListPlaylistsOutput["playlists"];
-} & ListPlaylistsInput;
+} & Omit<ListPlaylistsInput, "limit">;

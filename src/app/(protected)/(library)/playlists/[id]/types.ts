@@ -2,7 +2,7 @@ export type PlaylistNotFoundInput = {
   [key: string]: never;
 };
 
-type PlaylistPageParams = {
+export type PlaylistPageParams = {
   id: string;
 };
 

@@ -4,8 +4,9 @@ import {
 } from "../../../../lib/pelican/media/list-media";
 
 export type MediaWidgetInput = {
+  limit: NonNullable<ListMediaInput["limit"]>;
   media: ListMediaOutput["media"];
-} & ListMediaInput;
+} & Omit<ListMediaInput, "limit">;
 
 export type MediaWidgetDisplayState = {
   state: "display";
