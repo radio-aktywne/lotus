@@ -72,6 +72,7 @@ export function BindingItem({
             </Text>
           </Group>
           <ActionIcon
+            bd="none"
             component="a"
             disabled={dragState.dragging}
             download={formatFilename(binding)}
@@ -82,6 +83,7 @@ export function BindingItem({
             <MdDownload size="1em" />
           </ActionIcon>
           <ActionIcon
+            bd="none"
             color="ra-red"
             disabled={dragState.dragging}
             onClick={onRemove}

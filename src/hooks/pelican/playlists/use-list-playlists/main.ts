@@ -19,6 +19,10 @@ export function useListPlaylists({
 }: UseListPlaylistsInput = {}): UseListPlaylistsOutput {
   const [state, setState] = useState<UseListPlaylistsState>({ loading: true });
 
+  useEffect(() => {
+    setState({ loading: true });
+  }, [include, limit, offset, order, where]);
+
   const refresh = useCallback(async () => {
     const { data, error } = await listPlaylists({
       include: include,

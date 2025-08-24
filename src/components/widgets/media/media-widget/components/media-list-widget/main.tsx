@@ -2,12 +2,13 @@
 
 import { msg } from "@lingui/core/macro";
 import { useLingui } from "@lingui/react";
-import { Button, Center, Stack, Title } from "@mantine/core";
+import { Button, Center, Loader, Stack, Text, Title } from "@mantine/core";
 import { List } from "@radio-aktywne/ui";
 import { useCallback } from "react";
 
 import { deleteMedia } from "../../../../../../actions/pelican/media/delete-media";
 import { useToasts } from "../../../../../../hooks/use-toasts";
+import { Controls } from "./components/controls";
 import { MediaItem } from "./components/media-item";
 import { MediaListWidgetInput } from "./types";
 
@@ -15,13 +16,18 @@ export function MediaListWidget({
   media,
   onDelete,
   onEdit,
+  onPageChange,
+  onQueryChange,
   onUpload,
+  page,
+  perPage,
+  query,
 }: MediaListWidgetInput) {
   const { _ } = useLingui();
   const toasts = useToasts();
 
   const handleDelete = useCallback(
-    async (m: (typeof media)["media"][number]) => {
+    async (m: NonNullable<typeof media>["media"][number]) => {
       const { error } = await deleteMedia({ id: m.id });
 
       if (error) toasts.error(_(error));
@@ -33,7 +39,7 @@ export function MediaListWidget({
   );
 
   const handleEdit = useCallback(
-    (m: (typeof media)["media"][number]) => {
+    (m: NonNullable<typeof media>["media"][number]) => {
       onEdit?.(m);
     },
     [onEdit],
@@ -41,27 +47,36 @@ export function MediaListWidget({
 
   return (
     <Stack mah="100%" w="100%">
-      {media.count === 0 ? (
-        <Center>
-          <Title>{_(msg({ message: "No media." }))}</Title>
+      <Center>
+        <Title>{_(msg({ message: "Media" }))}</Title>
+      </Center>
+      <Controls
+        onPageChange={onPageChange}
+        onQueryChange={onQueryChange}
+        page={page}
+        pages={media ? Math.ceil(media.count / perPage) : 0}
+        query={query}
+      />
+      {media === undefined ? (
+        <Center py="sm">
+          <Loader size="calc(var(--mantine-line-height-xs) * var(--mantine-font-size-xs))" />
+        </Center>
+      ) : media.count === 0 ? (
+        <Center py="sm">
+          <Text size="xs">{_(msg({ message: "No media" }))}</Text>
         </Center>
       ) : (
-        <>
-          <Center>
-            <Title>{_(msg({ message: "Media" }))}</Title>
-          </Center>
-          <List style={{ overflowY: "auto" }}>
-            {media.media.map((m, index) => (
-              <MediaItem
-                index={index}
-                key={m.id}
-                media={m}
-                onDelete={() => handleDelete(m)}
-                onEdit={() => handleEdit(m)}
-              />
-            ))}
-          </List>
-        </>
+        <List style={{ overflowY: "auto" }}>
+          {media.media.map((m, index) => (
+            <MediaItem
+              index={index}
+              key={m.id}
+              media={m}
+              onDelete={() => handleDelete(m)}
+              onEdit={() => handleEdit(m)}
+            />
+          ))}
+        </List>
       )}
       <Button onClick={onUpload}>{_(msg({ message: "Upload" }))}</Button>
     </Stack>

@@ -2,7 +2,7 @@ import { components } from "../../../../services/pelican";
 
 export type GetPlaylistInput = {
   id: string;
-  include?: string;
+  include?: null | string;
 };
 
 export type GetPlaylistOutput = {

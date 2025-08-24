@@ -25,7 +25,7 @@ export async function generateMetadata({
 }
 
 export default function PlaylistPage({ params }: PlaylistPageInput) {
-  const id = params.id;
+  const { id } = params;
 
   return (
     <>

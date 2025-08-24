@@ -16,6 +16,10 @@ export function useGetPlaylist({
 }: UseGetPlaylistInput): UseGetPlaylistOutput {
   const [state, setState] = useState<UseGetPlaylistState>({ loading: true });
 
+  useEffect(() => {
+    setState({ loading: true });
+  }, [id, include]);
+
   const refresh = useCallback(async () => {
     const { data, error } = await getPlaylist({ id: id, include: include });
     if (error) setState({ error: error, loading: false });

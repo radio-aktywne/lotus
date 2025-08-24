@@ -1,3 +1,8 @@
+export type PlaylistListPageSearchParams = {
+  page?: string;
+  query?: string;
+};
+
 export type PlaylistListPageInput = {
-  [key: string]: never;
+  searchParams: PlaylistListPageSearchParams;
 };
