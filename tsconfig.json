@@ -1,31 +1,24 @@
 {
   "$schema": "https://json.schemastore.org/tsconfig",
   "compilerOptions": {
-    "allowImportingTsExtensions": true,
-    "allowJs": true,
-    "composite": true,
-    "esModuleInterop": true,
-    "incremental": true,
-    "isolatedModules": true,
-    "jsx": "preserve",
-    "lib": ["DOM", "DOM.Iterable", "ESNext"],
-    "module": "esnext",
-    "moduleResolution": "bundler",
-    "noEmit": true,
     "noUncheckedIndexedAccess": true,
-    "noUnusedLocals": true,
-    "plugins": [
-      {
-        "name": "next"
-      }
-    ],
-    "preserveWatchOutput": true,
-    "removeComments": true,
-    "resolveJsonModule": true,
-    "skipLibCheck": true,
-    "strict": true,
-    "target": "esnext"
+    "noUnusedLocals": true
   },
-  "exclude": ["node_modules/**/*"],
-  "include": ["next-env.d.ts", "build/types/**/*.ts", "src/**/*"]
+  "extends": [
+    "@tsconfig/bases/recommended",
+    "@tsconfig/bases/node22",
+    "@tsconfig/bases/next"
+  ],
+  "include": [
+    "next-env.d.ts",
+    "build/types/**/*.ts",
+    "src/**/*.js",
+    "src/**/*.cjs",
+    "src/**/*.mjs",
+    "src/**/*.jsx",
+    "src/**/*.ts",
+    "src/**/*.cts",
+    "src/**/*.mts",
+    "src/**/*.tsx"
+  ]
 }

@@ -17,10 +17,14 @@
 /build/
 
 # Debug
-npm-debug.log*
+*.log
 
 # Typescript
 *.tsbuildinfo
 
 # Next.js
 next-env.d.ts
+
+# Environment variables
+/.env
+/.env.*

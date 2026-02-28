@@ -1,0 +1,1 @@
+export { bindings } from "./main";

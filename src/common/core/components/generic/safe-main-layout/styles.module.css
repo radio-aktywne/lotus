@@ -1,0 +1,16 @@
+.outer {
+  height: 100%;
+  margin-inline: auto;
+  max-width: 720px;
+  padding-inline: 1rem;
+}
+
+.inner {
+  align-items: safe center;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: safe center;
+  overflow: auto;
+  width: 100%;
+}

@@ -1,0 +1,41 @@
+openapi: "3.1.2"
+info:
+  title: icanhazdadjoke
+  version: "1"
+paths:
+  /:
+    get:
+      summary: Get a random joke
+      operationId: getRandomJoke
+      responses:
+        "200":
+          description: Successful response with a random joke
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/GetRandomJokeSuccessResponsePayload"
+components:
+  schemas:
+    GetRandomJokeSuccessResponsePayload:
+      description: Success response payload for getting a random joke
+      type: object
+      properties:
+        id:
+          description: Unique identifier of the joke
+          type: string
+          example: R7UfaahVfFd
+        joke:
+          description: The text of the joke
+          type: string
+          example: >-
+            My dog used to chase people on a bike a lot.
+            It got so bad I had to take his bike away.
+        status:
+          description: Status code of the response
+          type: integer
+          const: 200
+          example: 200
+      required:
+        - id
+        - joke
+        - status

@@ -1,104 +1,66 @@
-import { NextRequest, NextResponse } from "next/server";
+import type { NextRequest } from "next/server";
 
-import { getSession } from "../../../../lib/auth/get-session";
-import {
-  downloadMediaContent,
-  MediaNotFoundError as DownloadMediaNotFoundError,
-} from "../../../../lib/pelican/media/content/download-media-content";
-import {
-  uploadMediaContent,
-  MediaNotFoundError as UploadMediaNotFoundError,
-} from "../../../../lib/pelican/media/content/upload-media-content";
-import { errors } from "./constants";
-import { RouteContext } from "./types";
+import { STATUS_CODES } from "http";
+import { connection } from "next/server";
 
-export const dynamic = "force-dynamic";
+import type { RouteInput } from "../../../types";
+import type { Keys } from "./types";
+
+import { state } from "../../../../server/state/vars/state";
+import { Schemas } from "./schemas";
 
 export async function GET(
   request: NextRequest,
-  context: RouteContext,
-): Promise<NextResponse> {
-  try {
-    const { session } = await getSession();
-    if (!session)
-      return NextResponse.json(
-        { error: errors.download.unauthorized },
-        { status: 401, statusText: "Unauthorized" },
-      );
+  { params }: RouteInput<Keys.Path>,
+) {
+  await connection();
 
-    const { id } = context.params;
+  const pathParameters = await Schemas.Path.parseAsync(await params);
 
-    const { data, etag, length, modified, type } = await downloadMediaContent({
-      id: id,
+  const { response: mediaIdContentDownloadResponse } =
+    await state.current.apis.pelican.mediaIdContentDownload({
+      path: { id: pathParameters.id },
     });
 
-    const headers = {
-      "Content-Length": length.toString(),
-      "Content-Type": type,
-      ETag: etag,
-      "Last-Modified": modified,
-    };
+  if (mediaIdContentDownloadResponse.status === 404)
+    return new Response(STATUS_CODES[404], { status: 404 });
 
-    return new NextResponse(data, {
-      headers: headers,
-      status: 200,
-      statusText: "OK",
-    });
-  } catch (error) {
-    if (error instanceof DownloadMediaNotFoundError) {
-      return NextResponse.json(
-        { error: errors.download.notFound },
-        { status: 404, statusText: "Not Found" },
-      );
-    }
-
-    return NextResponse.json(
-      { error: errors.download.generic },
-      { status: 500, statusText: "Internal Server Error" },
-    );
-  }
+  return new Response(mediaIdContentDownloadResponse.body, {
+    headers: {
+      "Content-Length":
+        mediaIdContentDownloadResponse.headers.get("Content-Length")!,
+      "Content-Type":
+        mediaIdContentDownloadResponse.headers.get("Content-Type")!,
+      ETag: mediaIdContentDownloadResponse.headers.get("ETag")!,
+      "Last-Modified":
+        mediaIdContentDownloadResponse.headers.get("Last-Modified")!,
+    },
+    status: 200,
+  });
 }
 
 export async function PUT(
   request: NextRequest,
-  context: RouteContext,
-): Promise<NextResponse> {
-  try {
-    const { session } = await getSession();
-    if (!session)
-      return NextResponse.json(
-        { error: errors.upload.unauthorized },
-        { status: 401, statusText: "Unauthorized" },
-      );
+  { params }: RouteInput<Keys.Path>,
+) {
+  await connection();
 
-    const { id } = context.params;
+  const pathParameters = await Schemas.Path.parseAsync(await params);
 
-    const type = request.headers.get("Content-Type");
+  const contentType = request.headers.get("Content-Type");
 
-    if (!type)
-      return NextResponse.json(
-        { error: errors.upload.missingContentType },
-        { status: 400, statusText: "Bad Request" },
-      );
+  if (!request.body || !contentType)
+    return new Response(STATUS_CODES[400], { status: 400 });
 
-    await uploadMediaContent({
-      data: request.body!,
-      id: id,
-      type: type,
+  const { response: mediaIdContentUploadResponse } =
+    await state.current.apis.pelican.mediaIdContentUpload({
+      body: request.body,
+      headers: { "Content-Type": contentType },
+      path: { id: pathParameters.id },
     });
 
-    return new NextResponse(null, { status: 204, statusText: "No Content" });
-  } catch (error) {
-    if (error instanceof UploadMediaNotFoundError) {
-      return NextResponse.json(
-        { error: errors.upload.notFound },
-        { status: 404, statusText: "Not Found" },
-      );
-    }
+  if (mediaIdContentUploadResponse.status === 404)
+    return new Response(STATUS_CODES[404], { status: 404 });
 
-    return NextResponse.json(
-      { error: errors.upload.generic },
-      { status: 500, statusText: "Internal Server Error" },
-    );
-  }
+  return new Response(null, { status: 204 });
 }

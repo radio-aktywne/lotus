@@ -15,7 +15,8 @@ Broadcast playlists app 💽
 
 ## 💡 About
 
-`lotus` is a web app for managing playlists of songs.
+`lotus` is a [`Next.js`](https://nextjs.org) app
+for managing playlists of songs.
 
 ## 📄 Further Reading
 
