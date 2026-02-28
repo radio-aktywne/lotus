@@ -14,7 +14,7 @@
 /build/
 
 # Debug
-npm-debug.log*
+*.log
 
 # Typescript
 *.tsbuildinfo
@@ -37,6 +37,9 @@ next-env.d.ts
 /CONTRIBUTING.md
 /docker-compose.yaml
 /Dockerfile
+/eslint.config.mjs
 /LICENSE
+/openapi-ts.config.mts
 /README.md
+/stylelint.config.mjs
 /Taskfile.dist.yaml

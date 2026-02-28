@@ -1,5 +1,5 @@
 # Use generic base image with Nix installed
-FROM nixos/nix:2.26.2 AS base-env
+FROM nixos/nix:2.28.5 AS base-env
 
 # Configure Nix
 RUN echo "extra-experimental-features = nix-command flakes" >> /etc/nix/nix.conf
@@ -54,17 +54,15 @@ SHELL ["/build/scripts/shell.sh"]
 COPY package.json package-lock.json ./
 
 # Install dependencies
-# hadolint ignore=SC2239
 RUN npm ci
 
 # Copy everything else
 COPY ./ ./
 
 # Build and keep only runtime dependencies
-# hadolint ignore=SC2239
-RUN npm run build && npm prune --production
+RUN npm exec -- next build --webpack && npm prune --production
 
-# Ubuntu is probably the safest choice for a runtime container right now
+# Use ubuntu for runtime
 FROM ubuntu:24.04 AS runtime
 
 # Use bash as default shell
@@ -93,7 +91,7 @@ COPY --from=build /build/public/ public/
 # Copy package files
 COPY --from=build /build/package.json /build/package-lock.json ./
 # Copy Next.js config
-COPY --from=build /build/next.config.mjs ./
+COPY --from=build /build/next.config.ts ./
 
 # Setup main entrypoint
 COPY scripts/entrypoint.sh scripts/entrypoint.sh

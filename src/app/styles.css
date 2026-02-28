@@ -1,0 +1,34 @@
+:root,
+:host {
+  color-scheme: light dark;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+button,
+select {
+  text-transform: none;
+}
+
+html {
+  height: 100dvh;
+}
+
+body {
+  font-family: sans-serif;
+  font-size: 1rem;
+  height: 100%;
+  line-height: 1.55;
+  margin: 0;
+}

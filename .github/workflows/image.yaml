@@ -19,7 +19,7 @@ name: Image
       - flake.lock
       - "*.nix"
       - lingui.config.ts
-      - next.config.mjs
+      - next.config.ts
       - package-lock.json
       - package.json
       - postcss.config.mjs
@@ -39,7 +39,7 @@ name: Image
       - flake.lock
       - "*.nix"
       - lingui.config.ts
-      - next.config.mjs
+      - next.config.ts
       - package-lock.json
       - package.json
       - postcss.config.mjs
@@ -57,11 +57,11 @@ jobs:
       contents: read
     steps:
       - name: Checkout code
-        uses: actions/checkout@v4.2.2
+        uses: actions/checkout@v5.0.0
       - name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@v3.9.0
+        uses: docker/setup-buildx-action@v3.11.1
       - name: Build Docker image
-        uses: docker/build-push-action@v6.14.0
+        uses: docker/build-push-action@v6.18.0
         with:
           context: ./
           # Don't save image

@@ -129,7 +129,13 @@ task update
 
 ## ▶️ Running
 
-To run the app, you can use the following command:
+You can use the following command to run the app in development mode:
+
+```sh
+task dev
+```
+
+and the following command to run the app in production mode:
 
 ```sh
 task run
@@ -145,7 +151,7 @@ To do this, just run the following command:
 task docker
 ```
 
-This will build a `Docker` image and run the app in a container.
+This will build a `Docker` image and run the app in production mode in a container.
 
 ## 📦 Releases
 

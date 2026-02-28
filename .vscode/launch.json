@@ -1,12 +1,20 @@
 {
-  "version": "0.2.0",
   "configurations": [
     {
-      "name": "run",
-      "type": "node",
+      "name": "lotus",
+      "outputCapture": "std",
       "request": "launch",
-      "runtimeExecutable": "task",
-      "runtimeArgs": ["dev"]
+      "runtimeArgs": ["run", "dev", "--", "--inspect"],
+      "runtimeExecutable": "npm",
+      "serverReadyAction": {
+        "action": "debugWithChrome",
+        "killOnServerStop": true,
+        "pattern": "Local:\\s+(\\S+)",
+        "uriFormat": "%s",
+        "webRoot": "${workspaceFolder}"
+      },
+      "type": "node"
     }
-  ]
+  ],
+  "version": "0.2.0"
 }

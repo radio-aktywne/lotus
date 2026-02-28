@@ -1,0 +1,1 @@
+export { orpcContractRouter } from "./main";

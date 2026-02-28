@@ -1,0 +1,296 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: lotus\n"
+"Language: en\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"MIME-Version: 1.0\n"
+"X-Generator: @lingui/cli\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Plural-Forms: \n"
+
+#: src/app/(root)/(playlists)/(master)/(detail)/playlists/[id]/edit/page.tsx:40
+#: src/app/(root)/(playlists)/(master)/(detail)/playlists/[id]/page.tsx:40
+msgid "{playlistName} • lotus"
+msgstr "{playlistName} • lotus"
+
+#: src/client/core/components/edit-playlist-widget/main.tsx:85
+#: src/client/core/components/list-playlists-widget/main.tsx:95
+#: src/client/core/components/media-widget/main.tsx:107
+#: src/client/core/components/media-widget/main.tsx:215
+#: src/client/core/components/media-widget/main.tsx:273
+#: src/client/core/components/media-widget/main.tsx:295
+#: src/client/core/components/new-playlist-widget/main.tsx:75
+#: src/client/core/components/playlist-widget/components/move-monitor/main.tsx:79
+#: src/client/core/components/playlist-widget/components/move-monitor/main.tsx:134
+#: src/client/core/components/playlist-widget/components/move-monitor/main.tsx:174
+#: src/client/core/components/playlist-widget/main.tsx:79
+#: src/client/core/components/playlist-widget/main.tsx:108
+#: src/client/test/components/test-widget/main.tsx:52
+msgid "An unexpected error occurred"
+msgstr "An unexpected error occurred"
+
+#: src/client/core/components/edit-playlist-widget/main.tsx:124
+#: src/client/core/components/media-widget/components/edit-media-widget/main.tsx:65
+#: src/client/core/components/media-widget/components/upload-media-widget/main.tsx:67
+#: src/client/core/components/new-playlist-widget/main.tsx:113
+#: src/client/core/components/playlist-widget/main.tsx:179
+msgid "Back"
+msgstr "Back"
+
+#: src/client/core/components/edit-playlist-widget/main.tsx:77
+#: src/client/core/components/media-widget/main.tsx:207
+#: src/client/core/components/media-widget/main.tsx:265
+#: src/client/core/components/new-playlist-widget/main.tsx:67
+msgid "Conflicting input"
+msgstr "Conflicting input"
+
+#: src/client/core/components/list-playlists-widget/main.tsx:209
+#: src/client/core/components/new-playlist-widget/components/create-playlist-form/main.tsx:41
+msgid "Create"
+msgstr "Create"
+
+#: src/client/core/components/new-playlist-widget/main.tsx:98
+msgid "Create playlist"
+msgstr "Create playlist"
+
+#: src/app/(root)/(playlists)/(master)/(detail)/playlists/new/page.tsx:20
+msgid "Create playlist • lotus"
+msgstr "Create playlist • lotus"
+
+#: src/client/core/components/playlist-widget/main.tsx:170
+msgid "Delete"
+msgstr "Delete"
+
+#: src/client/core/components/playlist-widget/main.tsx:163
+msgid "Edit"
+msgstr "Edit"
+
+#: src/client/core/components/media-widget/components/edit-media-widget/main.tsx:51
+msgid "Edit media"
+msgstr "Edit media"
+
+#: src/client/core/components/edit-playlist-widget/main.tsx:109
+msgid "Edit playlist"
+msgstr "Edit playlist"
+
+#: src/client/core/components/media-widget/components/edit-media-widget/components/edit-media-form/main.tsx:30
+#: src/client/core/components/media-widget/components/upload-media-widget/components/upload-media-form/main.tsx:30
+msgid "Enter media name"
+msgstr "Enter media name"
+
+#: src/client/core/components/edit-playlist-widget/components/edit-playlist-form/main.tsx:30
+#: src/client/core/components/new-playlist-widget/components/create-playlist-form/main.tsx:30
+msgid "Enter playlist name"
+msgstr "Enter playlist name"
+
+#: src/client/test/components/test-widget/components/test-form/main.tsx:25
+msgid "Enter some value"
+msgstr "Enter some value"
+
+#: src/isomorphic/notifications/hooks/use-notifications/main.ts:46
+msgid "Error"
+msgstr "Error"
+
+#: src/app/(root)/(main)/error.tsx:11
+#: src/app/(root)/(playlists)/(master)/(detail)/error.tsx:11
+#: src/app/(root)/(playlists)/error.tsx:11
+msgid "Error • lotus"
+msgstr "Error • lotus"
+
+#: src/client/core/components/playlist-widget/components/move-monitor/main.tsx:125
+#: src/client/core/components/playlist-widget/components/move-monitor/main.tsx:165
+msgid "Failed to add media to playlist, try again"
+msgstr "Failed to add media to playlist, try again"
+
+#: src/client/core/components/playlist-widget/components/move-monitor/main.tsx:70
+msgid "Failed to change media position, try again"
+msgstr "Failed to change media position, try again"
+
+#: src/client/core/components/media-widget/components/upload-media-widget/components/upload-media-form/main.tsx:37
+msgid "File"
+msgstr "File"
+
+#: src/client/core/components/media-widget/main.tsx:238
+msgid "File is required"
+msgstr "File is required"
+
+#: src/isomorphic/notifications/hooks/use-notifications/main.ts:56
+msgid "Info"
+msgstr "Info"
+
+#: src/client/core/components/media-widget/main.tsx:291
+msgid "Invalid file"
+msgstr "Invalid file"
+
+#: src/client/core/components/edit-playlist-widget/main.tsx:65
+#: src/client/core/components/edit-playlist-widget/main.tsx:103
+#: src/client/core/components/media-widget/components/edit-media-widget/main.tsx:45
+#: src/client/core/components/media-widget/components/upload-media-widget/main.tsx:47
+#: src/client/core/components/media-widget/main.tsx:186
+#: src/client/core/components/media-widget/main.tsx:237
+#: src/client/core/components/media-widget/main.tsx:252
+#: src/client/core/components/media-widget/main.tsx:290
+#: src/client/core/components/new-playlist-widget/main.tsx:55
+#: src/client/core/components/new-playlist-widget/main.tsx:92
+#: src/client/test/components/test-widget/main.tsx:41
+#: src/client/test/components/test-widget/main.tsx:62
+msgid "Invalid input"
+msgstr "Invalid input"
+
+#: src/app/(root)/layout.tsx:39
+msgid "lotus"
+msgstr "lotus"
+
+#: src/app/(root)/layout.tsx:33
+msgid "lotus is a Next.js app"
+msgstr "lotus is a Next.js app"
+
+#: src/client/core/components/media-widget/components/display-media-widget/main.tsx:41
+msgid "Media"
+msgstr "Media"
+
+#: src/client/core/components/playlist-widget/components/move-monitor/main.tsx:140
+#: src/client/core/components/playlist-widget/components/move-monitor/main.tsx:180
+msgid "Media added to playlist"
+msgstr "Media added to playlist"
+
+#: src/client/core/components/media-widget/main.tsx:101
+msgid "Media already deleted"
+msgstr "Media already deleted"
+
+#: src/client/core/components/playlist-widget/main.tsx:102
+msgid "Media already removed"
+msgstr "Media already removed"
+
+#: src/client/core/components/media-widget/main.tsx:112
+msgid "Media deleted"
+msgstr "Media deleted"
+
+#: src/client/core/components/media-widget/main.tsx:198
+msgid "Media no longer exists"
+msgstr "Media no longer exists"
+
+#: src/client/core/components/playlist-widget/components/move-monitor/main.tsx:85
+msgid "Media position changed"
+msgstr "Media position changed"
+
+#: src/client/core/components/playlist-widget/main.tsx:113
+msgid "Media removed"
+msgstr "Media removed"
+
+#: src/client/core/components/media-widget/main.tsx:178
+msgid "Media updated"
+msgstr "Media updated"
+
+#: src/client/core/components/media-widget/main.tsx:300
+msgid "Media uploaded"
+msgstr "Media uploaded"
+
+#: src/client/core/components/edit-playlist-widget/components/edit-playlist-form/main.tsx:28
+#: src/client/core/components/media-widget/components/edit-media-widget/components/edit-media-form/main.tsx:28
+#: src/client/core/components/media-widget/components/upload-media-widget/components/upload-media-form/main.tsx:28
+#: src/client/core/components/new-playlist-widget/components/create-playlist-form/main.tsx:28
+msgid "Name"
+msgstr "Name"
+
+#: src/client/core/components/media-widget/components/display-media-widget/main.tsx:52
+#: src/client/core/components/playlist-widget/components/empty-notice/main.tsx:35
+msgid "No media"
+msgstr "No media"
+
+#: src/client/core/components/list-playlists-widget/main.tsx:190
+msgid "No playlists"
+msgstr "No playlists"
+
+#: src/app/(root)/(main)/not-found.tsx:15
+#: src/app/(root)/(playlists)/(master)/(detail)/not-found.tsx:15
+msgid "Not Found • lotus"
+msgstr "Not Found • lotus"
+
+#: src/app/(root)/(main)/not-found.view.tsx:8
+#: src/app/(root)/(playlists)/(master)/(detail)/not-found.view.tsx:8
+msgid "Page not found"
+msgstr "Page not found"
+
+#: src/client/core/components/list-playlists-widget/main.tsx:89
+#: src/client/core/components/playlist-widget/main.tsx:71
+msgid "Playlist already deleted"
+msgstr "Playlist already deleted"
+
+#: src/client/core/components/new-playlist-widget/main.tsx:46
+msgid "Playlist created"
+msgstr "Playlist created"
+
+#: src/client/core/components/list-playlists-widget/main.tsx:100
+#: src/client/core/components/playlist-widget/main.tsx:84
+msgid "Playlist deleted"
+msgstr "Playlist deleted"
+
+#: src/client/core/components/edit-playlist-widget/main.tsx:56
+msgid "Playlist updated"
+msgstr "Playlist updated"
+
+#: src/client/core/components/list-playlists-widget/main.tsx:179
+msgid "Playlists"
+msgstr "Playlists"
+
+#: src/app/(root)/(playlists)/(master)/(detail)/playlists/page.tsx:20
+msgid "Playlists • lotus"
+msgstr "Playlists • lotus"
+
+#: src/isomorphic/core/components/generic/error-widget/main.tsx:21
+msgid "Retry"
+msgstr "Retry"
+
+#: src/client/core/components/edit-playlist-widget/components/edit-playlist-form/main.tsx:41
+#: src/client/core/components/media-widget/components/edit-media-widget/components/edit-media-form/main.tsx:41
+msgid "Save"
+msgstr "Save"
+
+#: src/client/core/components/media-widget/components/display-media-widget/components/controls/main.tsx:30
+msgid "Search media"
+msgstr "Search media"
+
+#: src/client/core/components/list-playlists-widget/components/controls/main.tsx:31
+msgid "Search playlists"
+msgstr "Search playlists"
+
+#: src/client/core/components/media-widget/components/upload-media-widget/components/upload-media-form/main.tsx:39
+msgid "Select media file"
+msgstr "Select media file"
+
+#: src/app/(root)/(main)/error.view.tsx:10
+#: src/app/(root)/(playlists)/(master)/(detail)/error.view.tsx:10
+#: src/app/(root)/(playlists)/error.view.tsx:12
+msgid "Something went wrong"
+msgstr "Something went wrong"
+
+#: src/client/test/components/test-widget/components/test-form/main.tsx:30
+msgid "Submit"
+msgstr "Submit"
+
+#: src/isomorphic/notifications/hooks/use-notifications/main.ts:66
+msgid "Success"
+msgstr "Success"
+
+#: src/client/core/components/media-widget/components/display-media-widget/main.tsx:68
+#: src/client/core/components/media-widget/components/upload-media-widget/components/upload-media-form/main.tsx:50
+msgid "Upload"
+msgstr "Upload"
+
+#: src/client/core/components/media-widget/components/upload-media-widget/main.tsx:53
+msgid "Upload media"
+msgstr "Upload media"
+
+#: src/isomorphic/notifications/hooks/use-notifications/main.ts:76
+msgid "Warning"
+msgstr "Warning"
+
+#: src/server/orpc/vars/procedures/vars/test/vars/validate/main.ts:27
+msgid "Why did the chicken cross the road? To get to the other side."
+msgstr "Why did the chicken cross the road? To get to the other side."
