@@ -1,11 +1,13 @@
 import "client-only";
 
+export type NowState = {
+  counter: number;
+  timer: number;
+  timestamp: number;
+};
+
 export type State = {
-  now?: {
-    counter: number;
-    timer: number;
-    timestamp: number;
-  };
+  now?: NowState;
 };
 
 export type StateSubscribeCallback = (state: State) => void;

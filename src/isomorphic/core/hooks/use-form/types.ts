@@ -43,6 +43,13 @@ export type UseFormOnSubmit<SchemaType extends ZodObject> =
     ) => Promise<UseFormSubmitOutput<SchemaType>>)
   | undefined;
 
+export type UseFormOnValuesChange<SchemaType extends ZodObject> =
+  | ((
+      current: UseFormValues<SchemaType>,
+      previous: UseFormValues<SchemaType>,
+    ) => void)
+  | undefined;
+
 export type UseFormSchema<SchemaType extends ZodObject> = SchemaType;
 
 export type UseFormForm<SchemaType extends ZodObject> =
@@ -62,6 +69,7 @@ export type UseFormInput<SchemaType extends ZodObject> = {
   initialValues: UseFormInitialValues<SchemaType>;
   onError?: UseFormOnError;
   onSubmit?: UseFormOnSubmit<SchemaType>;
+  onValuesChange?: UseFormOnValuesChange<SchemaType>;
   schema: UseFormSchema<SchemaType>;
 };
 

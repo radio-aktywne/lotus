@@ -18,13 +18,13 @@ msgstr ""
 msgid "{playlistName} • lotus"
 msgstr "{playlistName} • lotus"
 
-#: src/client/core/components/edit-playlist-widget/main.tsx:85
+#: src/client/core/components/edit-playlist-widget/main.tsx:87
 #: src/client/core/components/list-playlists-widget/main.tsx:95
 #: src/client/core/components/media-widget/main.tsx:107
 #: src/client/core/components/media-widget/main.tsx:215
 #: src/client/core/components/media-widget/main.tsx:273
 #: src/client/core/components/media-widget/main.tsx:295
-#: src/client/core/components/new-playlist-widget/main.tsx:75
+#: src/client/core/components/new-playlist-widget/main.tsx:77
 #: src/client/core/components/playlist-widget/components/move-monitor/main.tsx:79
 #: src/client/core/components/playlist-widget/components/move-monitor/main.tsx:134
 #: src/client/core/components/playlist-widget/components/move-monitor/main.tsx:174
@@ -34,18 +34,22 @@ msgstr "{playlistName} • lotus"
 msgid "An unexpected error occurred"
 msgstr "Wystąpił nieoczekiwany błąd"
 
-#: src/client/core/components/edit-playlist-widget/main.tsx:124
+#: src/client/core/components/edit-playlist-widget/main.tsx:127
 #: src/client/core/components/media-widget/components/edit-media-widget/main.tsx:65
 #: src/client/core/components/media-widget/components/upload-media-widget/main.tsx:67
-#: src/client/core/components/new-playlist-widget/main.tsx:113
+#: src/client/core/components/new-playlist-widget/main.tsx:116
 #: src/client/core/components/playlist-widget/main.tsx:179
 msgid "Back"
 msgstr "Cofnij"
 
-#: src/client/core/components/edit-playlist-widget/main.tsx:77
+#: src/app/(root)/layout.tsx:33
+msgid "Broadcast playlists app 💽"
+msgstr "Broadcast playlists app 💽"
+
+#: src/client/core/components/edit-playlist-widget/main.tsx:79
 #: src/client/core/components/media-widget/main.tsx:207
 #: src/client/core/components/media-widget/main.tsx:265
-#: src/client/core/components/new-playlist-widget/main.tsx:67
+#: src/client/core/components/new-playlist-widget/main.tsx:69
 msgid "Conflicting input"
 msgstr "Konfliktujące dane"
 
@@ -54,7 +58,7 @@ msgstr "Konfliktujące dane"
 msgid "Create"
 msgstr "Utwórz"
 
-#: src/client/core/components/new-playlist-widget/main.tsx:98
+#: src/client/core/components/new-playlist-widget/main.tsx:101
 msgid "Create playlist"
 msgstr "Utwórz playlistę"
 
@@ -74,7 +78,7 @@ msgstr "Edytuj"
 msgid "Edit media"
 msgstr "Edytuj utwór"
 
-#: src/client/core/components/edit-playlist-widget/main.tsx:109
+#: src/client/core/components/edit-playlist-widget/main.tsx:112
 msgid "Edit playlist"
 msgstr "Edytuj playlistę"
 
@@ -127,16 +131,16 @@ msgstr "Informacja"
 msgid "Invalid file"
 msgstr "Nieprawidłowy plik"
 
-#: src/client/core/components/edit-playlist-widget/main.tsx:65
-#: src/client/core/components/edit-playlist-widget/main.tsx:103
+#: src/client/core/components/edit-playlist-widget/main.tsx:67
+#: src/client/core/components/edit-playlist-widget/main.tsx:106
 #: src/client/core/components/media-widget/components/edit-media-widget/main.tsx:45
 #: src/client/core/components/media-widget/components/upload-media-widget/main.tsx:47
 #: src/client/core/components/media-widget/main.tsx:186
 #: src/client/core/components/media-widget/main.tsx:237
 #: src/client/core/components/media-widget/main.tsx:252
 #: src/client/core/components/media-widget/main.tsx:290
-#: src/client/core/components/new-playlist-widget/main.tsx:55
-#: src/client/core/components/new-playlist-widget/main.tsx:92
+#: src/client/core/components/new-playlist-widget/main.tsx:57
+#: src/client/core/components/new-playlist-widget/main.tsx:95
 #: src/client/test/components/test-widget/main.tsx:41
 #: src/client/test/components/test-widget/main.tsx:62
 msgid "Invalid input"
@@ -145,10 +149,6 @@ msgstr "Nieprawidłowe dane"
 #: src/app/(root)/layout.tsx:39
 msgid "lotus"
 msgstr "lotus"
-
-#: src/app/(root)/layout.tsx:33
-msgid "lotus is a Next.js app"
-msgstr "lotus to aplikacja Next.js"
 
 #: src/client/core/components/media-widget/components/display-media-widget/main.tsx:41
 msgid "Media"
@@ -222,7 +222,7 @@ msgstr "Nie znaleziono strony"
 msgid "Playlist already deleted"
 msgstr "Playlista jest już usunięta"
 
-#: src/client/core/components/new-playlist-widget/main.tsx:46
+#: src/client/core/components/new-playlist-widget/main.tsx:48
 msgid "Playlist created"
 msgstr "Utworzono playlistę"
 
@@ -231,7 +231,7 @@ msgstr "Utworzono playlistę"
 msgid "Playlist deleted"
 msgstr "Usunięto playlistę"
 
-#: src/client/core/components/edit-playlist-widget/main.tsx:56
+#: src/client/core/components/edit-playlist-widget/main.tsx:58
 msgid "Playlist updated"
 msgstr "Zaktualizowano playlistę"
 
