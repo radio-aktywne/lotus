@@ -54,5 +54,5 @@ export function useNow({}: UseNowInput = {}): UseNowOutput {
 
   const timestamp = state.snapshot.now?.timestamp ?? fallback;
 
-  return { timestamp: timestamp };
+  return useMemo(() => ({ timestamp: timestamp }), [timestamp]);
 }

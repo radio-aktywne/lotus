@@ -1,4 +1,4 @@
-import { useSyncExternalStore } from "react";
+import { useMemo, useSyncExternalStore } from "react";
 
 import type { UseHydratedInput, UseHydratedOutput } from "./types";
 
@@ -11,5 +11,5 @@ export function useHydrated({}: UseHydratedInput = {}): UseHydratedOutput {
     getServerSnapshot,
   );
 
-  return { hydrated: hydrated };
+  return useMemo(() => ({ hydrated: hydrated }), [hydrated]);
 }

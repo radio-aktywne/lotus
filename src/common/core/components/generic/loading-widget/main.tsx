@@ -3,10 +3,10 @@ import { Center } from "@radio-aktywne/ui";
 
 import type { LoadingWidgetInput } from "./types";
 
-export function LoadingWidget({}: LoadingWidgetInput) {
+export function LoadingWidget({ type }: LoadingWidgetInput) {
   return (
     <Center>
-      <Loader />
+      <Loader type={type} />
     </Center>
   );
 }

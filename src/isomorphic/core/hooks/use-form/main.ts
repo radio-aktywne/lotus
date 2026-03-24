@@ -15,6 +15,7 @@ export function useForm<SchemaType extends ZodObject>({
   initialValues,
   onError,
   onSubmit,
+  onValuesChange,
   schema,
 }: UseFormInput<SchemaType>): UseFormOutput<SchemaType> {
   const [submitting, setSubmitting] = useState(false);
@@ -30,6 +31,7 @@ export function useForm<SchemaType extends ZodObject>({
   const form = useMantineForm<UseFormValues<SchemaType>>({
     initialValues: initialValues,
     mode: "uncontrolled",
+    onValuesChange: onValuesChange,
     validate: validate,
   });
 
