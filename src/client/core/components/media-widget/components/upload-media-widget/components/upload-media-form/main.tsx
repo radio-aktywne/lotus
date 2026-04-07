@@ -5,6 +5,7 @@ import type { UploadMediaFormInput } from "./types";
 
 import { useForm } from "../../../../../../../../isomorphic/core/hooks/use-form";
 import { useLocalization } from "../../../../../../../../isomorphic/localization/hooks/use-localization";
+import { constants } from "./constants";
 import { Schemas } from "./schemas";
 
 export function UploadMediaForm({
@@ -33,6 +34,7 @@ export function UploadMediaForm({
         {...form.getInputProps("name")}
       />
       <FileInput
+        accept={constants.file.types.join(",")}
         key={form.key("file")}
         label={localization.localize(msg({ message: "File" }))}
         placeholder={localization.localize(
