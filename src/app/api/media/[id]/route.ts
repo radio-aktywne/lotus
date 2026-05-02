@@ -17,13 +17,22 @@ export async function GET(
 
   const pathParameters = await Schemas.Path.parseAsync(await params);
 
-  const { response: mediaIdContentDownloadResponse } =
-    await state.current.apis.pelican.mediaIdContentDownload({
-      path: { id: pathParameters.id },
-    });
+  const {
+    data: mediaIdContentDownloadData,
+    response: mediaIdContentDownloadResponse,
+  } = await state.current.apis.pelican.mediaIdContentDownload({
+    path: { id: pathParameters.id },
+  });
 
-  if (mediaIdContentDownloadResponse.status === 404)
-    return new Response(STATUS_CODES[404], { status: 404 });
+  if (mediaIdContentDownloadData === undefined) {
+    if (mediaIdContentDownloadResponse.status === 400)
+      return new Response(STATUS_CODES[400], { status: 400 });
+
+    if (mediaIdContentDownloadResponse.status === 404)
+      return new Response(STATUS_CODES[404], { status: 404 });
+
+    return new Response(STATUS_CODES[500], { status: 500 });
+  }
 
   return new Response(mediaIdContentDownloadResponse.body, {
     headers: {
@@ -52,15 +61,24 @@ export async function PUT(
   if (!request.body || !contentType)
     return new Response(STATUS_CODES[400], { status: 400 });
 
-  const { response: mediaIdContentUploadResponse } =
-    await state.current.apis.pelican.mediaIdContentUpload({
-      body: request.body,
-      headers: { "Content-Type": contentType },
-      path: { id: pathParameters.id },
-    });
+  const {
+    data: mediaIdContentUploadData,
+    response: mediaIdContentUploadResponse,
+  } = await state.current.apis.pelican.mediaIdContentUpload({
+    body: request.body,
+    headers: { "Content-Type": contentType },
+    path: { id: pathParameters.id },
+  });
 
-  if (mediaIdContentUploadResponse.status === 404)
-    return new Response(STATUS_CODES[404], { status: 404 });
+  if (mediaIdContentUploadData === undefined) {
+    if (mediaIdContentUploadResponse.status === 400)
+      return new Response(STATUS_CODES[400], { status: 400 });
+
+    if (mediaIdContentUploadResponse.status === 404)
+      return new Response(STATUS_CODES[404], { status: 404 });
+
+    return new Response(STATUS_CODES[500], { status: 500 });
+  }
 
   return new Response(null, { status: 204 });
 }
