@@ -83,7 +83,7 @@ msgid "Edit playlist"
 msgstr "Edit playlist"
 
 #: src/client/core/components/media-widget/components/edit-media-widget/components/edit-media-form/main.tsx:30
-#: src/client/core/components/media-widget/components/upload-media-widget/components/upload-media-form/main.tsx:30
+#: src/client/core/components/media-widget/components/upload-media-widget/components/upload-media-form/main.tsx:31
 msgid "Enter media name"
 msgstr "Enter media name"
 
@@ -115,7 +115,7 @@ msgstr "Failed to add media to playlist, try again"
 msgid "Failed to change media position, try again"
 msgstr "Failed to change media position, try again"
 
-#: src/client/core/components/media-widget/components/upload-media-widget/components/upload-media-form/main.tsx:37
+#: src/client/core/components/media-widget/components/upload-media-widget/components/upload-media-form/main.tsx:39
 msgid "File"
 msgstr "File"
 
@@ -193,7 +193,7 @@ msgstr "Media uploaded"
 
 #: src/client/core/components/edit-playlist-widget/components/edit-playlist-form/main.tsx:28
 #: src/client/core/components/media-widget/components/edit-media-widget/components/edit-media-form/main.tsx:28
-#: src/client/core/components/media-widget/components/upload-media-widget/components/upload-media-form/main.tsx:28
+#: src/client/core/components/media-widget/components/upload-media-widget/components/upload-media-form/main.tsx:29
 #: src/client/core/components/new-playlist-widget/components/create-playlist-form/main.tsx:28
 msgid "Name"
 msgstr "Name"
@@ -260,7 +260,7 @@ msgstr "Search media"
 msgid "Search playlists"
 msgstr "Search playlists"
 
-#: src/client/core/components/media-widget/components/upload-media-widget/components/upload-media-form/main.tsx:39
+#: src/client/core/components/media-widget/components/upload-media-widget/components/upload-media-form/main.tsx:41
 msgid "Select media file"
 msgstr "Select media file"
 
@@ -279,7 +279,7 @@ msgid "Success"
 msgstr "Success"
 
 #: src/client/core/components/media-widget/components/display-media-widget/main.tsx:68
-#: src/client/core/components/media-widget/components/upload-media-widget/components/upload-media-form/main.tsx:50
+#: src/client/core/components/media-widget/components/upload-media-widget/components/upload-media-form/main.tsx:52
 msgid "Upload"
 msgstr "Upload"
 
