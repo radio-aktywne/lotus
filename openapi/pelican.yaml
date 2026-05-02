@@ -1092,7 +1092,7 @@ paths:
         - name: id
           in: path
           schema:
-            $ref: "#/components/schemas/DownloadRequestId"
+            $ref: "#/components/schemas/HeadDownloadRequestId"
           required: true
           deprecated: false
       responses:
@@ -2068,6 +2068,9 @@ components:
         - bindings
       title: Playlist
       description: Playlist data.
+    HeadDownloadRequestId:
+      type: string
+      format: uuid
     HeadM3URequestId:
       type: string
       format: uuid

@@ -1981,6 +1981,8 @@ export type M3uRequestId = string;
 
 export type HeadM3uRequestId = string;
 
+export type HeadDownloadRequestId = string;
+
 /**
  * Playlist
  *
@@ -2642,7 +2644,7 @@ export type MediaIdContentDownloadResponse =
 export type MediaIdContentHeaddownloadRequest = {
   body?: never;
   path: {
-    id: DownloadRequestId;
+    id: HeadDownloadRequestId;
   };
   query?: never;
   url: "/media/{id}/content";

@@ -513,6 +513,8 @@ export const M3uRequestIdSchema = z.uuid();
 
 export const HeadM3uRequestIdSchema = z.uuid();
 
+export const HeadDownloadRequestIdSchema = z.uuid();
+
 export const DownloadRequestIdSchema = z.uuid();
 
 export const PlaylistsModelsUpdateRequestIncludeSchema = z
@@ -1834,7 +1836,7 @@ export const MediaIdContentDownloadResponseSchema = z
 export const MediaIdContentHeaddownloadRequestSchema = z.object({
   body: z.never().optional(),
   path: z.object({
-    id: DownloadRequestIdSchema,
+    id: HeadDownloadRequestIdSchema,
   }),
   query: z.never().optional(),
 });
