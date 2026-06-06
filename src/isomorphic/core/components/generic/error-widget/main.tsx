@@ -11,7 +11,11 @@ export function ErrorWidget({ message, reset }: ErrorWidgetInput) {
 
   return (
     <Stack>
-      <Title>{localization.localize(message)}</Title>
+      <Title ta="center">
+        {localization.localize(
+          message ?? msg({ message: "Something went wrong" }),
+        )}
+      </Title>
       <Button
         color="gray"
         leftSection={<TbRefresh />}

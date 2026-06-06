@@ -2,6 +2,6 @@
   "[javascript][javascriptreact][typescript][typescriptreact]": {
     "editor.tabSize": 2
   },
-  "typescript.preferences.preferTypeOnlyAutoImports": true,
-  "typescript.tsdk": "node_modules/typescript/lib"
+  "js/ts.preferences.preferTypeOnlyAutoImports": true,
+  "js/ts.tsdk.path": "node_modules/typescript/lib"
 }

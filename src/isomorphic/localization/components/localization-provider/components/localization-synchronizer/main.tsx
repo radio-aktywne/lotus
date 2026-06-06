@@ -11,10 +11,7 @@ export function LocalizationSynchronizer({}: LocalizationSynchronizerInput) {
   const { localization } = useLocalization();
 
   const resolveLocaleQuery = useQuery(
-    orpcClientSideQueryClient.localization.resolveLocale.queryOptions({
-      refetchInterval: 0,
-      staleTime: 0,
-    }),
+    orpcClientSideQueryClient.localization.resolveLocale.queryOptions(),
   );
 
   useEffect(() => {

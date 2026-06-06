@@ -1,5 +1,3 @@
-import type { NotificationData as MantineNotificationData } from "@mantine/notifications";
-
 import { msg } from "@lingui/core/macro";
 import {
   notifications as mantineNotifications,
@@ -22,25 +20,21 @@ export function useNotifications({}: UseNotificationsInput = {}): UseNotificatio
   const mantineNotificationsState = useMantineNotifications();
 
   const show = useCallback(
-    (
-      options: NotificationOptions,
-      other: Omit<MantineNotificationData, "autoClose" | "id" | "message">,
-    ) =>
+    (options: NotificationOptions) =>
       mantineNotifications.show({
-        autoClose: options.autoClose,
-        id: options.id,
+        ...options,
         message:
           typeof options.message === "string"
             ? options.message
             : localization.localize(options.message),
-        ...other,
       }),
     [localization.localize],
   );
 
   const error = useCallback(
     (options: NotificationOptions) =>
-      show(options, {
+      show({
+        ...options,
         color: constants.colors.error,
         icon: constants.icons.error,
         title: localization.localize(msg({ message: "Error" })),
@@ -50,7 +44,8 @@ export function useNotifications({}: UseNotificationsInput = {}): UseNotificatio
 
   const info = useCallback(
     (options: NotificationOptions) =>
-      show(options, {
+      show({
+        ...options,
         color: constants.colors.info,
         icon: constants.icons.info,
         title: localization.localize(msg({ message: "Info" })),
@@ -60,7 +55,8 @@ export function useNotifications({}: UseNotificationsInput = {}): UseNotificatio
 
   const success = useCallback(
     (options: NotificationOptions) =>
-      show(options, {
+      show({
+        ...options,
         color: constants.colors.success,
         icon: constants.icons.success,
         title: localization.localize(msg({ message: "Success" })),
@@ -70,12 +66,26 @@ export function useNotifications({}: UseNotificationsInput = {}): UseNotificatio
 
   const warning = useCallback(
     (options: NotificationOptions) =>
-      show(options, {
+      show({
+        ...options,
         color: constants.colors.warning,
         icon: constants.icons.warning,
         title: localization.localize(msg({ message: "Warning" })),
       }),
     [localization.localize, show],
+  );
+
+  const update = useCallback(
+    (id: string, options: NotificationOptions) =>
+      mantineNotifications.update({
+        id: id,
+        ...options,
+        message:
+          typeof options.message === "string"
+            ? options.message
+            : localization.localize(options.message),
+      }),
+    [localization.localize],
   );
 
   const remove = useCallback((id: string) => mantineNotifications.hide(id), []);
@@ -98,9 +108,10 @@ export function useNotifications({}: UseNotificationsInput = {}): UseNotificatio
       remove: remove,
       state: state,
       success: success,
+      update: update,
       warning: warning,
     }),
-    [clean, error, info, remove, state, success, warning],
+    [clean, error, info, remove, state, success, update, warning],
   );
 
   return useMemo(() => ({ notifications: notifications }), [notifications]);

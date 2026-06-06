@@ -1,12 +1,21 @@
 import type { MessageDescriptor } from "@lingui/core";
+import type { NotificationData as MantineNotificationData } from "@mantine/notifications";
 
-export type NotificationOptions = {
-  autoClose?: false | number;
-  id?: string;
-  message: MessageDescriptor | string;
+export type NotificationMessage = MessageDescriptor | string;
+
+export type NotificationOptions = Omit<
+  MantineNotificationData,
+  "id" | "message"
+> & {
+  message: NotificationMessage;
 };
 
 export type ShowNotification = (options: NotificationOptions) => string;
+
+export type UpdateNotification = (
+  id: string,
+  options: NotificationOptions,
+) => void;
 
 export type RemoveNotification = (id: string) => void;
 
@@ -24,6 +33,7 @@ export type Notifications = {
   remove: RemoveNotification;
   state: NotificationsState;
   success: ShowNotification;
+  update: UpdateNotification;
   warning: ShowNotification;
 };
 

@@ -48,6 +48,8 @@ export type ErrorInput = {
   reset: () => void;
 };
 
+export type ForbiddenInput = object;
+
 export type LayoutInput<
   PathParametersKeysType extends string = never,
   SlotsKeysType extends string = never,
@@ -71,13 +73,17 @@ export type PageInput<
   searchParams: Promise<QueryParameters<QueryParametersKeysType>>;
 };
 
-export type TemplateInput = Simplify<PropsWithChildren<object>>;
-
 export type RouteInput<PathParametersKeysType extends string = never> = {
   params: Promise<PathParameters<PathParametersKeysType>>;
 };
 
+export type TemplateInput = Simplify<PropsWithChildren<object>>;
+
+export type UnauthorizedInput = object;
+
 export type ErrorMetadataUtilityInput = object;
+
+export type ForbiddenMetadataUtilityInput = object;
 
 export type LayoutMetadataInput<PathParametersKeysType extends string = never> =
   {
@@ -120,7 +126,11 @@ export type PageMetadataUtilityInput<
         })
 >;
 
+export type UnauthorizedMetadataUtilityInput = object;
+
 export type ErrorViewportUtilityInput = object;
+
+export type ForbiddenViewportUtilityInput = object;
 
 export type LayoutViewportInput<PathParametersKeysType extends string = never> =
   {
@@ -163,6 +173,8 @@ export type PageViewportUtilityInput<
         })
 >;
 
+export type UnauthorizedViewportUtilityInput = object;
+
 export type DefaultViewInput<
   PathParametersSchemaType extends z.core.$ZodObject = never,
 > = [PathParametersSchemaType] extends [never]
@@ -172,6 +184,8 @@ export type DefaultViewInput<
 export type ErrorViewInput = {
   reset: () => void;
 };
+
+export type ForbiddenViewInput = object;
 
 export type LayoutViewInput<
   PathParametersSchemaType extends z.core.$ZodObject = never,
@@ -208,3 +222,5 @@ export type PageViewInput<
 >;
 
 export type TemplateViewInput = Simplify<PropsWithChildren<object>>;
+
+export type UnauthorizedViewInput = object;

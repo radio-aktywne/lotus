@@ -3,9 +3,11 @@ import { isJSONValue } from "es-toolkit/predicate";
 
 import { state } from "../../../../../../../../../state/vars/state";
 import { orpcServerRootBase } from "../../../../../../../bases/root";
+import { authenticatedMiddleware } from "../../../../../../../middleware/authenticated";
 
-export const update = orpcServerRootBase.core.media.update.handler(
-  async ({ errors, input }) => {
+export const update = orpcServerRootBase.core.media.update
+  .use(authenticatedMiddleware)
+  .handler(async ({ errors, input }) => {
     const { data, id, ...query } = input;
 
     const { data: mediaIdUpdateData, response: mediaIdUpdateResponse } =
@@ -23,5 +25,4 @@ export const update = orpcServerRootBase.core.media.update.handler(
     }
 
     return mediaIdUpdateData;
-  },
-);
+  });

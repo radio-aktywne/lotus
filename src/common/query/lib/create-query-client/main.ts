@@ -10,6 +10,7 @@ import {
   serialize,
   shouldDehydrateQuery,
   shouldRedactErrors,
+  shouldRetryQuery,
 } from "./utils";
 
 export function createQueryClient({}: CreateQueryClientInput = {}): CreateQueryClientOutput {
@@ -26,6 +27,7 @@ export function createQueryClient({}: CreateQueryClientInput = {}): CreateQueryC
       queries: {
         queryKeyHashFn: hashKey,
         refetchInterval: constants.times.refetch,
+        retry: shouldRetryQuery,
         staleTime: constants.times.stale,
       },
     },

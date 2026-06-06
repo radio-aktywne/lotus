@@ -3,9 +3,11 @@ import { isJSONValue } from "es-toolkit/predicate";
 
 import { state } from "../../../../../../../../../state/vars/state";
 import { orpcServerRootBase } from "../../../../../../../bases/root";
+import { authenticatedMiddleware } from "../../../../../../../middleware/authenticated";
 
-export const get = orpcServerRootBase.core.playlists.get.handler(
-  async ({ errors, input }) => {
+export const get = orpcServerRootBase.core.playlists.get
+  .use(authenticatedMiddleware)
+  .handler(async ({ errors, input }) => {
     const { id, ...query } = input;
 
     const { data: playlistsIdGetData, response: playlistsIdGetResponse } =
@@ -22,5 +24,4 @@ export const get = orpcServerRootBase.core.playlists.get.handler(
     }
 
     return playlistsIdGetData;
-  },
-);
+  });

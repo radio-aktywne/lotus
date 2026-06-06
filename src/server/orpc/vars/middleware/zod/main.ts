@@ -15,16 +15,13 @@ export const zodMiddleware = localeMiddleware.concat(
           zodMiddleware: {
             executed: context.zodMiddleware.executed,
           },
-        } as ZodMiddlewareOutputContext,
+        } satisfies ZodMiddlewareOutputContext as ZodMiddlewareOutputContext,
       });
 
-    const { localization } = getLocalization({
-      locale: context.localeMiddleware.locale,
-    });
+    const locale = context.localeMiddleware.locale;
+    const { localization } = getLocalization({ locale: locale });
 
-    const data = {
-      locale: localization.data.zod,
-    };
+    const data = { locale: localization.data.zod };
 
     return storage.run(data, async () => {
       z.config({
@@ -37,7 +34,7 @@ export const zodMiddleware = localeMiddleware.concat(
           zodMiddleware: {
             executed: true,
           },
-        } as ZodMiddlewareOutputContext,
+        } satisfies ZodMiddlewareOutputContext as ZodMiddlewareOutputContext,
       });
     });
   },

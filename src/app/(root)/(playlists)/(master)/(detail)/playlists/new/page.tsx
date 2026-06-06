@@ -10,6 +10,7 @@ import type { Schemas } from "./schemas";
 import type { Keys } from "./types";
 
 import { Metadata } from "../../../../../../../isomorphic/metadata/components/metadata";
+import { Authenticated } from "../../../../../../../server/access/components/authenticated";
 import { createMetadata } from "../../../../../../../server/metadata/lib/create-metadata";
 import { PlaylistsNewPageView } from "./page.view";
 
@@ -36,9 +37,9 @@ export default async function PlaylistsNewPage({}: PageInput<
   await connection();
 
   return (
-    <>
+    <Authenticated>
       <Metadata title={await getTitle({})} />
       <PlaylistsNewPageView />
-    </>
+    </Authenticated>
   );
 }

@@ -3,9 +3,11 @@ import { msg } from "@lingui/core/macro";
 import { getLocalization } from "../../../../../../../localization/lib/get-localization";
 import { state } from "../../../../../../../state/vars/state";
 import { orpcServerRootBase } from "../../../../../bases/root";
+import { authenticatedMiddleware } from "../../../../../middleware/authenticated";
 import { localeMiddleware } from "../../../../../middleware/locale";
 
 export const validate = orpcServerRootBase.test.validate
+  .use(authenticatedMiddleware)
   .use(localeMiddleware)
   .handler(async ({ context, errors, input }) => {
     const { localization } = getLocalization({

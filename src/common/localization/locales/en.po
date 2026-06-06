@@ -13,8 +13,8 @@ msgstr ""
 "Language-Team: \n"
 "Plural-Forms: \n"
 
-#: src/app/(root)/(playlists)/(master)/(detail)/playlists/[id]/edit/page.tsx:40
-#: src/app/(root)/(playlists)/(master)/(detail)/playlists/[id]/page.tsx:40
+#: src/app/(root)/(playlists)/(master)/(detail)/playlists/[id]/edit/page.tsx:42
+#: src/app/(root)/(playlists)/(master)/(detail)/playlists/[id]/page.tsx:42
 msgid "{playlistName} • lotus"
 msgstr "{playlistName} • lotus"
 
@@ -42,7 +42,7 @@ msgstr "An unexpected error occurred"
 msgid "Back"
 msgstr "Back"
 
-#: src/app/(root)/layout.tsx:33
+#: src/app/(root)/layout.tsx:36
 msgid "Broadcast playlists app 💽"
 msgstr "Broadcast playlists app 💽"
 
@@ -62,7 +62,7 @@ msgstr "Create"
 msgid "Create playlist"
 msgstr "Create playlist"
 
-#: src/app/(root)/(playlists)/(master)/(detail)/playlists/new/page.tsx:20
+#: src/app/(root)/(playlists)/(master)/(detail)/playlists/new/page.tsx:21
 msgid "Create playlist • lotus"
 msgstr "Create playlist • lotus"
 
@@ -96,13 +96,12 @@ msgstr "Enter playlist name"
 msgid "Enter some value"
 msgstr "Enter some value"
 
-#: src/isomorphic/notifications/hooks/use-notifications/main.ts:46
+#: src/isomorphic/notifications/hooks/use-notifications/main.ts:40
 msgid "Error"
 msgstr "Error"
 
-#: src/app/(root)/(main)/error.tsx:11
 #: src/app/(root)/(playlists)/(master)/(detail)/error.tsx:11
-#: src/app/(root)/(playlists)/error.tsx:11
+#: src/app/(root)/error.tsx:11
 msgid "Error • lotus"
 msgstr "Error • lotus"
 
@@ -123,7 +122,11 @@ msgstr "File"
 msgid "File is required"
 msgstr "File is required"
 
-#: src/isomorphic/notifications/hooks/use-notifications/main.ts:56
+#: src/app/(root)/forbidden.tsx:10
+msgid "Forbidden • lotus"
+msgstr "Forbidden • lotus"
+
+#: src/isomorphic/notifications/hooks/use-notifications/main.ts:51
 msgid "Info"
 msgstr "Info"
 
@@ -146,7 +149,11 @@ msgstr "Invalid file"
 msgid "Invalid input"
 msgstr "Invalid input"
 
-#: src/app/(root)/layout.tsx:39
+#: src/isomorphic/identity/components/identity-widget/main.tsx:21
+msgid "Logout"
+msgstr "Logout"
+
+#: src/app/(root)/layout.tsx:42
 msgid "lotus"
 msgstr "lotus"
 
@@ -207,13 +214,12 @@ msgstr "No media"
 msgid "No playlists"
 msgstr "No playlists"
 
-#: src/app/(root)/(main)/not-found.tsx:15
 #: src/app/(root)/(playlists)/(master)/(detail)/not-found.tsx:15
+#: src/app/(root)/not-found.tsx:15
 msgid "Not Found • lotus"
 msgstr "Not Found • lotus"
 
-#: src/app/(root)/(main)/not-found.view.tsx:8
-#: src/app/(root)/(playlists)/(master)/(detail)/not-found.view.tsx:8
+#: src/isomorphic/core/components/generic/not-found-widget/main.tsx:15
 msgid "Page not found"
 msgstr "Page not found"
 
@@ -231,6 +237,14 @@ msgstr "Playlist created"
 msgid "Playlist deleted"
 msgstr "Playlist deleted"
 
+#: src/app/(root)/(playlists)/(master)/(detail)/playlists/[id]/not-found.view.tsx:8
+msgid "Playlist not found"
+msgstr "Playlist not found"
+
+#: src/app/(root)/(playlists)/(master)/(detail)/playlists/[id]/not-found.tsx:15
+msgid "Playlist not found • lotus"
+msgstr "Playlist not found • lotus"
+
 #: src/client/core/components/edit-playlist-widget/main.tsx:58
 msgid "Playlist updated"
 msgstr "Playlist updated"
@@ -239,11 +253,11 @@ msgstr "Playlist updated"
 msgid "Playlists"
 msgstr "Playlists"
 
-#: src/app/(root)/(playlists)/(master)/(detail)/playlists/page.tsx:20
+#: src/app/(root)/(playlists)/(master)/(detail)/playlists/page.tsx:21
 msgid "Playlists • lotus"
 msgstr "Playlists • lotus"
 
-#: src/isomorphic/core/components/generic/error-widget/main.tsx:21
+#: src/isomorphic/core/components/generic/error-widget/main.tsx:25
 msgid "Retry"
 msgstr "Retry"
 
@@ -264,9 +278,7 @@ msgstr "Search playlists"
 msgid "Select media file"
 msgstr "Select media file"
 
-#: src/app/(root)/(main)/error.view.tsx:10
-#: src/app/(root)/(playlists)/(master)/(detail)/error.view.tsx:10
-#: src/app/(root)/(playlists)/error.view.tsx:12
+#: src/isomorphic/core/components/generic/error-widget/main.tsx:16
 msgid "Something went wrong"
 msgstr "Something went wrong"
 
@@ -274,7 +286,7 @@ msgstr "Something went wrong"
 msgid "Submit"
 msgstr "Submit"
 
-#: src/isomorphic/notifications/hooks/use-notifications/main.ts:66
+#: src/isomorphic/notifications/hooks/use-notifications/main.ts:62
 msgid "Success"
 msgstr "Success"
 
@@ -287,10 +299,18 @@ msgstr "Upload"
 msgid "Upload media"
 msgstr "Upload media"
 
-#: src/isomorphic/notifications/hooks/use-notifications/main.ts:76
+#: src/isomorphic/notifications/hooks/use-notifications/main.ts:73
 msgid "Warning"
 msgstr "Warning"
 
-#: src/server/orpc/vars/procedures/vars/test/vars/validate/main.ts:27
+#: src/server/orpc/vars/procedures/vars/test/vars/validate/main.ts:29
 msgid "Why did the chicken cross the road? To get to the other side."
 msgstr "Why did the chicken cross the road? To get to the other side."
+
+#: src/isomorphic/access/components/forbidden-widget/main.tsx:16
+msgid "You are not allowed to access this page"
+msgstr "You are not allowed to access this page"
+
+#: src/isomorphic/identity/components/identity-provider/components/user-synchronizer/main.tsx:56
+msgid "You are not authenticated. Reload the page to authenticate again."
+msgstr "You are not authenticated. Reload the page to authenticate again."

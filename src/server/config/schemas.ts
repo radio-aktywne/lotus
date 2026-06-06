@@ -30,6 +30,48 @@ export const ConfigSchemas = {
         })
         .prefault({}),
       debug: z.stringbool().default(true),
+      identity: z
+        .object({
+          users: z
+            .object({
+              debug: z
+                .object({
+                  id: z.string().default("debug"),
+                  traits: z
+                    .object({
+                      locales: z
+                        .object({
+                          preferred: z
+                            .string()
+                            .nullish()
+                            .transform((value) => value ?? undefined),
+                        })
+                        .optional(),
+                      names: z
+                        .object({
+                          display: z.string().default("Debug User"),
+                        })
+                        .prefault({}),
+                      pictures: z
+                        .object({
+                          profile: z
+                            .object({
+                              url: z
+                                .url()
+                                .nullish()
+                                .transform((value) => value ?? undefined),
+                            })
+                            .optional(),
+                        })
+                        .optional(),
+                    })
+                    .prefault({}),
+                })
+                .prefault({}),
+            })
+            .prefault({}),
+        })
+        .prefault({}),
       server: z
         .object({
           host: z.string().default("0.0.0.0"),
