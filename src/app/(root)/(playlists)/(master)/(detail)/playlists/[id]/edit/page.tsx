@@ -31,8 +31,8 @@ async function getTitle({
         }),
       );
     } catch (error) {
-      if (isOrpcDefinedError(error) && error.code === "NOT_FOUND") notFound();
       if (isOrpcDefinedError(error) && error.code === "FORBIDDEN") forbidden();
+      if (isOrpcDefinedError(error) && error.code === "NOT_FOUND") notFound();
       throw error;
     }
   })();
