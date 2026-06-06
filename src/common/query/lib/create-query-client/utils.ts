@@ -1,9 +1,12 @@
 import type { Mutation, Query, QueryClient } from "@tanstack/react-query";
 
+import { ORPCError } from "@orpc/contract";
 import { defaultShouldDehydrateQuery, matchQuery } from "@tanstack/react-query";
 
 import type { SerializedData } from "./types";
 
+import { getExecutionContext } from "../../../generic/lib/get-execution-context";
+import { constants } from "./constants";
 import { serializer } from "./vars";
 
 export function serialize(data: unknown) {
@@ -30,6 +33,15 @@ export function shouldDehydrateQuery(query: Query) {
 
 export function shouldRedactErrors() {
   return false;
+}
+
+export function shouldRetryQuery(failureCount: number, error: unknown) {
+  if (getExecutionContext().context.runtime === "server") return false;
+
+  if (error instanceof ORPCError && error.status >= 400 && error.status < 500)
+    return false;
+
+  return failureCount < constants.retries;
 }
 
 export async function invalidateQueriesForMutation(

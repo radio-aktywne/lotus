@@ -1,8 +1,10 @@
 import { state } from "../../../../../../../../../state/vars/state";
 import { orpcServerRootBase } from "../../../../../../../bases/root";
+import { authenticatedMiddleware } from "../../../../../../../middleware/authenticated";
 
-export const delete_ = orpcServerRootBase.core.playlists.delete.handler(
-  async ({ errors, input }) => {
+export const delete_ = orpcServerRootBase.core.playlists.delete
+  .use(authenticatedMiddleware)
+  .handler(async ({ errors, input }) => {
     const { id } = input;
 
     const { data: playlistsIdDeleteData, response: playlistsIdDeleteResponse } =
@@ -12,5 +14,4 @@ export const delete_ = orpcServerRootBase.core.playlists.delete.handler(
       if (playlistsIdDeleteResponse.status === 404) throw errors.NOT_FOUND();
       throw errors.INTERNAL_SERVER_ERROR();
     }
-  },
-);
+  });

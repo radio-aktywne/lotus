@@ -1,4 +1,4 @@
 export type SafeErrorWidgetInput = {
-  message: string;
+  message?: string;
   reset: () => void;
 };

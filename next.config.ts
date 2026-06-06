@@ -13,6 +13,9 @@ export default {
   distDir: "build",
 
   experimental: {
+    // Enable authentication and authorization interrupts
+    authInterrupts: true,
+
     // Optimize import from Mantine packages
     optimizePackageImports: [
       "@mantine/core",

@@ -1,4 +1,8 @@
 import "client-only";
 
 export { useLocalization } from "./main";
-export type { UseLocalizationInput, UseLocalizationOutput } from "./types";
+export type {
+  Localization,
+  UseLocalizationInput,
+  UseLocalizationOutput,
+} from "./types";

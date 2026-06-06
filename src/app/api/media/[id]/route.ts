@@ -6,6 +6,8 @@ import { connection } from "next/server";
 import type { RouteInput } from "../../../types";
 import type { Keys } from "./types";
 
+import { isAuthenticated } from "../../../../common/access/lib/is-authenticated";
+import { getIdentity } from "../../../../server/identity/lib/get-identity";
 import { state } from "../../../../server/state/vars/state";
 import { Schemas } from "./schemas";
 
@@ -14,6 +16,10 @@ export async function GET(
   { params }: RouteInput<Keys.Path>,
 ) {
   await connection();
+
+  const { identity } = await getIdentity();
+  if (!isAuthenticated(identity.user))
+    return new Response(STATUS_CODES[403], { status: 403 });
 
   const pathParameters = await Schemas.Path.parseAsync(await params);
 
@@ -53,6 +59,10 @@ export async function PUT(
   { params }: RouteInput<Keys.Path>,
 ) {
   await connection();
+
+  const { identity } = await getIdentity();
+  if (!isAuthenticated(identity.user))
+    return new Response(STATUS_CODES[403], { status: 403 });
 
   const pathParameters = await Schemas.Path.parseAsync(await params);
 

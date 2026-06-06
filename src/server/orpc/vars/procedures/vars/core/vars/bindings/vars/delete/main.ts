@@ -1,8 +1,10 @@
 import { state } from "../../../../../../../../../state/vars/state";
 import { orpcServerRootBase } from "../../../../../../../bases/root";
+import { authenticatedMiddleware } from "../../../../../../../middleware/authenticated";
 
-export const delete_ = orpcServerRootBase.core.bindings.delete.handler(
-  async ({ errors, input }) => {
+export const delete_ = orpcServerRootBase.core.bindings.delete
+  .use(authenticatedMiddleware)
+  .handler(async ({ errors, input }) => {
     const { id } = input;
 
     const { data: bindingsIdDeleteData, response: bindingsIdDeleteResponse } =
@@ -12,5 +14,4 @@ export const delete_ = orpcServerRootBase.core.bindings.delete.handler(
       if (bindingsIdDeleteResponse.status === 404) throw errors.NOT_FOUND();
       throw errors.INTERNAL_SERVER_ERROR();
     }
-  },
-);
+  });

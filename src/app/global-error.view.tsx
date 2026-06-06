@@ -8,7 +8,7 @@ export function GlobalErrorView({ reset }: ErrorViewInput) {
   return (
     <SafePageLayout>
       <SafeMainLayout>
-        <SafeErrorWidget message="Something went wrong" reset={reset} />
+        <SafeErrorWidget reset={reset} />
       </SafeMainLayout>
     </SafePageLayout>
   );
