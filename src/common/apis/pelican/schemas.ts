@@ -488,22 +488,9 @@ export const TestRequestParametersSchema = ParametersSchema.nullable();
  *
  * Event types.
  */
-export const EventTypeSchema = z
-  .enum([
-    "test",
-    "binding-created",
-    "binding-updated",
-    "binding-deleted",
-    "media-created",
-    "media-updated",
-    "media-deleted",
-    "playlist-created",
-    "playlist-updated",
-    "playlist-deleted",
-  ])
-  .register(z.globalRegistry, {
-    description: "Event types.",
-  });
+export const EventTypeSchema = z.enum(["test"]).register(z.globalRegistry, {
+  description: "Event types.",
+});
 
 export const SubscribeRequestTypesSchema = z
   .union([z.string(), z.array(EventTypeSchema)])
@@ -875,10 +862,10 @@ export const PlaylistsModelsBindingSchema = z
       description: "Identifier of the binding.",
     }),
     playlistId: z.uuid().register(z.globalRegistry, {
-      description: "Identifier of the playlist that the binding belongs to.",
+      description: "Identifier of the playlist the binding belongs to.",
     }),
     mediaId: z.uuid().register(z.globalRegistry, {
-      description: "Identifier of the media that the binding belongs to.",
+      description: "Identifier of the media the binding belongs to.",
     }),
     rank: z.string().register(z.globalRegistry, {
       description: "Rank of the media in the binding.",
@@ -1255,10 +1242,10 @@ export const MediaModelsBindingSchema = z
       description: "Identifier of the binding.",
     }),
     playlistId: z.uuid().register(z.globalRegistry, {
-      description: "Identifier of the playlist that the binding belongs to.",
+      description: "Identifier of the playlist the binding belongs to.",
     }),
     mediaId: z.uuid().register(z.globalRegistry, {
-      description: "Identifier of the media that the binding belongs to.",
+      description: "Identifier of the media the binding belongs to.",
     }),
     rank: z.string().register(z.globalRegistry, {
       description: "Rank of the media in the binding.",
@@ -1654,10 +1641,10 @@ export const BindingsModelsBindingSchema = z
       description: "Identifier of the binding.",
     }),
     playlistId: z.uuid().register(z.globalRegistry, {
-      description: "Identifier of the playlist that the binding belongs to.",
+      description: "Identifier of the playlist the binding belongs to.",
     }),
     mediaId: z.uuid().register(z.globalRegistry, {
-      description: "Identifier of the media that the binding belongs to.",
+      description: "Identifier of the media the binding belongs to.",
     }),
     rank: z.string().register(z.globalRegistry, {
       description: "Rank of the media in the binding.",
@@ -1769,10 +1756,10 @@ export const GetResponseBindingSchema = z
       description: "Identifier of the binding.",
     }),
     playlistId: z.uuid().register(z.globalRegistry, {
-      description: "Identifier of the playlist that the binding belongs to.",
+      description: "Identifier of the playlist the binding belongs to.",
     }),
     mediaId: z.uuid().register(z.globalRegistry, {
-      description: "Identifier of the media that the binding belongs to.",
+      description: "Identifier of the media the binding belongs to.",
     }),
     rank: z.string().register(z.globalRegistry, {
       description: "Rank of the media in the binding.",

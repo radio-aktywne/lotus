@@ -21,6 +21,7 @@ export const update = orpcServerRootBase.core.playlists.update
 
     if (playlistsIdUpdateData === undefined) {
       if (playlistsIdUpdateResponse.status === 404) throw errors.NOT_FOUND();
+      if (playlistsIdUpdateResponse.status === 409) throw errors.CONFLICT();
       throw errors.INTERNAL_SERVER_ERROR();
     }
 
