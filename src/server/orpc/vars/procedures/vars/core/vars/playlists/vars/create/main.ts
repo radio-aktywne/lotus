@@ -20,6 +20,7 @@ export const create = orpcServerRootBase.core.playlists.create
 
     if (playlistsCreateData === undefined) {
       if (playlistsCreateResponse.status === 404) throw errors.NOT_FOUND();
+      if (playlistsCreateResponse.status === 409) throw errors.CONFLICT();
       throw errors.INTERNAL_SERVER_ERROR();
     }
 

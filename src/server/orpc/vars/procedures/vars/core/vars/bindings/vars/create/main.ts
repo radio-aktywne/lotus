@@ -20,6 +20,7 @@ export const create = orpcServerRootBase.core.bindings.create
 
     if (bindingsCreateData === undefined) {
       if (bindingsCreateResponse.status === 404) throw errors.NOT_FOUND();
+      if (bindingsCreateResponse.status === 409) throw errors.CONFLICT();
       throw errors.INTERNAL_SERVER_ERROR();
     }
 

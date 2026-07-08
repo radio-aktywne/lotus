@@ -478,7 +478,7 @@ export type PlaylistsModelsPlaylist = {
   /**
    * Bindings
    *
-   * Bindings that the playlist belongs to.
+   * Bindings the playlist belongs to.
    */
   bindings: Array<PlaylistsModelsBinding> | null;
 };
@@ -504,7 +504,7 @@ export type PlaylistsModelsMedia = {
   /**
    * Bindings
    *
-   * Bindings that the media belongs to.
+   * Bindings the media belongs to.
    */
   bindings: Array<PlaylistsModelsBinding> | null;
 };
@@ -524,13 +524,13 @@ export type PlaylistsModelsBinding = {
   /**
    * Playlistid
    *
-   * Identifier of the playlist that the binding belongs to.
+   * Identifier of the playlist the binding belongs to.
    */
   playlistId: string;
   /**
    * Mediaid
    *
-   * Identifier of the media that the binding belongs to.
+   * Identifier of the media the binding belongs to.
    */
   mediaId: string;
   /**
@@ -540,11 +540,11 @@ export type PlaylistsModelsBinding = {
    */
   rank: string;
   /**
-   * Playlist that the binding belongs to.
+   * Playlist the binding belongs to.
    */
   playlist: PlaylistsModelsPlaylist | null;
   /**
-   * Media that the binding belongs to.
+   * Media the binding belongs to.
    */
   media: PlaylistsModelsMedia | null;
 };
@@ -1117,7 +1117,7 @@ export type MediaModelsPlaylist = {
   /**
    * Bindings
    *
-   * Bindings that the playlist belongs to.
+   * Bindings the playlist belongs to.
    */
   bindings: Array<MediaModelsBinding> | null;
 };
@@ -1137,13 +1137,13 @@ export type MediaModelsBinding = {
   /**
    * Playlistid
    *
-   * Identifier of the playlist that the binding belongs to.
+   * Identifier of the playlist the binding belongs to.
    */
   playlistId: string;
   /**
    * Mediaid
    *
-   * Identifier of the media that the binding belongs to.
+   * Identifier of the media the binding belongs to.
    */
   mediaId: string;
   /**
@@ -1153,11 +1153,11 @@ export type MediaModelsBinding = {
    */
   rank: string;
   /**
-   * Playlist that the binding belongs to.
+   * Playlist the binding belongs to.
    */
   playlist: MediaModelsPlaylist | null;
   /**
-   * Media that the binding belongs to.
+   * Media the binding belongs to.
    */
   media: MediaModelsMedia | null;
 };
@@ -1183,7 +1183,7 @@ export type MediaModelsMedia = {
   /**
    * Bindings
    *
-   * Bindings that the media belongs to.
+   * Bindings the media belongs to.
    */
   bindings: Array<MediaModelsBinding> | null;
 };
@@ -1757,7 +1757,7 @@ export type BindingsModelsPlaylist = {
   /**
    * Bindings
    *
-   * Bindings that the playlist belongs to.
+   * Bindings the playlist belongs to.
    */
   bindings: Array<BindingsModelsBinding> | null;
 };
@@ -1777,13 +1777,13 @@ export type BindingsModelsBinding = {
   /**
    * Playlistid
    *
-   * Identifier of the playlist that the binding belongs to.
+   * Identifier of the playlist the binding belongs to.
    */
   playlistId: string;
   /**
    * Mediaid
    *
-   * Identifier of the media that the binding belongs to.
+   * Identifier of the media the binding belongs to.
    */
   mediaId: string;
   /**
@@ -1793,11 +1793,11 @@ export type BindingsModelsBinding = {
    */
   rank: string;
   /**
-   * Playlist that the binding belongs to.
+   * Playlist the binding belongs to.
    */
   playlist: BindingsModelsPlaylist | null;
   /**
-   * Media that the binding belongs to.
+   * Media the binding belongs to.
    */
   media: BindingsModelsMedia | null;
 };
@@ -1823,7 +1823,7 @@ export type BindingsModelsMedia = {
   /**
    * Bindings
    *
-   * Bindings that the media belongs to.
+   * Bindings the media belongs to.
    */
   bindings: Array<BindingsModelsBinding> | null;
 };
@@ -1965,17 +1965,7 @@ export type SubscribeRequestTypes = string | Array<EventType> | null;
  *
  * Event types.
  */
-export type EventType =
-  | "test"
-  | "binding-created"
-  | "binding-updated"
-  | "binding-deleted"
-  | "media-created"
-  | "media-updated"
-  | "media-deleted"
-  | "playlist-created"
-  | "playlist-updated"
-  | "playlist-deleted";
+export type EventType = "test";
 
 export type M3uRequestId = string;
 
@@ -2004,7 +1994,7 @@ export type GetResponsePlaylist = {
   /**
    * Bindings
    *
-   * Bindings that the playlist belongs to.
+   * Bindings the playlist belongs to.
    */
   bindings: Array<PlaylistsModelsBinding> | null;
 };
@@ -2030,7 +2020,7 @@ export type GetResponseMedia = {
   /**
    * Bindings
    *
-   * Bindings that the media belongs to.
+   * Bindings the media belongs to.
    */
   bindings: Array<MediaModelsBinding> | null;
 };
@@ -2050,13 +2040,13 @@ export type GetResponseBinding = {
   /**
    * Playlistid
    *
-   * Identifier of the playlist that the binding belongs to.
+   * Identifier of the playlist the binding belongs to.
    */
   playlistId: string;
   /**
    * Mediaid
    *
-   * Identifier of the media that the binding belongs to.
+   * Identifier of the media the binding belongs to.
    */
   mediaId: string;
   /**
@@ -2066,11 +2056,11 @@ export type GetResponseBinding = {
    */
   rank: string;
   /**
-   * Playlist that the binding belongs to.
+   * Playlist the binding belongs to.
    */
   playlist: BindingsModelsPlaylist | null;
   /**
-   * Media that the binding belongs to.
+   * Media the binding belongs to.
    */
   media: BindingsModelsMedia | null;
 };
@@ -2150,6 +2140,19 @@ export type BindingsCreateErrors = {
    * Validation Exception
    */
   400: {
+    status_code: number;
+    detail: string;
+    extra?:
+      | null
+      | {
+          [key: string]: unknown;
+        }
+      | Array<unknown>;
+  };
+  /**
+   * Conflict Exception
+   */
+  409: {
     status_code: number;
     detail: string;
     extra?:
@@ -2321,6 +2324,19 @@ export type BindingsIdUpdateErrors = {
         }
       | Array<unknown>;
   };
+  /**
+   * Conflict Exception
+   */
+  409: {
+    status_code: number;
+    detail: string;
+    extra?:
+      | null
+      | {
+          [key: string]: unknown;
+        }
+      | Array<unknown>;
+  };
 };
 
 export type BindingsIdUpdateError =
@@ -2408,6 +2424,19 @@ export type MediaCreateErrors = {
    * Validation Exception
    */
   400: {
+    status_code: number;
+    detail: string;
+    extra?:
+      | null
+      | {
+          [key: string]: unknown;
+        }
+      | Array<unknown>;
+  };
+  /**
+   * Conflict Exception
+   */
+  409: {
     status_code: number;
     detail: string;
     extra?:
@@ -2567,6 +2596,19 @@ export type MediaIdUpdateErrors = {
    * Not Found Exception
    */
   404: {
+    status_code: number;
+    detail: string;
+    extra?:
+      | null
+      | {
+          [key: string]: unknown;
+        }
+      | Array<unknown>;
+  };
+  /**
+   * Conflict Exception
+   */
+  409: {
     status_code: number;
     detail: string;
     extra?:
@@ -2863,6 +2905,19 @@ export type PlaylistsCreateErrors = {
         }
       | Array<unknown>;
   };
+  /**
+   * Conflict Exception
+   */
+  409: {
+    status_code: number;
+    detail: string;
+    extra?:
+      | null
+      | {
+          [key: string]: unknown;
+        }
+      | Array<unknown>;
+  };
 };
 
 export type PlaylistsCreateError =
@@ -3017,6 +3072,19 @@ export type PlaylistsIdUpdateErrors = {
    * Not Found Exception
    */
   404: {
+    status_code: number;
+    detail: string;
+    extra?:
+      | null
+      | {
+          [key: string]: unknown;
+        }
+      | Array<unknown>;
+  };
+  /**
+   * Conflict Exception
+   */
+  409: {
     status_code: number;
     detail: string;
     extra?:
