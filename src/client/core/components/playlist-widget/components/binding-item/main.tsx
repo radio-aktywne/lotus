@@ -87,6 +87,7 @@ export function BindingItem({
           </Group>
           <ActionIcon
             bd="none"
+            color="ra-blue"
             component="a"
             download={slugify(binding.media.name)}
             href={`/api/media/${binding.media.id}`}
