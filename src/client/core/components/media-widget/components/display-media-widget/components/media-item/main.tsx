@@ -53,6 +53,7 @@ export function MediaItem({ index, media, onDelete, onEdit }: MediaItemInput) {
           </Group>
           <ActionIcon
             bd="none"
+            color="ra-blue"
             component="a"
             download={slugify(media.name)}
             href={`/api/media/${media.id}`}
