@@ -2,25 +2,28 @@ import * as z from "zod";
 
 export const IdentitySchemas = {
   User: z.object({
-    id: z.string(),
+    id: z.coerce.string().nonempty(),
     traits: z.object({
       locales: z
         .object({
-          preferred: z.string().optional(),
+          preferred: z.coerce.string().nonempty().optional().catch(undefined),
         })
-        .optional(),
+        .optional()
+        .catch(undefined),
       names: z.object({
-        display: z.string(),
+        display: z.coerce.string().nonempty(),
       }),
       pictures: z
         .object({
           profile: z
             .object({
-              url: z.url().optional(),
+              url: z.url().optional().catch(undefined),
             })
-            .optional(),
+            .optional()
+            .catch(undefined),
         })
-        .optional(),
+        .optional()
+        .catch(undefined),
     }),
   }),
 };

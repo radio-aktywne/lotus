@@ -1,12 +1,10 @@
-import { isJSONArray, isJSONObject } from "es-toolkit/predicate";
 import { unflatten } from "flat";
 
 import { IdentitySchemas } from "../../../../common/identity/schemas";
 
 export function parseValue(value: string) {
   try {
-    const parsed = JSON.parse(value) as unknown;
-    return isJSONObject(parsed) || isJSONArray(parsed) ? parsed : value;
+    return JSON.parse(value) as unknown;
   } catch {
     return value;
   }
@@ -19,7 +17,7 @@ export async function parseUserFromHeaders(headers: Headers) {
     headers
       .entries()
       .map(([key, value]) => [key.toLowerCase(), value] as [string, string])
-      .filter(([key]) => key === "x-user" || key.startsWith("x-user-"))
+      .filter(([key, value]) => /^x-user(?:-[^-]+)*$/.exec(key) && value)
       .map(([key, value]) => [
         key.replace(/^x-/, "").replaceAll("-", "."),
         parseValue(value),
