@@ -5,6 +5,7 @@ import { useDeepCompareMemo } from "use-deep-compare";
 
 import type { MetadataInput } from "./types";
 
+import { useHistory } from "../../../generic/hooks/use-history";
 import { useLocalization } from "../../../localization/hooks/use-localization";
 import { serializeViewportAttributes } from "./utils";
 
@@ -15,6 +16,7 @@ export function Metadata({
   title,
   viewportAttributes,
 }: MetadataInput) {
+  const { history } = useHistory();
   const { localization } = useLocalization();
 
   const cachedDescription = useDeepCompareMemo(
@@ -24,7 +26,7 @@ export function Metadata({
       typeof description === "string"
         ? description
         : localization.localize(description),
-    [description, localization.localize],
+    [description, history.entries.length, localization.localize],
   );
 
   const cachedViewport = useDeepCompareMemo(
@@ -32,7 +34,7 @@ export function Metadata({
       viewportAttributes === undefined
         ? viewportAttributes
         : serializeViewportAttributes(viewportAttributes),
-    [viewportAttributes],
+    [history.entries.length, viewportAttributes],
   );
 
   const cachedTitle = useDeepCompareMemo(
@@ -40,7 +42,7 @@ export function Metadata({
       title === undefined || title === null || typeof title === "string"
         ? title
         : localization.localize(title),
-    [title, localization.localize],
+    [history.entries.length, localization.localize, title],
   );
 
   return (

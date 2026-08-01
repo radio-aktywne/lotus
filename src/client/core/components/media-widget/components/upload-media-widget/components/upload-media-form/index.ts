@@ -1,9 +1,15 @@
 export { UploadMediaForm } from "./main";
 export type {
+  UploadMediaFormErrorInput,
+  UploadMediaFormErrors,
   UploadMediaFormInitialValues,
   UploadMediaFormInput,
+  UploadMediaFormInputSchema,
   UploadMediaFormOnError,
   UploadMediaFormOnSubmit,
+  UploadMediaFormOutputSchema,
+  UploadMediaFormSubmitErrorOutput,
   UploadMediaFormSubmitInput,
-  UploadMediaFormValues,
+  UploadMediaFormSubmitOutput,
+  UploadMediaFormSubmitSuccessOutput,
 } from "./types";

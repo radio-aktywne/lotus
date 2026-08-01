@@ -1,6 +1,8 @@
+type QueryValue = boolean | number | string;
+
 type AnyUrlInput = {
   fragment?: null | string;
-  query?: null | { [key: string]: boolean | number | string };
+  query?: null | { [key: string]: QueryValue | QueryValue[] };
 };
 
 type AbsoluteUrlInput = AnyUrlInput & {
