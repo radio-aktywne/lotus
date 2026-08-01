@@ -1,8 +1,8 @@
-import type { State, StateSubscribe } from "../../types";
+import type { ReadonlyState, State, StateSubscribe } from "../../types";
 
 export type StateContainer = {
   current: State;
-  snapshot: State;
+  snapshot: ReadonlyState;
   subscribe: StateSubscribe;
 };
 

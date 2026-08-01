@@ -1,6 +1,6 @@
 import { msg } from "@lingui/core/macro";
 import { Button, Stack, Title } from "@mantine/core";
-import { useCallback, useMemo, useState } from "react";
+import { useCallback, useState } from "react";
 
 import type {
   UploadMediaWidgetInput,
@@ -19,14 +19,6 @@ export function UploadMediaWidget({
 
   const { localization } = useLocalization();
   const { notifications } = useNotifications();
-
-  const initialValues = useMemo(
-    () => ({
-      file: undefined,
-      name: "",
-    }),
-    [],
-  );
 
   const handleUpload = useCallback(
     async (input: UploadMediaWidgetUploadInput) => {
@@ -52,11 +44,7 @@ export function UploadMediaWidget({
       <Title ta="center">
         {localization.localize(msg({ message: "Upload media" }))}
       </Title>
-      <UploadMediaForm
-        initialValues={initialValues}
-        onError={handleError}
-        onSubmit={handleUpload}
-      />
+      <UploadMediaForm onError={handleError} onSubmit={handleUpload} />
       <Button
         color="gray"
         disabled={uploading}

@@ -5,7 +5,7 @@ import { Button, Stack, Title } from "@mantine/core";
 import { useMutation } from "@tanstack/react-query";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { useCallback, useMemo, useState } from "react";
+import { useCallback, useState } from "react";
 
 import type { NewPlaylistWidgetInput } from "./types";
 
@@ -30,8 +30,6 @@ export function NewPlaylistWidget({}: NewPlaylistWidgetInput) {
   const playlistsCreateMutation = useMutation(
     orpcClientSideQueryClient.core.playlists.create.mutationOptions(),
   );
-
-  const initialValues = useMemo(() => ({ name: "" }), []);
 
   const handleCreate = useCallback(
     async ({ values }: CreatePlaylistFormSubmitInput) => {
@@ -100,11 +98,7 @@ export function NewPlaylistWidget({}: NewPlaylistWidgetInput) {
       <Title ta="center">
         {localization.localize(msg({ message: "Create playlist" }))}
       </Title>
-      <CreatePlaylistForm
-        initialValues={initialValues}
-        onError={handleError}
-        onSubmit={handleCreate}
-      />
+      <CreatePlaylistForm onError={handleError} onSubmit={handleCreate} />
       <Button
         color="gray"
         component={Link}

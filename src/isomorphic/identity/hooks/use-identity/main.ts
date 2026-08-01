@@ -12,5 +12,5 @@ export function useIdentity({}: UseIdentityInput = {}): UseIdentityOutput {
 
   const identity = useMemo(() => ({ user: snapshot.user }), [snapshot.user]);
 
-  return useMemo(() => ({ identity }), [identity]);
+  return useMemo(() => ({ identity: identity }), [identity]);
 }

@@ -24,41 +24,41 @@ msgstr "{playlistName} • lotus"
 #: src/client/core/components/media-widget/main.tsx:215
 #: src/client/core/components/media-widget/main.tsx:273
 #: src/client/core/components/media-widget/main.tsx:295
-#: src/client/core/components/new-playlist-widget/main.tsx:77
+#: src/client/core/components/new-playlist-widget/main.tsx:75
 #: src/client/core/components/playlist-widget/components/move-monitor/main.tsx:79
 #: src/client/core/components/playlist-widget/components/move-monitor/main.tsx:134
 #: src/client/core/components/playlist-widget/components/move-monitor/main.tsx:174
 #: src/client/core/components/playlist-widget/main.tsx:79
 #: src/client/core/components/playlist-widget/main.tsx:108
-#: src/client/test/components/test-widget/main.tsx:52
+#: src/client/test/components/test-widget/main.tsx:50
 msgid "An unexpected error occurred"
 msgstr "An unexpected error occurred"
 
 #: src/client/core/components/edit-playlist-widget/main.tsx:127
-#: src/client/core/components/media-widget/components/edit-media-widget/main.tsx:65
-#: src/client/core/components/media-widget/components/upload-media-widget/main.tsx:67
-#: src/client/core/components/new-playlist-widget/main.tsx:116
+#: src/client/core/components/media-widget/components/edit-media-widget/main.tsx:63
+#: src/client/core/components/media-widget/components/upload-media-widget/main.tsx:55
+#: src/client/core/components/new-playlist-widget/main.tsx:110
 #: src/client/core/components/playlist-widget/main.tsx:179
 msgid "Back"
 msgstr "Back"
 
-#: src/app/(root)/layout.tsx:36
+#: src/app/(root)/layout.tsx:37
 msgid "Broadcast playlists app 💽"
 msgstr "Broadcast playlists app 💽"
 
 #: src/client/core/components/edit-playlist-widget/main.tsx:79
 #: src/client/core/components/media-widget/main.tsx:207
 #: src/client/core/components/media-widget/main.tsx:265
-#: src/client/core/components/new-playlist-widget/main.tsx:69
+#: src/client/core/components/new-playlist-widget/main.tsx:67
 msgid "Conflicting input"
 msgstr "Conflicting input"
 
 #: src/client/core/components/list-playlists-widget/main.tsx:209
-#: src/client/core/components/new-playlist-widget/components/create-playlist-form/main.tsx:41
+#: src/client/core/components/new-playlist-widget/components/create-playlist-form/main.tsx:46
 msgid "Create"
 msgstr "Create"
 
-#: src/client/core/components/new-playlist-widget/main.tsx:101
+#: src/client/core/components/new-playlist-widget/main.tsx:99
 msgid "Create playlist"
 msgstr "Create playlist"
 
@@ -74,7 +74,7 @@ msgstr "Delete"
 msgid "Edit"
 msgstr "Edit"
 
-#: src/client/core/components/media-widget/components/edit-media-widget/main.tsx:51
+#: src/client/core/components/media-widget/components/edit-media-widget/main.tsx:49
 msgid "Edit media"
 msgstr "Edit media"
 
@@ -82,17 +82,17 @@ msgstr "Edit media"
 msgid "Edit playlist"
 msgstr "Edit playlist"
 
-#: src/client/core/components/media-widget/components/edit-media-widget/components/edit-media-form/main.tsx:30
-#: src/client/core/components/media-widget/components/upload-media-widget/components/upload-media-form/main.tsx:31
+#: src/client/core/components/media-widget/components/edit-media-widget/components/edit-media-form/main.tsx:35
+#: src/client/core/components/media-widget/components/upload-media-widget/components/upload-media-form/main.tsx:36
 msgid "Enter media name"
 msgstr "Enter media name"
 
-#: src/client/core/components/edit-playlist-widget/components/edit-playlist-form/main.tsx:30
-#: src/client/core/components/new-playlist-widget/components/create-playlist-form/main.tsx:30
+#: src/client/core/components/edit-playlist-widget/components/edit-playlist-form/main.tsx:35
+#: src/client/core/components/new-playlist-widget/components/create-playlist-form/main.tsx:35
 msgid "Enter playlist name"
 msgstr "Enter playlist name"
 
-#: src/client/test/components/test-widget/components/test-form/main.tsx:25
+#: src/client/test/components/test-widget/components/test-form/main.tsx:30
 msgid "Enter some value"
 msgstr "Enter some value"
 
@@ -114,7 +114,7 @@ msgstr "Failed to add media to playlist, try again"
 msgid "Failed to change media position, try again"
 msgstr "Failed to change media position, try again"
 
-#: src/client/core/components/media-widget/components/upload-media-widget/components/upload-media-form/main.tsx:39
+#: src/client/core/components/media-widget/components/upload-media-widget/components/upload-media-form/main.tsx:47
 msgid "File"
 msgstr "File"
 
@@ -136,16 +136,16 @@ msgstr "Invalid file"
 
 #: src/client/core/components/edit-playlist-widget/main.tsx:67
 #: src/client/core/components/edit-playlist-widget/main.tsx:106
-#: src/client/core/components/media-widget/components/edit-media-widget/main.tsx:45
-#: src/client/core/components/media-widget/components/upload-media-widget/main.tsx:47
+#: src/client/core/components/media-widget/components/edit-media-widget/main.tsx:43
+#: src/client/core/components/media-widget/components/upload-media-widget/main.tsx:39
 #: src/client/core/components/media-widget/main.tsx:186
 #: src/client/core/components/media-widget/main.tsx:237
 #: src/client/core/components/media-widget/main.tsx:252
 #: src/client/core/components/media-widget/main.tsx:290
-#: src/client/core/components/new-playlist-widget/main.tsx:57
-#: src/client/core/components/new-playlist-widget/main.tsx:95
-#: src/client/test/components/test-widget/main.tsx:41
-#: src/client/test/components/test-widget/main.tsx:62
+#: src/client/core/components/new-playlist-widget/main.tsx:55
+#: src/client/core/components/new-playlist-widget/main.tsx:93
+#: src/client/test/components/test-widget/main.tsx:39
+#: src/client/test/components/test-widget/main.tsx:60
 msgid "Invalid input"
 msgstr "Invalid input"
 
@@ -153,7 +153,7 @@ msgstr "Invalid input"
 msgid "Logout"
 msgstr "Logout"
 
-#: src/app/(root)/layout.tsx:42
+#: src/app/(root)/layout.tsx:43
 msgid "lotus"
 msgstr "lotus"
 
@@ -198,10 +198,10 @@ msgstr "Media updated"
 msgid "Media uploaded"
 msgstr "Media uploaded"
 
-#: src/client/core/components/edit-playlist-widget/components/edit-playlist-form/main.tsx:28
-#: src/client/core/components/media-widget/components/edit-media-widget/components/edit-media-form/main.tsx:28
-#: src/client/core/components/media-widget/components/upload-media-widget/components/upload-media-form/main.tsx:29
-#: src/client/core/components/new-playlist-widget/components/create-playlist-form/main.tsx:28
+#: src/client/core/components/edit-playlist-widget/components/edit-playlist-form/main.tsx:33
+#: src/client/core/components/media-widget/components/edit-media-widget/components/edit-media-form/main.tsx:33
+#: src/client/core/components/media-widget/components/upload-media-widget/components/upload-media-form/main.tsx:34
+#: src/client/core/components/new-playlist-widget/components/create-playlist-form/main.tsx:33
 msgid "Name"
 msgstr "Name"
 
@@ -228,7 +228,7 @@ msgstr "Page not found"
 msgid "Playlist already deleted"
 msgstr "Playlist already deleted"
 
-#: src/client/core/components/new-playlist-widget/main.tsx:48
+#: src/client/core/components/new-playlist-widget/main.tsx:46
 msgid "Playlist created"
 msgstr "Playlist created"
 
@@ -261,8 +261,8 @@ msgstr "Playlists • lotus"
 msgid "Retry"
 msgstr "Retry"
 
-#: src/client/core/components/edit-playlist-widget/components/edit-playlist-form/main.tsx:41
-#: src/client/core/components/media-widget/components/edit-media-widget/components/edit-media-form/main.tsx:41
+#: src/client/core/components/edit-playlist-widget/components/edit-playlist-form/main.tsx:46
+#: src/client/core/components/media-widget/components/edit-media-widget/components/edit-media-form/main.tsx:46
 msgid "Save"
 msgstr "Save"
 
@@ -274,7 +274,7 @@ msgstr "Search media"
 msgid "Search playlists"
 msgstr "Search playlists"
 
-#: src/client/core/components/media-widget/components/upload-media-widget/components/upload-media-form/main.tsx:41
+#: src/client/core/components/media-widget/components/upload-media-widget/components/upload-media-form/main.tsx:49
 msgid "Select media file"
 msgstr "Select media file"
 
@@ -282,7 +282,7 @@ msgstr "Select media file"
 msgid "Something went wrong"
 msgstr "Something went wrong"
 
-#: src/client/test/components/test-widget/components/test-form/main.tsx:30
+#: src/client/test/components/test-widget/components/test-form/main.tsx:36
 msgid "Submit"
 msgstr "Submit"
 
@@ -291,11 +291,11 @@ msgid "Success"
 msgstr "Success"
 
 #: src/client/core/components/media-widget/components/display-media-widget/main.tsx:68
-#: src/client/core/components/media-widget/components/upload-media-widget/components/upload-media-form/main.tsx:52
+#: src/client/core/components/media-widget/components/upload-media-widget/components/upload-media-form/main.tsx:60
 msgid "Upload"
 msgstr "Upload"
 
-#: src/client/core/components/media-widget/components/upload-media-widget/main.tsx:53
+#: src/client/core/components/media-widget/components/upload-media-widget/main.tsx:45
 msgid "Upload media"
 msgstr "Upload media"
 

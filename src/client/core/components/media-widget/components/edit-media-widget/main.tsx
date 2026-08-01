@@ -20,9 +20,7 @@ export function EditMediaWidget({
   const { notifications } = useNotifications();
 
   const initialValues = useDeepCompareMemo(
-    () => ({
-      name: media.name,
-    }),
+    () => ({ name: media.name }),
     [media],
   );
 

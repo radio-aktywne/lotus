@@ -1,5 +1,6 @@
 import { msg } from "@lingui/core/macro";
 import { Button, TextInput } from "@mantine/core";
+import { isString } from "es-toolkit/predicate";
 
 import type { EditMediaFormInput } from "./types";
 
@@ -16,14 +17,18 @@ export function EditMediaForm({
 
   const { form, handleFormSubmit, submitting } = useForm({
     initialValues: initialValues,
+    inputSchema: Schemas.Input,
     onError: onError,
     onSubmit: onSubmit,
-    schema: Schemas.Values,
+    outputSchema: Schemas.Output,
   });
 
   return (
     <form onSubmit={handleFormSubmit} style={{ display: "contents" }}>
       <TextInput
+        errorProps={{
+          title: [form.getInputProps("name").error].find(isString),
+        }}
         key={form.key("name")}
         label={localization.localize(msg({ message: "Name" }))}
         placeholder={localization.localize(

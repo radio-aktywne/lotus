@@ -1,5 +1,6 @@
 import { msg } from "@lingui/core/macro";
 import { Button, TextInput } from "@mantine/core";
+import { isString } from "es-toolkit/predicate";
 
 import type { TestFormInput } from "./types";
 
@@ -12,18 +13,23 @@ export function TestForm({ initialValues, onError, onSubmit }: TestFormInput) {
 
   const { form, handleFormSubmit, submitting } = useForm({
     initialValues: initialValues,
+    inputSchema: Schemas.Input,
     onError: onError,
     onSubmit: onSubmit,
-    schema: Schemas.Values,
+    outputSchema: Schemas.Output,
   });
 
   return (
     <form onSubmit={handleFormSubmit} style={{ display: "contents" }}>
       <TextInput
+        errorProps={{
+          title: [form.getInputProps("value").error].find(isString),
+        }}
         key={form.key("value")}
         placeholder={localization.localize(
           msg({ message: "Enter some value" }),
         )}
+        styles={{ error: { position: "absolute" } }}
         {...form.getInputProps("value")}
       />
       <Button loading={submitting} type="submit">

@@ -2,20 +2,24 @@ import "client-only";
 
 export { useForm } from "./main";
 export type {
+  UseFormErrorInput,
   UseFormErrors,
   UseFormForm,
   UseFormHandleFormSubmit,
   UseFormHandleFormSubmitEvent,
   UseFormInitialValues,
   UseFormInput,
+  UseFormInputSchema,
   UseFormOnError,
   UseFormOnSubmit,
+  UseFormOnValuesChange,
   UseFormOutput,
-  UseFormSchema,
+  UseFormOutputSchema,
   UseFormSubmitErrorOutput,
   UseFormSubmitInput,
   UseFormSubmitOutput,
   UseFormSubmitSuccessOutput,
   UseFormSubmitting,
-  UseFormValues,
+  UseFormValuesChangeInput,
+  Values,
 } from "./types";

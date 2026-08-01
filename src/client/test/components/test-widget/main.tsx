@@ -3,7 +3,7 @@
 import { msg } from "@lingui/core/macro";
 import { Stack, Title } from "@mantine/core";
 import { useMutation } from "@tanstack/react-query";
-import { useCallback, useState } from "react";
+import { useCallback } from "react";
 
 import type { TestFormSubmitInput } from "./components/test-form";
 import type { TestWidgetInput } from "./types";
@@ -25,8 +25,6 @@ export function TestWidget({}: TestWidgetInput) {
   const validateMutation = useMutation(
     orpcClientSideQueryClient.test.validate.mutationOptions(),
   );
-
-  const [initialValues] = useState(() => ({ value: "" }));
 
   const handleSubmit = useCallback(
     async ({ values }: TestFormSubmitInput) => {
@@ -63,18 +61,11 @@ export function TestWidget({}: TestWidgetInput) {
   }, [notifications.error]);
 
   return (
-    <Stack align="stretch" gap="xl">
+    <Stack gap="xl" w="80%">
       <Title ta="center">
-        {dayjs.unix(timestamp).locale(localization.locale).format("LL")}
+        {dayjs.unix(timestamp).locale(localization.locale).format("LLLL")}
       </Title>
-      <Title ta="center">
-        {dayjs.unix(timestamp).locale(localization.locale).format("LTS")}
-      </Title>
-      <TestForm
-        initialValues={initialValues}
-        onError={handleError}
-        onSubmit={handleSubmit}
-      />
+      <TestForm onError={handleError} onSubmit={handleSubmit} />
     </Stack>
   );
 }

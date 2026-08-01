@@ -1,5 +1,4 @@
 import { isEmpty } from "es-toolkit/compat";
-import { mapValues } from "es-toolkit/object";
 import { trimStart } from "es-toolkit/string";
 
 import type { CreateUrlInput, CreateUrlOutput } from "./types";
@@ -14,11 +13,20 @@ export function createUrl({
 }: CreateUrlInput): CreateUrlOutput {
   const basePart =
     scheme && host ? `${scheme}://${host}${port ? `:${port}` : ""}` : "";
+
   const pathPart = path ? `/${trimStart(path, "/")}` : "";
+
   const queryPart =
     query && !isEmpty(query)
-      ? `?${new URLSearchParams(mapValues(query, (value) => String(value))).toString()}`
+      ? `?${new URLSearchParams(
+          Object.entries(query).flatMap(([key, value]) =>
+            Array.isArray(value)
+              ? value.map((v) => [key, String(v)])
+              : [[key, String(value)]],
+          ),
+        ).toString()}`
       : "";
+
   const fragmentPart = fragment ? `#${fragment}` : "";
 
   const url = basePart + pathPart + queryPart + fragmentPart;
