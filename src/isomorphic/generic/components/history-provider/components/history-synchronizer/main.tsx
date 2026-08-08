@@ -18,13 +18,15 @@ export function HistorySynchronizer({}: HistorySynchronizerInput) {
       path: pathname,
       query: searchParams.entries().reduce(
         (acc, [key, value]) => {
+          acc ??= {};
+
           if (acc[key] === undefined) acc[key] = value;
           else if (Array.isArray(acc[key])) acc[key].push(value);
           else acc[key] = [acc[key], value];
 
           return acc;
         },
-        {} as { [key: string]: string | string[] },
+        undefined as undefined | { [key: string]: string | string[] },
       ),
     };
 

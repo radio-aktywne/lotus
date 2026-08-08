@@ -2,7 +2,7 @@ type QueryValue = boolean | number | string;
 
 type AnyUrlInput = {
   fragment?: null | string;
-  query?: null | { [key: string]: QueryValue | QueryValue[] };
+  query?: null | { [key: string]: QueryValue | readonly QueryValue[] };
 };
 
 type AbsoluteUrlInput = AnyUrlInput & {

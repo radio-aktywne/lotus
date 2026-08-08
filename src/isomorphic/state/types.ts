@@ -4,7 +4,7 @@ import type { ReadonlyDeep } from "type-fest";
 
 export type HistoryEntry = {
   path: string;
-  query: { [key: string]: string | string[] };
+  query?: { [key: string]: string | string[] };
 };
 
 export type HistoryState = {

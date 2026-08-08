@@ -6,30 +6,23 @@ import { useCallback } from "react";
 
 import type { RouteModalInput } from "./types";
 
-import { useLocalization } from "../../../localization/hooks/use-localization";
+import { createUrl } from "../../../../common/generic/lib/create-url";
 import { useHistory } from "../../hooks/use-history";
 
-export function RouteModal({ fallback, title, ...props }: RouteModalInput) {
+export function RouteModal({ fallback, force, ...input }: RouteModalInput) {
   const router = useRouter();
 
   const { history } = useHistory();
-  const { localization } = useLocalization();
 
   const handleClose = useCallback(() => {
-    if (history.entries.length > 1) router.back();
-    else router.push(fallback);
-  }, [fallback, history.entries.length, router]);
+    if (!force && history.entries.length > 1) {
+      const target = history.entries[history.entries.length - 2]!;
+      const { url } = createUrl({ path: target.path, query: target.query });
+      router.push(url);
+    } else {
+      router.push(fallback);
+    }
+  }, [fallback, force, history.entries, history.entries.length, router]);
 
-  return (
-    <Modal
-      {...props}
-      onClose={handleClose}
-      opened={true}
-      title={
-        title === undefined || typeof title === "string"
-          ? title
-          : localization.localize(title)
-      }
-    />
-  );
+  return <Modal {...input} onClose={handleClose} opened={true} />;
 }
