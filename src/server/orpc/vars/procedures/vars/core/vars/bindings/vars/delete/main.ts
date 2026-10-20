@@ -11,7 +11,7 @@ export const delete_ = orpcServerRootBase.core.bindings.delete
       await state.current.apis.pelican.bindingsIdDelete({ path: { id: id } });
 
     if (bindingsIdDeleteData === undefined) {
-      if (bindingsIdDeleteResponse.status === 404) throw errors.NOT_FOUND();
+      if (bindingsIdDeleteResponse?.status === 404) throw errors.NOT_FOUND();
       throw errors.INTERNAL_SERVER_ERROR();
     }
   });

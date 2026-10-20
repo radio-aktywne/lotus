@@ -1,7 +1,7 @@
 import { msg } from "@lingui/core/macro";
 import { ORPCError } from "@orpc/client";
 import { useQuery } from "@tanstack/react-query";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 
 import type { UserSynchronizerInput } from "./types";
 
@@ -11,9 +11,6 @@ import { useNotifications } from "../../../../../notifications/hooks/use-notific
 import { IdentityContext } from "../../../../contexts/identity";
 
 export function UserSynchronizer({}: UserSynchronizerInput) {
-  const [unauthenticated, setUnauthenticated] = useState(false);
-  const [notification, setNotification] = useState<string>();
-
   const identity = useSafeContext(IdentityContext);
 
   const { notifications } = useNotifications();
@@ -22,31 +19,14 @@ export function UserSynchronizer({}: UserSynchronizerInput) {
     orpcClientSideQueryClient.identity.getUser.queryOptions(),
   );
 
+  const unauthenticated =
+    getUserQuery.error instanceof ORPCError &&
+    getUserQuery.error.code === "UNAUTHORIZED";
+
   useEffect(() => {
     if (getUserQuery.data === undefined) return;
     identity.user = getUserQuery.data.user;
   }, [getUserQuery.data, identity]);
-
-  useEffect(() => {
-    const error = getUserQuery.error;
-
-    if (
-      unauthenticated ||
-      !(error instanceof ORPCError) ||
-      error.code !== "UNAUTHORIZED"
-    )
-      return;
-
-    setUnauthenticated(true);
-  }, [unauthenticated, getUserQuery.error]);
-
-  useEffect(() => {
-    const error = getUserQuery.error;
-
-    if (!unauthenticated || error !== null) return;
-
-    setUnauthenticated(false);
-  }, [unauthenticated, getUserQuery.error]);
 
   useEffect(() => {
     if (!unauthenticated) return;
@@ -60,17 +40,8 @@ export function UserSynchronizer({}: UserSynchronizerInput) {
       withCloseButton: false,
     });
 
-    setNotification(id);
-
     return () => notifications.remove(id);
   }, [unauthenticated, notifications.error, notifications.remove]);
-
-  useEffect(() => {
-    if (unauthenticated || !notification) return;
-
-    notifications.remove(notification);
-    setNotification(undefined);
-  }, [unauthenticated, notification, notifications.remove]);
 
   return null;
 }

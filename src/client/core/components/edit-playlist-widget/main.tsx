@@ -122,7 +122,7 @@ export function EditPlaylistWidget({ id }: EditPlaylistWidgetInput) {
         disabled={saving}
         href={`/playlists/${playlistsGetQuery.data.id}`}
         style={{ flexShrink: 0 }}
-        variant="light"
+        variant="default"
       >
         {localization.localize(msg({ message: "Back" }))}
       </Button>

@@ -19,8 +19,7 @@ export type UseFormErrorInput<InputValuesType extends Values> = {
 };
 
 export type UseFormOnError<InputValuesType extends Values> =
-  | ((input: UseFormErrorInput<InputValuesType>) => void)
-  | undefined;
+  ((input: UseFormErrorInput<InputValuesType>) => void) | undefined;
 
 export type UseFormSubmitInput<OutputValuesType extends Values> = {
   values: OutputValuesType;
@@ -66,8 +65,7 @@ export type UseFormValuesChangeInput<InputValuesType extends Values> = {
 };
 
 export type UseFormOnValuesChange<InputValuesType extends Values> =
-  | ((input: UseFormValuesChangeInput<InputValuesType>) => void)
-  | undefined;
+  ((input: UseFormValuesChangeInput<InputValuesType>) => void) | undefined;
 
 export type UseFormOutputSchema<
   RawValuesType extends Values,
@@ -78,8 +76,7 @@ export type UseFormForm<RawValuesType extends Values> =
   UseMantineFormReturnType<RawValuesType>;
 
 export type UseFormHandleFormSubmitEvent =
-  | SubmitEvent<HTMLFormElement>
-  | undefined;
+  SubmitEvent<HTMLFormElement> | undefined;
 
 export type UseFormHandleFormSubmit = (
   event?: UseFormHandleFormSubmitEvent,

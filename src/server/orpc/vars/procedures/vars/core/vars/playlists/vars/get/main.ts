@@ -19,7 +19,7 @@ export const get = orpcServerRootBase.core.playlists.get
       });
 
     if (playlistsIdGetData === undefined) {
-      if (playlistsIdGetResponse.status === 404) throw errors.NOT_FOUND();
+      if (playlistsIdGetResponse?.status === 404) throw errors.NOT_FOUND();
       throw errors.INTERNAL_SERVER_ERROR();
     }
 

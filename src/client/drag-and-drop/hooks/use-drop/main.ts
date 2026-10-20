@@ -1,10 +1,8 @@
-import type { Edge } from "@atlaskit/pragmatic-drag-and-drop-hitbox/closest-edge";
+import type { Edge } from "@atlaskit/pragmatic-drag-and-drop-hitbox/types";
 
-import {
-  attachClosestEdge,
-  extractClosestEdge,
-} from "@atlaskit/pragmatic-drag-and-drop-hitbox/closest-edge";
-import { dropTargetForElements } from "@atlaskit/pragmatic-drag-and-drop/element/adapter";
+import { attachClosestEdge } from "@atlaskit/pragmatic-drag-and-drop-hitbox/closest-edge/attach-closest-edge";
+import { extractClosestEdge } from "@atlaskit/pragmatic-drag-and-drop-hitbox/closest-edge/extract-closest-edge";
+import { dropTargetForElements } from "@atlaskit/pragmatic-drag-and-drop/adapter/element-adapter";
 import { useEffect, useMemo, useRef, useState } from "react";
 
 import type {
@@ -60,7 +58,7 @@ export function useDrop<
 
         setState({
           draggingOver: true,
-          edge: edge as E[number],
+          edge: edge,
           source: {
             data: parsed.data.data,
             type: parsed.data.type,
@@ -75,7 +73,7 @@ export function useDrop<
 
         setState({
           draggingOver: true,
-          edge: edge as E[number],
+          edge: edge,
           source: {
             data: parsed.data.data,
             type: parsed.data.type,

@@ -5,516 +5,33 @@ export type ClientOptions = {
 };
 
 /**
- * _Binding_rank_OrderByInput
- */
-export type PlaylistsModelsBindingRankOrderByInput = {
-  /**
-   * Rank
-   */
-  rank: "asc" | "desc";
-};
-
-/**
- * _Binding_playlistId_OrderByInput
- */
-export type PlaylistsModelsBindingPlaylistIdOrderByInput = {
-  /**
-   * Playlistid
-   */
-  playlistId: "asc" | "desc";
-};
-
-/**
- * _Binding_mediaId_OrderByInput
- */
-export type PlaylistsModelsBindingMediaIdOrderByInput = {
-  /**
-   * Mediaid
-   */
-  mediaId: "asc" | "desc";
-};
-
-/**
- * _Binding_id_OrderByInput
- */
-export type PlaylistsModelsBindingIdOrderByInput = {
-  /**
-   * Id
-   */
-  id: "asc" | "desc";
-};
-
-/**
- * _Binding_RelevanceOrderByInput
- */
-export type PlaylistsModelsBindingRelevanceOrderByInput = {
-  _relevance: PlaylistsModelsBindingRelevanceInner;
-};
-
-/**
- * _Binding_RelevanceInner
- */
-export type PlaylistsModelsBindingRelevanceInner = {
-  /**
-   * Fields
-   */
-  fields: Array<"id" | "playlistId" | "mediaId" | "rank">;
-  /**
-   * Search
-   */
-  search: string;
-  /**
-   * Sort
-   */
-  sort: "asc" | "desc";
-};
-
-/**
- * _BindingWhereUnique_id_Input
- */
-export type PlaylistsModelsBindingWhereUniqueIdInput = {
-  /**
-   * Id
-   */
-  id: string;
-};
-
-/**
- * _BindingCompoundplaylistId_rankKeyInner
- */
-export type PlaylistsModelsBindingCompoundplaylistIdRankKeyInner = {
-  /**
-   * Playlistid
-   */
-  playlistId: string;
-  /**
-   * Rank
-   */
-  rank: string;
-};
-
-/**
- * _BindingCompoundplaylistId_rankKey
- */
-export type PlaylistsModelsBindingCompoundplaylistIdRankKey = {
-  playlistidRank: PlaylistsModelsBindingCompoundplaylistIdRankKeyInner;
-};
-
-export type PlaylistsModelsUpdateRequestInclude = PlaylistInclude | null;
-
-/**
- * FindManyBindingArgsFromMedia
+ * BindingInclude
  *
- * Arguments for Media
+ * Binding relational arguments
  */
-export type PlaylistsModelsFindManyBindingArgsFromMedia = {
-  /**
-   * Take
-   */
-  take?: number;
-  /**
-   * Skip
-   */
-  skip?: number;
-  /**
-   * Orderby
-   */
-  orderBy?:
-    | PlaylistsModelsBindingIdOrderByInput
-    | PlaylistsModelsBindingPlaylistIdOrderByInput
-    | PlaylistsModelsBindingMediaIdOrderByInput
-    | PlaylistsModelsBindingRankOrderByInput
-    | PlaylistsModelsBindingRelevanceOrderByInput
-    | Array<
-        | PlaylistsModelsBindingIdOrderByInput
-        | PlaylistsModelsBindingPlaylistIdOrderByInput
-        | PlaylistsModelsBindingMediaIdOrderByInput
-        | PlaylistsModelsBindingRankOrderByInput
-        | PlaylistsModelsBindingRelevanceOrderByInput
-      >;
-  where?: PlaylistsModelsBindingWhereInput;
-  /**
-   * Cursor
-   */
-  cursor?:
-    | PlaylistsModelsBindingWhereUniqueIdInput
-    | PlaylistsModelsBindingCompoundplaylistIdRankKey;
-  /**
-   * Distinct
-   */
-  distinct?: Array<"id" | "playlistId" | "mediaId" | "rank">;
-  include?: PlaylistsModelsBindingIncludeFromBinding;
-};
-
-/**
- * BindingIncludeFromBinding
- *
- * Relational arguments for Binding
- */
-export type PlaylistsModelsBindingIncludeFromBinding = {
+export type BindingInclude = {
   /**
    * Playlist
    */
-  playlist?: boolean | PlaylistsModelsPlaylistArgsFromBinding;
+  playlist?: boolean | BindingsModelsPlaylistArgsFromBinding;
   /**
    * Media
    */
-  media?: boolean | PlaylistsModelsMediaArgsFromBinding;
+  media?: boolean | BindingsModelsMediaArgsFromBinding;
 };
 
-/**
- * BindingListRelationFilter
- */
-export type PlaylistsModelsBindingListRelationFilter = {
-  some?: PlaylistsModelsBindingWhereInput;
-  none?: PlaylistsModelsBindingWhereInput;
-  every?: PlaylistsModelsBindingWhereInput;
-};
-
-/**
- * MediaWhereInput
- *
- * Media arguments for searching
- */
-export type PlaylistsModelsMediaWhereInput = {
-  /**
-   * Id
-   */
-  id?: string | PlaylistsModelsStringFilter;
-  /**
-   * Name
-   */
-  name?: string | PlaylistsModelsStringFilter;
-  bindings?: PlaylistsModelsBindingListRelationFilter;
-  /**
-   * And
-   */
-  and?: Array<PlaylistsModelsMediaWhereInput>;
-  /**
-   * Or
-   */
-  or?: Array<PlaylistsModelsMediaWhereInput>;
-  /**
-   * Not
-   */
-  not?: Array<PlaylistsModelsMediaWhereInput>;
-};
-
-/**
- * StringFilter
- */
-export type PlaylistsModelsStringFilter = {
-  /**
-   * Equals
-   */
-  equals?: string;
-  /**
-   * Notin
-   */
-  notIn?: Array<string>;
-  /**
-   * Lt
-   */
-  lt?: string;
-  /**
-   * Lte
-   */
-  lte?: string;
-  /**
-   * Gt
-   */
-  gt?: string;
-  /**
-   * Gte
-   */
-  gte?: string;
-  /**
-   * Contains
-   */
-  contains?: string;
-  /**
-   * Startswith
-   */
-  startswith?: string;
-  /**
-   * Endswith
-   */
-  endswith?: string;
-  /**
-   * In
-   */
-  in?: Array<string>;
-  /**
-   * Not
-   */
-  not?: string | PlaylistsModelsStringFilter;
-  /**
-   * Mode
-   */
-  mode?: "default" | "insensitive";
-  /**
-   * Search
-   */
-  search?: string;
-};
-
-/**
- * MediaRelationFilter
- */
-export type PlaylistsModelsMediaRelationFilter = {
-  is?: PlaylistsModelsMediaWhereInput;
-  isNot?: PlaylistsModelsMediaWhereInput;
-};
-
-/**
- * PlaylistWhereInput
- *
- * Playlist arguments for searching
- */
-export type PlaylistsModelsPlaylistWhereInput = {
-  /**
-   * Id
-   */
-  id?: string | PlaylistsModelsStringFilter;
-  /**
-   * Name
-   */
-  name?: string | PlaylistsModelsStringFilter;
-  bindings?: PlaylistsModelsBindingListRelationFilter;
-  /**
-   * And
-   */
-  and?: Array<PlaylistsModelsPlaylistWhereInput>;
-  /**
-   * Or
-   */
-  or?: Array<PlaylistsModelsPlaylistWhereInput>;
-  /**
-   * Not
-   */
-  not?: Array<PlaylistsModelsPlaylistWhereInput>;
-};
-
-/**
- * PlaylistRelationFilter
- */
-export type PlaylistsModelsPlaylistRelationFilter = {
-  is?: PlaylistsModelsPlaylistWhereInput;
-  isNot?: PlaylistsModelsPlaylistWhereInput;
-};
-
-/**
- * BindingWhereInput
- *
- * Binding arguments for searching
- */
-export type PlaylistsModelsBindingWhereInput = {
-  /**
-   * Id
-   */
-  id?: string | PlaylistsModelsStringFilter;
-  /**
-   * Playlistid
-   */
-  playlistId?: string | PlaylistsModelsStringFilter;
-  /**
-   * Mediaid
-   */
-  mediaId?: string | PlaylistsModelsStringFilter;
-  /**
-   * Rank
-   */
-  rank?: string | PlaylistsModelsStringFilter;
-  playlist?: PlaylistsModelsPlaylistRelationFilter;
-  media?: PlaylistsModelsMediaRelationFilter;
-  /**
-   * And
-   */
-  and?: Array<PlaylistsModelsBindingWhereInput>;
-  /**
-   * Or
-   */
-  or?: Array<PlaylistsModelsBindingWhereInput>;
-  /**
-   * Not
-   */
-  not?: Array<PlaylistsModelsBindingWhereInput>;
-};
-
-/**
- * MediaIncludeFromMedia
- *
- * Relational arguments for Media
- */
-export type PlaylistsModelsMediaIncludeFromMedia = {
-  /**
-   * Bindings
-   */
-  bindings?: boolean | PlaylistsModelsFindManyBindingArgsFromMedia;
-};
-
-/**
- * MediaArgsFromBinding
- *
- * Arguments for Binding
- */
-export type PlaylistsModelsMediaArgsFromBinding = {
-  include?: PlaylistsModelsMediaIncludeFromMedia;
-};
-
-/**
- * FindManyBindingArgsFromPlaylist
- *
- * Arguments for Playlist
- */
-export type PlaylistsModelsFindManyBindingArgsFromPlaylist = {
-  /**
-   * Take
-   */
-  take?: number;
-  /**
-   * Skip
-   */
-  skip?: number;
-  /**
-   * Orderby
-   */
-  orderBy?:
-    | PlaylistsModelsBindingIdOrderByInput
-    | PlaylistsModelsBindingPlaylistIdOrderByInput
-    | PlaylistsModelsBindingMediaIdOrderByInput
-    | PlaylistsModelsBindingRankOrderByInput
-    | PlaylistsModelsBindingRelevanceOrderByInput
-    | Array<
-        | PlaylistsModelsBindingIdOrderByInput
-        | PlaylistsModelsBindingPlaylistIdOrderByInput
-        | PlaylistsModelsBindingMediaIdOrderByInput
-        | PlaylistsModelsBindingRankOrderByInput
-        | PlaylistsModelsBindingRelevanceOrderByInput
-      >;
-  where?: PlaylistsModelsBindingWhereInput;
-  /**
-   * Cursor
-   */
-  cursor?:
-    | PlaylistsModelsBindingWhereUniqueIdInput
-    | PlaylistsModelsBindingCompoundplaylistIdRankKey;
-  /**
-   * Distinct
-   */
-  distinct?: Array<"id" | "playlistId" | "mediaId" | "rank">;
-  include?: PlaylistsModelsBindingIncludeFromBinding;
-};
-
-/**
- * PlaylistIncludeFromPlaylist
- *
- * Relational arguments for Playlist
- */
-export type PlaylistsModelsPlaylistIncludeFromPlaylist = {
-  /**
-   * Bindings
-   */
-  bindings?: boolean | PlaylistsModelsFindManyBindingArgsFromPlaylist;
-};
-
-/**
- * PlaylistArgsFromBinding
- *
- * Arguments for Binding
- */
-export type PlaylistsModelsPlaylistArgsFromBinding = {
-  include?: PlaylistsModelsPlaylistIncludeFromPlaylist;
-};
-
-/**
- * PlaylistInclude
- *
- * Playlist relational arguments
- */
-export type PlaylistInclude = {
-  /**
-   * Bindings
-   */
-  bindings?: boolean | PlaylistsModelsFindManyBindingArgsFromPlaylist;
-};
-
-export type PlaylistsModelsUpdateRequestId = string;
-
-/**
- * PlaylistUpdateManyMutationInput
- *
- * Arguments for updating many records
- */
-export type PlaylistsModelsUpdateRequestData = {
-  /**
-   * Id
-   */
-  id?: string;
-  /**
-   * Name
-   */
-  name?: string;
-};
-
-/**
- * Playlist
- *
- * Playlist data.
- */
-export type PlaylistsModelsPlaylist = {
-  /**
-   * Id
-   *
-   * Identifier of the playlist.
-   */
-  id: string;
-  /**
-   * Name
-   *
-   * Name of the playlist.
-   */
-  name: string;
-  /**
-   * Bindings
-   *
-   * Bindings the playlist belongs to.
-   */
-  bindings: Array<PlaylistsModelsBinding> | null;
-};
-
-/**
- * Media
- *
- * Media data.
- */
-export type PlaylistsModelsMedia = {
-  /**
-   * Id
-   *
-   * Identifier of the media.
-   */
-  id: string;
-  /**
-   * Name
-   *
-   * Name of the media.
-   */
-  name: string;
-  /**
-   * Bindings
-   *
-   * Bindings the media belongs to.
-   */
-  bindings: Array<PlaylistsModelsBinding> | null;
-};
+export type BindingOrderByInput =
+  | BindingsModelsBindingIdOrderByInput
+  | BindingsModelsBindingPlaylistIdOrderByInput
+  | BindingsModelsBindingMediaIdOrderByInput
+  | BindingsModelsBindingRankOrderByInput;
 
 /**
  * Binding
  *
  * Binding data.
  */
-export type PlaylistsModelsBinding = {
+export type CreateResponseBinding = {
   /**
    * Id
    *
@@ -542,57 +59,165 @@ export type PlaylistsModelsBinding = {
   /**
    * Playlist the binding belongs to.
    */
-  playlist: PlaylistsModelsPlaylist | null;
+  playlist: BindingsModelsPlaylist | null;
   /**
    * Media the binding belongs to.
    */
-  media: PlaylistsModelsMedia | null;
+  media: BindingsModelsMedia | null;
 };
 
 /**
- * PlaylistList
+ * Media
  *
- * List of playlists.
+ * Media data.
  */
-export type PlaylistsModelsListResponseResults = {
+export type CreateResponseMedia = {
   /**
-   * Count
+   * Id
    *
-   * Total number of playlists that matched the query.
+   * Identifier of the media.
    */
-  count: number;
+  id: string;
   /**
-   * Limit
+   * Name
    *
-   * Maximum number of returned playlists.
+   * Name of the media.
    */
-  limit: number | null;
+  name: string;
   /**
-   * Offset
+   * Bindings
    *
-   * Number of playlists skipped.
+   * Bindings the media belongs to.
    */
-  offset: number | null;
-  /**
-   * Playlists
-   *
-   * Playlists that matched the request.
-   */
-  playlists: Array<PlaylistsModelsPlaylist>;
+  bindings: Array<MediaModelsBinding> | null;
 };
 
-export type PlaylistsModelsListRequestWhere =
-  PlaylistsModelsPlaylistWhereInput | null;
+/**
+ * Playlist
+ *
+ * Playlist data.
+ */
+export type CreateResponsePlaylist = {
+  /**
+   * Id
+   *
+   * Identifier of the playlist.
+   */
+  id: string;
+  /**
+   * Name
+   *
+   * Name of the playlist.
+   */
+  name: string;
+  /**
+   * Bindings
+   *
+   * Bindings the playlist belongs to.
+   */
+  bindings: Array<PlaylistsModelsBinding> | null;
+};
 
-export type PlaylistsModelsListRequestOrder =
-  | PlaylistOrderByInput
-  | Array<PlaylistOrderByInput>
-  | null;
+export type DownloadRequestId = string;
 
 /**
- * _Playlist_name_OrderByInput
+ * EventType
+ *
+ * Event types.
  */
-export type PlaylistNameOrderByInput = {
+export type EventType = "test";
+
+export type HeadDownloadRequestId = string;
+
+export type HeadM3uRequestId = string;
+
+export type M3uRequestId = string;
+
+/**
+ * MediaInclude
+ *
+ * Media relational arguments
+ */
+export type MediaInclude = {
+  /**
+   * Bindings
+   */
+  bindings?: boolean | MediaModelsFindManyBindingArgsFromMedia;
+};
+
+export type MediaOrderByInput = MediaIdOrderByInput | MediaNameOrderByInput;
+
+/**
+ * Parameters
+ *
+ * Parameters for testing.
+ */
+export type Parameters = {
+  /**
+   * Message
+   *
+   * Optional message to include in the test.
+   */
+  message?: string | null;
+};
+
+/**
+ * PlaylistInclude
+ *
+ * Playlist relational arguments
+ */
+export type PlaylistInclude = {
+  /**
+   * Bindings
+   */
+  bindings?: boolean | PlaylistsModelsFindManyBindingArgsFromPlaylist;
+};
+
+export type PlaylistOrderByInput =
+  PlaylistIdOrderByInput | PlaylistNameOrderByInput;
+
+export type SubscribeRequestTypes = string | Array<EventType> | null;
+
+export type TestRequestParameters = Parameters | null;
+
+/**
+ * Result
+ *
+ * Result of the test.
+ */
+export type TestResponseResult = {
+  /**
+   * Success
+   *
+   * Indicates if the test was successful.
+   */
+  success: boolean;
+  /**
+   * Message
+   *
+   * Message returned from the test.
+   */
+  message: string;
+};
+
+export type UploadRequestId = string;
+
+export type UploadRequestType = string;
+
+/**
+ * _Media_id_OrderByInput
+ */
+export type MediaIdOrderByInput = {
+  /**
+   * Id
+   */
+  id: "asc" | "desc";
+};
+
+/**
+ * _Media_name_OrderByInput
+ */
+export type MediaNameOrderByInput = {
   /**
    * Name
    */
@@ -609,517 +234,14 @@ export type PlaylistIdOrderByInput = {
   id: "asc" | "desc";
 };
 
-export type PlaylistOrderByInput =
-  | PlaylistIdOrderByInput
-  | PlaylistNameOrderByInput;
-
-export type PlaylistsModelsListRequestOffset = number | null;
-
-export type PlaylistsModelsListRequestLimit = number | null;
-
-export type PlaylistsModelsListRequestInclude = PlaylistInclude | null;
-
-export type PlaylistsModelsGetRequestInclude = PlaylistInclude | null;
-
-export type PlaylistsModelsGetRequestId = string;
-
-export type PlaylistsModelsDeleteRequestId = string;
-
-export type PlaylistsModelsCreateRequestInclude = PlaylistInclude | null;
-
 /**
- * PlaylistCreateWithoutRelationsInput
- *
- * Required arguments to the Playlist create method, without relations
+ * _Playlist_name_OrderByInput
  */
-export type PlaylistsModelsCreateRequestData = {
-  /**
-   * Id
-   */
-  id?: string;
+export type PlaylistNameOrderByInput = {
   /**
    * Name
    */
-  name: string;
-};
-
-/**
- * _Binding_rank_OrderByInput
- */
-export type MediaModelsBindingRankOrderByInput = {
-  /**
-   * Rank
-   */
-  rank: "asc" | "desc";
-};
-
-/**
- * _Binding_playlistId_OrderByInput
- */
-export type MediaModelsBindingPlaylistIdOrderByInput = {
-  /**
-   * Playlistid
-   */
-  playlistId: "asc" | "desc";
-};
-
-/**
- * _Binding_mediaId_OrderByInput
- */
-export type MediaModelsBindingMediaIdOrderByInput = {
-  /**
-   * Mediaid
-   */
-  mediaId: "asc" | "desc";
-};
-
-/**
- * _Binding_id_OrderByInput
- */
-export type MediaModelsBindingIdOrderByInput = {
-  /**
-   * Id
-   */
-  id: "asc" | "desc";
-};
-
-/**
- * _Binding_RelevanceOrderByInput
- */
-export type MediaModelsBindingRelevanceOrderByInput = {
-  _relevance: MediaModelsBindingRelevanceInner;
-};
-
-/**
- * _Binding_RelevanceInner
- */
-export type MediaModelsBindingRelevanceInner = {
-  /**
-   * Fields
-   */
-  fields: Array<"id" | "playlistId" | "mediaId" | "rank">;
-  /**
-   * Search
-   */
-  search: string;
-  /**
-   * Sort
-   */
-  sort: "asc" | "desc";
-};
-
-/**
- * _BindingWhereUnique_id_Input
- */
-export type MediaModelsBindingWhereUniqueIdInput = {
-  /**
-   * Id
-   */
-  id: string;
-};
-
-/**
- * _BindingCompoundplaylistId_rankKeyInner
- */
-export type MediaModelsBindingCompoundplaylistIdRankKeyInner = {
-  /**
-   * Playlistid
-   */
-  playlistId: string;
-  /**
-   * Rank
-   */
-  rank: string;
-};
-
-/**
- * _BindingCompoundplaylistId_rankKey
- */
-export type MediaModelsBindingCompoundplaylistIdRankKey = {
-  playlistidRank: MediaModelsBindingCompoundplaylistIdRankKeyInner;
-};
-
-export type MediaModelsUpdateRequestInclude = MediaInclude | null;
-
-/**
- * MediaIncludeFromMedia
- *
- * Relational arguments for Media
- */
-export type MediaModelsMediaIncludeFromMedia = {
-  /**
-   * Bindings
-   */
-  bindings?: boolean | MediaModelsFindManyBindingArgsFromMedia;
-};
-
-/**
- * FindManyBindingArgsFromMedia
- *
- * Arguments for Media
- */
-export type MediaModelsFindManyBindingArgsFromMedia = {
-  /**
-   * Take
-   */
-  take?: number;
-  /**
-   * Skip
-   */
-  skip?: number;
-  /**
-   * Orderby
-   */
-  orderBy?:
-    | MediaModelsBindingIdOrderByInput
-    | MediaModelsBindingPlaylistIdOrderByInput
-    | MediaModelsBindingMediaIdOrderByInput
-    | MediaModelsBindingRankOrderByInput
-    | MediaModelsBindingRelevanceOrderByInput
-    | Array<
-        | MediaModelsBindingIdOrderByInput
-        | MediaModelsBindingPlaylistIdOrderByInput
-        | MediaModelsBindingMediaIdOrderByInput
-        | MediaModelsBindingRankOrderByInput
-        | MediaModelsBindingRelevanceOrderByInput
-      >;
-  where?: MediaModelsBindingWhereInput;
-  /**
-   * Cursor
-   */
-  cursor?:
-    | MediaModelsBindingWhereUniqueIdInput
-    | MediaModelsBindingCompoundplaylistIdRankKey;
-  /**
-   * Distinct
-   */
-  distinct?: Array<"id" | "playlistId" | "mediaId" | "rank">;
-  include?: MediaModelsBindingIncludeFromBinding;
-};
-
-/**
- * MediaArgsFromBinding
- *
- * Arguments for Binding
- */
-export type MediaModelsMediaArgsFromBinding = {
-  include?: MediaModelsMediaIncludeFromMedia;
-};
-
-/**
- * FindManyBindingArgsFromPlaylist
- *
- * Arguments for Playlist
- */
-export type MediaModelsFindManyBindingArgsFromPlaylist = {
-  /**
-   * Take
-   */
-  take?: number;
-  /**
-   * Skip
-   */
-  skip?: number;
-  /**
-   * Orderby
-   */
-  orderBy?:
-    | MediaModelsBindingIdOrderByInput
-    | MediaModelsBindingPlaylistIdOrderByInput
-    | MediaModelsBindingMediaIdOrderByInput
-    | MediaModelsBindingRankOrderByInput
-    | MediaModelsBindingRelevanceOrderByInput
-    | Array<
-        | MediaModelsBindingIdOrderByInput
-        | MediaModelsBindingPlaylistIdOrderByInput
-        | MediaModelsBindingMediaIdOrderByInput
-        | MediaModelsBindingRankOrderByInput
-        | MediaModelsBindingRelevanceOrderByInput
-      >;
-  where?: MediaModelsBindingWhereInput;
-  /**
-   * Cursor
-   */
-  cursor?:
-    | MediaModelsBindingWhereUniqueIdInput
-    | MediaModelsBindingCompoundplaylistIdRankKey;
-  /**
-   * Distinct
-   */
-  distinct?: Array<"id" | "playlistId" | "mediaId" | "rank">;
-  include?: MediaModelsBindingIncludeFromBinding;
-};
-
-/**
- * BindingIncludeFromBinding
- *
- * Relational arguments for Binding
- */
-export type MediaModelsBindingIncludeFromBinding = {
-  /**
-   * Playlist
-   */
-  playlist?: boolean | MediaModelsPlaylistArgsFromBinding;
-  /**
-   * Media
-   */
-  media?: boolean | MediaModelsMediaArgsFromBinding;
-};
-
-/**
- * MediaWhereInput
- *
- * Media arguments for searching
- */
-export type MediaModelsMediaWhereInput = {
-  /**
-   * Id
-   */
-  id?: string | MediaModelsStringFilter;
-  /**
-   * Name
-   */
-  name?: string | MediaModelsStringFilter;
-  bindings?: MediaModelsBindingListRelationFilter;
-  /**
-   * And
-   */
-  and?: Array<MediaModelsMediaWhereInput>;
-  /**
-   * Or
-   */
-  or?: Array<MediaModelsMediaWhereInput>;
-  /**
-   * Not
-   */
-  not?: Array<MediaModelsMediaWhereInput>;
-};
-
-/**
- * MediaRelationFilter
- */
-export type MediaModelsMediaRelationFilter = {
-  is?: MediaModelsMediaWhereInput;
-  isNot?: MediaModelsMediaWhereInput;
-};
-
-/**
- * PlaylistWhereInput
- *
- * Playlist arguments for searching
- */
-export type MediaModelsPlaylistWhereInput = {
-  /**
-   * Id
-   */
-  id?: string | MediaModelsStringFilter;
-  /**
-   * Name
-   */
-  name?: string | MediaModelsStringFilter;
-  bindings?: MediaModelsBindingListRelationFilter;
-  /**
-   * And
-   */
-  and?: Array<MediaModelsPlaylistWhereInput>;
-  /**
-   * Or
-   */
-  or?: Array<MediaModelsPlaylistWhereInput>;
-  /**
-   * Not
-   */
-  not?: Array<MediaModelsPlaylistWhereInput>;
-};
-
-/**
- * BindingListRelationFilter
- */
-export type MediaModelsBindingListRelationFilter = {
-  some?: MediaModelsBindingWhereInput;
-  none?: MediaModelsBindingWhereInput;
-  every?: MediaModelsBindingWhereInput;
-};
-
-/**
- * PlaylistRelationFilter
- */
-export type MediaModelsPlaylistRelationFilter = {
-  is?: MediaModelsPlaylistWhereInput;
-  isNot?: MediaModelsPlaylistWhereInput;
-};
-
-/**
- * StringFilter
- */
-export type MediaModelsStringFilter = {
-  /**
-   * Equals
-   */
-  equals?: string;
-  /**
-   * Notin
-   */
-  notIn?: Array<string>;
-  /**
-   * Lt
-   */
-  lt?: string;
-  /**
-   * Lte
-   */
-  lte?: string;
-  /**
-   * Gt
-   */
-  gt?: string;
-  /**
-   * Gte
-   */
-  gte?: string;
-  /**
-   * Contains
-   */
-  contains?: string;
-  /**
-   * Startswith
-   */
-  startswith?: string;
-  /**
-   * Endswith
-   */
-  endswith?: string;
-  /**
-   * In
-   */
-  in?: Array<string>;
-  /**
-   * Not
-   */
-  not?: string | MediaModelsStringFilter;
-  /**
-   * Mode
-   */
-  mode?: "default" | "insensitive";
-  /**
-   * Search
-   */
-  search?: string;
-};
-
-/**
- * BindingWhereInput
- *
- * Binding arguments for searching
- */
-export type MediaModelsBindingWhereInput = {
-  /**
-   * Id
-   */
-  id?: string | MediaModelsStringFilter;
-  /**
-   * Playlistid
-   */
-  playlistId?: string | MediaModelsStringFilter;
-  /**
-   * Mediaid
-   */
-  mediaId?: string | MediaModelsStringFilter;
-  /**
-   * Rank
-   */
-  rank?: string | MediaModelsStringFilter;
-  playlist?: MediaModelsPlaylistRelationFilter;
-  media?: MediaModelsMediaRelationFilter;
-  /**
-   * And
-   */
-  and?: Array<MediaModelsBindingWhereInput>;
-  /**
-   * Or
-   */
-  or?: Array<MediaModelsBindingWhereInput>;
-  /**
-   * Not
-   */
-  not?: Array<MediaModelsBindingWhereInput>;
-};
-
-/**
- * PlaylistIncludeFromPlaylist
- *
- * Relational arguments for Playlist
- */
-export type MediaModelsPlaylistIncludeFromPlaylist = {
-  /**
-   * Bindings
-   */
-  bindings?: boolean | MediaModelsFindManyBindingArgsFromPlaylist;
-};
-
-/**
- * PlaylistArgsFromBinding
- *
- * Arguments for Binding
- */
-export type MediaModelsPlaylistArgsFromBinding = {
-  include?: MediaModelsPlaylistIncludeFromPlaylist;
-};
-
-/**
- * MediaInclude
- *
- * Media relational arguments
- */
-export type MediaInclude = {
-  /**
-   * Bindings
-   */
-  bindings?: boolean | MediaModelsFindManyBindingArgsFromMedia;
-};
-
-export type MediaModelsUpdateRequestId = string;
-
-/**
- * MediaUpdateManyMutationInput
- *
- * Arguments for updating many records
- */
-export type MediaModelsUpdateRequestData = {
-  /**
-   * Id
-   */
-  id?: string;
-  /**
-   * Name
-   */
-  name?: string;
-};
-
-/**
- * Playlist
- *
- * Playlist data.
- */
-export type MediaModelsPlaylist = {
-  /**
-   * Id
-   *
-   * Identifier of the playlist.
-   */
-  id: string;
-  /**
-   * Name
-   *
-   * Name of the playlist.
-   */
-  name: string;
-  /**
-   * Bindings
-   *
-   * Bindings the playlist belongs to.
-   */
-  bindings: Array<MediaModelsBinding> | null;
+  name: "asc" | "desc";
 };
 
 /**
@@ -1127,7 +249,7 @@ export type MediaModelsPlaylist = {
  *
  * Binding data.
  */
-export type MediaModelsBinding = {
+export type BindingsModelsBinding = {
   /**
    * Id
    *
@@ -1155,227 +277,109 @@ export type MediaModelsBinding = {
   /**
    * Playlist the binding belongs to.
    */
-  playlist: MediaModelsPlaylist | null;
+  playlist: BindingsModelsPlaylist | null;
   /**
    * Media the binding belongs to.
    */
-  media: MediaModelsMedia | null;
+  media: BindingsModelsMedia | null;
 };
 
 /**
- * Media
+ * BindingIncludeFromBinding
  *
- * Media data.
+ * Relational arguments for Binding
  */
-export type MediaModelsMedia = {
+export type BindingsModelsBindingIncludeFromBinding = {
   /**
-   * Id
-   *
-   * Identifier of the media.
+   * Playlist
    */
-  id: string;
-  /**
-   * Name
-   *
-   * Name of the media.
-   */
-  name: string;
-  /**
-   * Bindings
-   *
-   * Bindings the media belongs to.
-   */
-  bindings: Array<MediaModelsBinding> | null;
-};
-
-/**
- * MediaList
- *
- * List of media.
- */
-export type MediaModelsListResponseResults = {
-  /**
-   * Count
-   *
-   * Total number of media that matched the query.
-   */
-  count: number;
-  /**
-   * Limit
-   *
-   * Maximum number of returned media.
-   */
-  limit: number | null;
-  /**
-   * Offset
-   *
-   * Number of media skipped.
-   */
-  offset: number | null;
+  playlist?: boolean | BindingsModelsPlaylistArgsFromBinding;
   /**
    * Media
-   *
-   * Media that matched the request.
    */
-  media: Array<MediaModelsMedia>;
-};
-
-export type MediaModelsListRequestWhere = MediaModelsMediaWhereInput | null;
-
-export type MediaModelsListRequestOrder =
-  | MediaOrderByInput
-  | Array<MediaOrderByInput>
-  | null;
-
-/**
- * _Media_name_OrderByInput
- */
-export type MediaNameOrderByInput = {
-  /**
-   * Name
-   */
-  name: "asc" | "desc";
+  media?: boolean | BindingsModelsMediaArgsFromBinding;
 };
 
 /**
- * _Media_id_OrderByInput
+ * BindingListRelationFilter
  */
-export type MediaIdOrderByInput = {
+export type BindingsModelsBindingListRelationFilter = {
+  some?: BindingsModelsBindingWhereInput;
+  none?: BindingsModelsBindingWhereInput;
+  every?: BindingsModelsBindingWhereInput;
+};
+
+/**
+ * BindingWhereInput
+ *
+ * Binding arguments for searching
+ */
+export type BindingsModelsBindingWhereInput = {
   /**
    * Id
    */
-  id: "asc" | "desc";
+  id?: string | BindingsModelsStringFilter;
+  /**
+   * Playlistid
+   */
+  playlistId?: string | BindingsModelsStringFilter;
+  /**
+   * Mediaid
+   */
+  mediaId?: string | BindingsModelsStringFilter;
+  /**
+   * Rank
+   */
+  rank?: string | BindingsModelsStringFilter;
+  playlist?: BindingsModelsPlaylistRelationFilter;
+  media?: BindingsModelsMediaRelationFilter;
+  /**
+   * And
+   */
+  and?: Array<BindingsModelsBindingWhereInput>;
+  /**
+   * Or
+   */
+  or?: Array<BindingsModelsBindingWhereInput>;
+  /**
+   * Not
+   */
+  not?: Array<BindingsModelsBindingWhereInput>;
 };
 
-export type MediaOrderByInput = MediaIdOrderByInput | MediaNameOrderByInput;
-
-export type MediaModelsListRequestOffset = number | null;
-
-export type MediaModelsListRequestLimit = number | null;
-
-export type MediaModelsListRequestInclude = MediaInclude | null;
-
-export type MediaModelsGetRequestInclude = MediaInclude | null;
-
-export type MediaModelsGetRequestId = string;
-
-export type MediaModelsDeleteRequestId = string;
-
-export type MediaModelsCreateRequestInclude = MediaInclude | null;
-
 /**
- * MediaCreateWithoutRelationsInput
+ * BindingCreateInput
  *
- * Required arguments to the Media create method, without relations
+ * Required arguments to the Binding create method.
  */
-export type MediaModelsCreateRequestData = {
+export type BindingsModelsCreateRequestData = {
   /**
    * Id
    */
   id?: string;
   /**
-   * Name
-   */
-  name: string;
-};
-
-/**
- * _Binding_rank_OrderByInput
- */
-export type BindingsModelsBindingRankOrderByInput = {
-  /**
-   * Rank
-   */
-  rank: "asc" | "desc";
-};
-
-/**
- * _Binding_playlistId_OrderByInput
- */
-export type BindingsModelsBindingPlaylistIdOrderByInput = {
-  /**
    * Playlistid
-   */
-  playlistId: "asc" | "desc";
-};
-
-/**
- * _Binding_mediaId_OrderByInput
- */
-export type BindingsModelsBindingMediaIdOrderByInput = {
-  /**
-   * Mediaid
-   */
-  mediaId: "asc" | "desc";
-};
-
-/**
- * _Binding_id_OrderByInput
- */
-export type BindingsModelsBindingIdOrderByInput = {
-  /**
-   * Id
-   */
-  id: "asc" | "desc";
-};
-
-/**
- * _Binding_RelevanceOrderByInput
- */
-export type BindingsModelsBindingRelevanceOrderByInput = {
-  _relevance: BindingsModelsBindingRelevanceInner;
-};
-
-/**
- * _Binding_RelevanceInner
- */
-export type BindingsModelsBindingRelevanceInner = {
-  /**
-   * Fields
-   */
-  fields: Array<"id" | "playlistId" | "mediaId" | "rank">;
-  /**
-   * Search
-   */
-  search: string;
-  /**
-   * Sort
-   */
-  sort: "asc" | "desc";
-};
-
-/**
- * _BindingWhereUnique_id_Input
- */
-export type BindingsModelsBindingWhereUniqueIdInput = {
-  /**
-   * Id
-   */
-  id: string;
-};
-
-/**
- * _BindingCompoundplaylistId_rankKeyInner
- */
-export type BindingsModelsBindingCompoundplaylistIdRankKeyInner = {
-  /**
-   * Playlistid
+   *
+   * Identifier of the playlist.
    */
   playlistId: string;
   /**
+   * Mediaid
+   *
+   * Identifier of the media.
+   */
+  mediaId: string;
+  /**
    * Rank
+   *
+   * Rank of the binding.
    */
   rank: string;
 };
 
-/**
- * _BindingCompoundplaylistId_rankKey
- */
-export type BindingsModelsBindingCompoundplaylistIdRankKey = {
-  playlistidRank: BindingsModelsBindingCompoundplaylistIdRankKeyInner;
-};
+export type BindingsModelsCreateRequestInclude = BindingInclude | null;
 
-export type BindingsModelsUpdateRequestInclude = BindingInclude | null;
+export type BindingsModelsDeleteRequestId = string;
 
 /**
  * FindManyBindingArgsFromMedia
@@ -1422,19 +426,150 @@ export type BindingsModelsFindManyBindingArgsFromMedia = {
 };
 
 /**
- * BindingIncludeFromBinding
+ * FindManyBindingArgsFromPlaylist
  *
- * Relational arguments for Binding
+ * Arguments for Playlist
  */
-export type BindingsModelsBindingIncludeFromBinding = {
+export type BindingsModelsFindManyBindingArgsFromPlaylist = {
   /**
-   * Playlist
+   * Take
    */
-  playlist?: boolean | BindingsModelsPlaylistArgsFromBinding;
+  take?: number;
   /**
-   * Media
+   * Skip
    */
-  media?: boolean | BindingsModelsMediaArgsFromBinding;
+  skip?: number;
+  /**
+   * Orderby
+   */
+  orderBy?:
+    | BindingsModelsBindingIdOrderByInput
+    | BindingsModelsBindingPlaylistIdOrderByInput
+    | BindingsModelsBindingMediaIdOrderByInput
+    | BindingsModelsBindingRankOrderByInput
+    | BindingsModelsBindingRelevanceOrderByInput
+    | Array<
+        | BindingsModelsBindingIdOrderByInput
+        | BindingsModelsBindingPlaylistIdOrderByInput
+        | BindingsModelsBindingMediaIdOrderByInput
+        | BindingsModelsBindingRankOrderByInput
+        | BindingsModelsBindingRelevanceOrderByInput
+      >;
+  where?: BindingsModelsBindingWhereInput;
+  /**
+   * Cursor
+   */
+  cursor?:
+    | BindingsModelsBindingWhereUniqueIdInput
+    | BindingsModelsBindingCompoundplaylistIdRankKey;
+  /**
+   * Distinct
+   */
+  distinct?: Array<"id" | "playlistId" | "mediaId" | "rank">;
+  include?: BindingsModelsBindingIncludeFromBinding;
+};
+
+export type BindingsModelsGetRequestId = string;
+
+export type BindingsModelsGetRequestInclude = BindingInclude | null;
+
+export type BindingsModelsListRequestInclude = BindingInclude | null;
+
+export type BindingsModelsListRequestLimit = number | null;
+
+export type BindingsModelsListRequestOffset = number | null;
+
+export type BindingsModelsListRequestOrder =
+  BindingOrderByInput | Array<BindingOrderByInput> | null;
+
+export type BindingsModelsListRequestWhere =
+  BindingsModelsBindingWhereInput | null;
+
+/**
+ * BindingList
+ *
+ * List of bindings.
+ */
+export type BindingsModelsListResponseResults = {
+  /**
+   * Count
+   *
+   * Total number of bindings that matched the query.
+   */
+  count: number;
+  /**
+   * Limit
+   *
+   * Maximum number of returned bindings.
+   */
+  limit: number | null;
+  /**
+   * Offset
+   *
+   * Number of bindings skipped.
+   */
+  offset: number | null;
+  /**
+   * Bindings
+   *
+   * Bindings that matched the request.
+   */
+  bindings: Array<BindingsModelsBinding>;
+};
+
+/**
+ * Media
+ *
+ * Media data.
+ */
+export type BindingsModelsMedia = {
+  /**
+   * Id
+   *
+   * Identifier of the media.
+   */
+  id: string;
+  /**
+   * Name
+   *
+   * Name of the media.
+   */
+  name: string;
+  /**
+   * Bindings
+   *
+   * Bindings the media belongs to.
+   */
+  bindings: Array<BindingsModelsBinding> | null;
+};
+
+/**
+ * MediaArgsFromBinding
+ *
+ * Arguments for Binding
+ */
+export type BindingsModelsMediaArgsFromBinding = {
+  include?: BindingsModelsMediaIncludeFromMedia;
+};
+
+/**
+ * MediaIncludeFromMedia
+ *
+ * Relational arguments for Media
+ */
+export type BindingsModelsMediaIncludeFromMedia = {
+  /**
+   * Bindings
+   */
+  bindings?: boolean | BindingsModelsFindManyBindingArgsFromMedia;
+};
+
+/**
+ * MediaRelationFilter
+ */
+export type BindingsModelsMediaRelationFilter = {
+  is?: BindingsModelsMediaWhereInput;
+  isNot?: BindingsModelsMediaWhereInput;
 };
 
 /**
@@ -1467,58 +602,87 @@ export type BindingsModelsMediaWhereInput = {
 };
 
 /**
- * BindingWhereInput
+ * Playlist
  *
- * Binding arguments for searching
+ * Playlist data.
  */
-export type BindingsModelsBindingWhereInput = {
+export type BindingsModelsPlaylist = {
+  /**
+   * Id
+   *
+   * Identifier of the playlist.
+   */
+  id: string;
+  /**
+   * Name
+   *
+   * Name of the playlist.
+   */
+  name: string;
+  /**
+   * Bindings
+   *
+   * Bindings the playlist belongs to.
+   */
+  bindings: Array<BindingsModelsBinding> | null;
+};
+
+/**
+ * PlaylistArgsFromBinding
+ *
+ * Arguments for Binding
+ */
+export type BindingsModelsPlaylistArgsFromBinding = {
+  include?: BindingsModelsPlaylistIncludeFromPlaylist;
+};
+
+/**
+ * PlaylistIncludeFromPlaylist
+ *
+ * Relational arguments for Playlist
+ */
+export type BindingsModelsPlaylistIncludeFromPlaylist = {
+  /**
+   * Bindings
+   */
+  bindings?: boolean | BindingsModelsFindManyBindingArgsFromPlaylist;
+};
+
+/**
+ * PlaylistRelationFilter
+ */
+export type BindingsModelsPlaylistRelationFilter = {
+  is?: BindingsModelsPlaylistWhereInput;
+  isNot?: BindingsModelsPlaylistWhereInput;
+};
+
+/**
+ * PlaylistWhereInput
+ *
+ * Playlist arguments for searching
+ */
+export type BindingsModelsPlaylistWhereInput = {
   /**
    * Id
    */
   id?: string | BindingsModelsStringFilter;
   /**
-   * Playlistid
+   * Name
    */
-  playlistId?: string | BindingsModelsStringFilter;
-  /**
-   * Mediaid
-   */
-  mediaId?: string | BindingsModelsStringFilter;
-  /**
-   * Rank
-   */
-  rank?: string | BindingsModelsStringFilter;
-  playlist?: BindingsModelsPlaylistRelationFilter;
-  media?: BindingsModelsMediaRelationFilter;
+  name?: string | BindingsModelsStringFilter;
+  bindings?: BindingsModelsBindingListRelationFilter;
   /**
    * And
    */
-  and?: Array<BindingsModelsBindingWhereInput>;
+  and?: Array<BindingsModelsPlaylistWhereInput>;
   /**
    * Or
    */
-  or?: Array<BindingsModelsBindingWhereInput>;
+  or?: Array<BindingsModelsPlaylistWhereInput>;
   /**
    * Not
    */
-  not?: Array<BindingsModelsBindingWhereInput>;
-};
-
-/**
- * MediaRelationFilter
- */
-export type BindingsModelsMediaRelationFilter = {
-  is?: BindingsModelsMediaWhereInput;
-  isNot?: BindingsModelsMediaWhereInput;
-};
-
-/**
- * BindingListRelationFilter
- */
-export type BindingsModelsBindingListRelationFilter = {
-  some?: BindingsModelsBindingWhereInput;
-  none?: BindingsModelsBindingWhereInput;
-  every?: BindingsModelsBindingWhereInput;
+  not?: Array<BindingsModelsPlaylistWhereInput>;
 };
 
 /**
@@ -1580,147 +744,6 @@ export type BindingsModelsStringFilter = {
 };
 
 /**
- * PlaylistWhereInput
- *
- * Playlist arguments for searching
- */
-export type BindingsModelsPlaylistWhereInput = {
-  /**
-   * Id
-   */
-  id?: string | BindingsModelsStringFilter;
-  /**
-   * Name
-   */
-  name?: string | BindingsModelsStringFilter;
-  bindings?: BindingsModelsBindingListRelationFilter;
-  /**
-   * And
-   */
-  and?: Array<BindingsModelsPlaylistWhereInput>;
-  /**
-   * Or
-   */
-  or?: Array<BindingsModelsPlaylistWhereInput>;
-  /**
-   * Not
-   */
-  not?: Array<BindingsModelsPlaylistWhereInput>;
-};
-
-/**
- * PlaylistRelationFilter
- */
-export type BindingsModelsPlaylistRelationFilter = {
-  is?: BindingsModelsPlaylistWhereInput;
-  isNot?: BindingsModelsPlaylistWhereInput;
-};
-
-/**
- * MediaIncludeFromMedia
- *
- * Relational arguments for Media
- */
-export type BindingsModelsMediaIncludeFromMedia = {
-  /**
-   * Bindings
-   */
-  bindings?: boolean | BindingsModelsFindManyBindingArgsFromMedia;
-};
-
-/**
- * MediaArgsFromBinding
- *
- * Arguments for Binding
- */
-export type BindingsModelsMediaArgsFromBinding = {
-  include?: BindingsModelsMediaIncludeFromMedia;
-};
-
-/**
- * PlaylistArgsFromBinding
- *
- * Arguments for Binding
- */
-export type BindingsModelsPlaylistArgsFromBinding = {
-  include?: BindingsModelsPlaylistIncludeFromPlaylist;
-};
-
-/**
- * FindManyBindingArgsFromPlaylist
- *
- * Arguments for Playlist
- */
-export type BindingsModelsFindManyBindingArgsFromPlaylist = {
-  /**
-   * Take
-   */
-  take?: number;
-  /**
-   * Skip
-   */
-  skip?: number;
-  /**
-   * Orderby
-   */
-  orderBy?:
-    | BindingsModelsBindingIdOrderByInput
-    | BindingsModelsBindingPlaylistIdOrderByInput
-    | BindingsModelsBindingMediaIdOrderByInput
-    | BindingsModelsBindingRankOrderByInput
-    | BindingsModelsBindingRelevanceOrderByInput
-    | Array<
-        | BindingsModelsBindingIdOrderByInput
-        | BindingsModelsBindingPlaylistIdOrderByInput
-        | BindingsModelsBindingMediaIdOrderByInput
-        | BindingsModelsBindingRankOrderByInput
-        | BindingsModelsBindingRelevanceOrderByInput
-      >;
-  where?: BindingsModelsBindingWhereInput;
-  /**
-   * Cursor
-   */
-  cursor?:
-    | BindingsModelsBindingWhereUniqueIdInput
-    | BindingsModelsBindingCompoundplaylistIdRankKey;
-  /**
-   * Distinct
-   */
-  distinct?: Array<"id" | "playlistId" | "mediaId" | "rank">;
-  include?: BindingsModelsBindingIncludeFromBinding;
-};
-
-/**
- * PlaylistIncludeFromPlaylist
- *
- * Relational arguments for Playlist
- */
-export type BindingsModelsPlaylistIncludeFromPlaylist = {
-  /**
-   * Bindings
-   */
-  bindings?: boolean | BindingsModelsFindManyBindingArgsFromPlaylist;
-};
-
-/**
- * BindingInclude
- *
- * Binding relational arguments
- */
-export type BindingInclude = {
-  /**
-   * Playlist
-   */
-  playlist?: boolean | BindingsModelsPlaylistArgsFromBinding;
-  /**
-   * Media
-   */
-  media?: boolean | BindingsModelsMediaArgsFromBinding;
-};
-
-export type BindingsModelsUpdateRequestId = string;
-
-/**
  * BindingUpdateManyMutationInput
  *
  * Arguments for updating many records
@@ -1736,30 +759,104 @@ export type BindingsModelsUpdateRequestData = {
   rank?: string;
 };
 
+export type BindingsModelsUpdateRequestId = string;
+
+export type BindingsModelsUpdateRequestInclude = BindingInclude | null;
+
 /**
- * Playlist
- *
- * Playlist data.
+ * _BindingCompoundplaylistId_rankKey
  */
-export type BindingsModelsPlaylist = {
+export type BindingsModelsBindingCompoundplaylistIdRankKey = {
+  playlistidRank: BindingsModelsBindingCompoundplaylistIdRankKeyInner;
+};
+
+/**
+ * _BindingCompoundplaylistId_rankKeyInner
+ */
+export type BindingsModelsBindingCompoundplaylistIdRankKeyInner = {
+  /**
+   * Playlistid
+   */
+  playlistId: string;
+  /**
+   * Rank
+   */
+  rank: string;
+};
+
+/**
+ * _BindingWhereUnique_id_Input
+ */
+export type BindingsModelsBindingWhereUniqueIdInput = {
   /**
    * Id
-   *
-   * Identifier of the playlist.
    */
   id: string;
+};
+
+/**
+ * _Binding_RelevanceInner
+ */
+export type BindingsModelsBindingRelevanceInner = {
   /**
-   * Name
-   *
-   * Name of the playlist.
+   * Fields
    */
-  name: string;
+  fields: Array<"id" | "playlistId" | "mediaId" | "rank">;
   /**
-   * Bindings
-   *
-   * Bindings the playlist belongs to.
+   * Search
    */
-  bindings: Array<BindingsModelsBinding> | null;
+  search: string;
+  /**
+   * Sort
+   */
+  sort: "asc" | "desc";
+};
+
+/**
+ * _Binding_RelevanceOrderByInput
+ */
+export type BindingsModelsBindingRelevanceOrderByInput = {
+  _relevance: BindingsModelsBindingRelevanceInner;
+};
+
+/**
+ * _Binding_id_OrderByInput
+ */
+export type BindingsModelsBindingIdOrderByInput = {
+  /**
+   * Id
+   */
+  id: "asc" | "desc";
+};
+
+/**
+ * _Binding_mediaId_OrderByInput
+ */
+export type BindingsModelsBindingMediaIdOrderByInput = {
+  /**
+   * Mediaid
+   */
+  mediaId: "asc" | "desc";
+};
+
+/**
+ * _Binding_playlistId_OrderByInput
+ */
+export type BindingsModelsBindingPlaylistIdOrderByInput = {
+  /**
+   * Playlistid
+   */
+  playlistId: "asc" | "desc";
+};
+
+/**
+ * _Binding_rank_OrderByInput
+ */
+export type BindingsModelsBindingRankOrderByInput = {
+  /**
+   * Rank
+   */
+  rank: "asc" | "desc";
 };
 
 /**
@@ -1767,7 +864,7 @@ export type BindingsModelsPlaylist = {
  *
  * Binding data.
  */
-export type BindingsModelsBinding = {
+export type MediaModelsBinding = {
   /**
    * Id
    *
@@ -1795,208 +892,229 @@ export type BindingsModelsBinding = {
   /**
    * Playlist the binding belongs to.
    */
-  playlist: BindingsModelsPlaylist | null;
+  playlist: MediaModelsPlaylist | null;
   /**
    * Media the binding belongs to.
    */
-  media: BindingsModelsMedia | null;
+  media: MediaModelsMedia | null;
 };
 
 /**
- * Media
+ * BindingIncludeFromBinding
  *
- * Media data.
+ * Relational arguments for Binding
  */
-export type BindingsModelsMedia = {
+export type MediaModelsBindingIncludeFromBinding = {
+  /**
+   * Playlist
+   */
+  playlist?: boolean | MediaModelsPlaylistArgsFromBinding;
+  /**
+   * Media
+   */
+  media?: boolean | MediaModelsMediaArgsFromBinding;
+};
+
+/**
+ * BindingListRelationFilter
+ */
+export type MediaModelsBindingListRelationFilter = {
+  some?: MediaModelsBindingWhereInput;
+  none?: MediaModelsBindingWhereInput;
+  every?: MediaModelsBindingWhereInput;
+};
+
+/**
+ * BindingWhereInput
+ *
+ * Binding arguments for searching
+ */
+export type MediaModelsBindingWhereInput = {
   /**
    * Id
-   *
-   * Identifier of the media.
    */
-  id: string;
+  id?: string | MediaModelsStringFilter;
   /**
-   * Name
-   *
-   * Name of the media.
+   * Playlistid
    */
-  name: string;
+  playlistId?: string | MediaModelsStringFilter;
   /**
-   * Bindings
-   *
-   * Bindings the media belongs to.
+   * Mediaid
    */
-  bindings: Array<BindingsModelsBinding> | null;
+  mediaId?: string | MediaModelsStringFilter;
+  /**
+   * Rank
+   */
+  rank?: string | MediaModelsStringFilter;
+  playlist?: MediaModelsPlaylistRelationFilter;
+  media?: MediaModelsMediaRelationFilter;
+  /**
+   * And
+   */
+  and?: Array<MediaModelsBindingWhereInput>;
+  /**
+   * Or
+   */
+  or?: Array<MediaModelsBindingWhereInput>;
+  /**
+   * Not
+   */
+  not?: Array<MediaModelsBindingWhereInput>;
 };
 
 /**
- * BindingList
+ * MediaCreateWithoutRelationsInput
  *
- * List of bindings.
+ * Required arguments to the Media create method, without relations
  */
-export type BindingsModelsListResponseResults = {
-  /**
-   * Count
-   *
-   * Total number of bindings that matched the query.
-   */
-  count: number;
-  /**
-   * Limit
-   *
-   * Maximum number of returned bindings.
-   */
-  limit: number | null;
-  /**
-   * Offset
-   *
-   * Number of bindings skipped.
-   */
-  offset: number | null;
-  /**
-   * Bindings
-   *
-   * Bindings that matched the request.
-   */
-  bindings: Array<BindingsModelsBinding>;
-};
-
-export type BindingsModelsListRequestWhere =
-  BindingsModelsBindingWhereInput | null;
-
-export type BindingsModelsListRequestOrder =
-  | BindingOrderByInput
-  | Array<BindingOrderByInput>
-  | null;
-
-export type BindingOrderByInput =
-  | BindingsModelsBindingIdOrderByInput
-  | BindingsModelsBindingPlaylistIdOrderByInput
-  | BindingsModelsBindingMediaIdOrderByInput
-  | BindingsModelsBindingRankOrderByInput;
-
-export type BindingsModelsListRequestOffset = number | null;
-
-export type BindingsModelsListRequestLimit = number | null;
-
-export type BindingsModelsListRequestInclude = BindingInclude | null;
-
-export type BindingsModelsGetRequestInclude = BindingInclude | null;
-
-export type BindingsModelsGetRequestId = string;
-
-export type BindingsModelsDeleteRequestId = string;
-
-export type BindingsModelsCreateRequestInclude = BindingInclude | null;
-
-/**
- * BindingCreateInput
- *
- * Required arguments to the Binding create method.
- */
-export type BindingsModelsCreateRequestData = {
+export type MediaModelsCreateRequestData = {
   /**
    * Id
    */
   id?: string;
   /**
-   * Playlistid
-   *
-   * Identifier of the playlist.
-   */
-  playlistId: string;
-  /**
-   * Mediaid
-   *
-   * Identifier of the media.
-   */
-  mediaId: string;
-  /**
-   * Rank
-   *
-   * Rank of the binding.
-   */
-  rank: string;
-};
-
-export type UploadRequestType = string;
-
-export type UploadRequestId = string;
-
-/**
- * Result
- *
- * Result of the test.
- */
-export type TestResponseResult = {
-  /**
-   * Success
-   *
-   * Indicates if the test was successful.
-   */
-  success: boolean;
-  /**
-   * Message
-   *
-   * Message returned from the test.
-   */
-  message: string;
-};
-
-export type TestRequestParameters = Parameters | null;
-
-/**
- * Parameters
- *
- * Parameters for testing.
- */
-export type Parameters = {
-  /**
-   * Message
-   *
-   * Optional message to include in the test.
-   */
-  message?: string | null;
-};
-
-export type SubscribeRequestTypes = string | Array<EventType> | null;
-
-/**
- * EventType
- *
- * Event types.
- */
-export type EventType = "test";
-
-export type M3uRequestId = string;
-
-export type HeadM3uRequestId = string;
-
-export type HeadDownloadRequestId = string;
-
-/**
- * Playlist
- *
- * Playlist data.
- */
-export type GetResponsePlaylist = {
-  /**
-   * Id
-   *
-   * Identifier of the playlist.
-   */
-  id: string;
-  /**
    * Name
-   *
-   * Name of the playlist.
    */
   name: string;
+};
+
+export type MediaModelsCreateRequestInclude = MediaInclude | null;
+
+export type MediaModelsDeleteRequestId = string;
+
+/**
+ * FindManyBindingArgsFromMedia
+ *
+ * Arguments for Media
+ */
+export type MediaModelsFindManyBindingArgsFromMedia = {
   /**
-   * Bindings
-   *
-   * Bindings the playlist belongs to.
+   * Take
    */
-  bindings: Array<PlaylistsModelsBinding> | null;
+  take?: number;
+  /**
+   * Skip
+   */
+  skip?: number;
+  /**
+   * Orderby
+   */
+  orderBy?:
+    | MediaModelsBindingIdOrderByInput
+    | MediaModelsBindingPlaylistIdOrderByInput
+    | MediaModelsBindingMediaIdOrderByInput
+    | MediaModelsBindingRankOrderByInput
+    | MediaModelsBindingRelevanceOrderByInput
+    | Array<
+        | MediaModelsBindingIdOrderByInput
+        | MediaModelsBindingPlaylistIdOrderByInput
+        | MediaModelsBindingMediaIdOrderByInput
+        | MediaModelsBindingRankOrderByInput
+        | MediaModelsBindingRelevanceOrderByInput
+      >;
+  where?: MediaModelsBindingWhereInput;
+  /**
+   * Cursor
+   */
+  cursor?:
+    | MediaModelsBindingWhereUniqueIdInput
+    | MediaModelsBindingCompoundplaylistIdRankKey;
+  /**
+   * Distinct
+   */
+  distinct?: Array<"id" | "playlistId" | "mediaId" | "rank">;
+  include?: MediaModelsBindingIncludeFromBinding;
+};
+
+/**
+ * FindManyBindingArgsFromPlaylist
+ *
+ * Arguments for Playlist
+ */
+export type MediaModelsFindManyBindingArgsFromPlaylist = {
+  /**
+   * Take
+   */
+  take?: number;
+  /**
+   * Skip
+   */
+  skip?: number;
+  /**
+   * Orderby
+   */
+  orderBy?:
+    | MediaModelsBindingIdOrderByInput
+    | MediaModelsBindingPlaylistIdOrderByInput
+    | MediaModelsBindingMediaIdOrderByInput
+    | MediaModelsBindingRankOrderByInput
+    | MediaModelsBindingRelevanceOrderByInput
+    | Array<
+        | MediaModelsBindingIdOrderByInput
+        | MediaModelsBindingPlaylistIdOrderByInput
+        | MediaModelsBindingMediaIdOrderByInput
+        | MediaModelsBindingRankOrderByInput
+        | MediaModelsBindingRelevanceOrderByInput
+      >;
+  where?: MediaModelsBindingWhereInput;
+  /**
+   * Cursor
+   */
+  cursor?:
+    | MediaModelsBindingWhereUniqueIdInput
+    | MediaModelsBindingCompoundplaylistIdRankKey;
+  /**
+   * Distinct
+   */
+  distinct?: Array<"id" | "playlistId" | "mediaId" | "rank">;
+  include?: MediaModelsBindingIncludeFromBinding;
+};
+
+export type MediaModelsGetRequestId = string;
+
+export type MediaModelsGetRequestInclude = MediaInclude | null;
+
+export type MediaModelsListRequestInclude = MediaInclude | null;
+
+export type MediaModelsListRequestLimit = number | null;
+
+export type MediaModelsListRequestOffset = number | null;
+
+export type MediaModelsListRequestOrder =
+  MediaOrderByInput | Array<MediaOrderByInput> | null;
+
+export type MediaModelsListRequestWhere = MediaModelsMediaWhereInput | null;
+
+/**
+ * MediaList
+ *
+ * List of media.
+ */
+export type MediaModelsListResponseResults = {
+  /**
+   * Count
+   *
+   * Total number of media that matched the query.
+   */
+  count: number;
+  /**
+   * Limit
+   *
+   * Maximum number of returned media.
+   */
+  limit: number | null;
+  /**
+   * Offset
+   *
+   * Number of media skipped.
+   */
+  offset: number | null;
+  /**
+   * Media
+   *
+   * Media that matched the request.
+   */
+  media: Array<MediaModelsMedia>;
 };
 
 /**
@@ -2004,7 +1122,7 @@ export type GetResponsePlaylist = {
  *
  * Media data.
  */
-export type GetResponseMedia = {
+export type MediaModelsMedia = {
   /**
    * Id
    *
@@ -2026,11 +1144,327 @@ export type GetResponseMedia = {
 };
 
 /**
+ * MediaArgsFromBinding
+ *
+ * Arguments for Binding
+ */
+export type MediaModelsMediaArgsFromBinding = {
+  include?: MediaModelsMediaIncludeFromMedia;
+};
+
+/**
+ * MediaIncludeFromMedia
+ *
+ * Relational arguments for Media
+ */
+export type MediaModelsMediaIncludeFromMedia = {
+  /**
+   * Bindings
+   */
+  bindings?: boolean | MediaModelsFindManyBindingArgsFromMedia;
+};
+
+/**
+ * MediaRelationFilter
+ */
+export type MediaModelsMediaRelationFilter = {
+  is?: MediaModelsMediaWhereInput;
+  isNot?: MediaModelsMediaWhereInput;
+};
+
+/**
+ * MediaWhereInput
+ *
+ * Media arguments for searching
+ */
+export type MediaModelsMediaWhereInput = {
+  /**
+   * Id
+   */
+  id?: string | MediaModelsStringFilter;
+  /**
+   * Name
+   */
+  name?: string | MediaModelsStringFilter;
+  bindings?: MediaModelsBindingListRelationFilter;
+  /**
+   * And
+   */
+  and?: Array<MediaModelsMediaWhereInput>;
+  /**
+   * Or
+   */
+  or?: Array<MediaModelsMediaWhereInput>;
+  /**
+   * Not
+   */
+  not?: Array<MediaModelsMediaWhereInput>;
+};
+
+/**
+ * Playlist
+ *
+ * Playlist data.
+ */
+export type MediaModelsPlaylist = {
+  /**
+   * Id
+   *
+   * Identifier of the playlist.
+   */
+  id: string;
+  /**
+   * Name
+   *
+   * Name of the playlist.
+   */
+  name: string;
+  /**
+   * Bindings
+   *
+   * Bindings the playlist belongs to.
+   */
+  bindings: Array<MediaModelsBinding> | null;
+};
+
+/**
+ * PlaylistArgsFromBinding
+ *
+ * Arguments for Binding
+ */
+export type MediaModelsPlaylistArgsFromBinding = {
+  include?: MediaModelsPlaylistIncludeFromPlaylist;
+};
+
+/**
+ * PlaylistIncludeFromPlaylist
+ *
+ * Relational arguments for Playlist
+ */
+export type MediaModelsPlaylistIncludeFromPlaylist = {
+  /**
+   * Bindings
+   */
+  bindings?: boolean | MediaModelsFindManyBindingArgsFromPlaylist;
+};
+
+/**
+ * PlaylistRelationFilter
+ */
+export type MediaModelsPlaylistRelationFilter = {
+  is?: MediaModelsPlaylistWhereInput;
+  isNot?: MediaModelsPlaylistWhereInput;
+};
+
+/**
+ * PlaylistWhereInput
+ *
+ * Playlist arguments for searching
+ */
+export type MediaModelsPlaylistWhereInput = {
+  /**
+   * Id
+   */
+  id?: string | MediaModelsStringFilter;
+  /**
+   * Name
+   */
+  name?: string | MediaModelsStringFilter;
+  bindings?: MediaModelsBindingListRelationFilter;
+  /**
+   * And
+   */
+  and?: Array<MediaModelsPlaylistWhereInput>;
+  /**
+   * Or
+   */
+  or?: Array<MediaModelsPlaylistWhereInput>;
+  /**
+   * Not
+   */
+  not?: Array<MediaModelsPlaylistWhereInput>;
+};
+
+/**
+ * StringFilter
+ */
+export type MediaModelsStringFilter = {
+  /**
+   * Equals
+   */
+  equals?: string;
+  /**
+   * Notin
+   */
+  notIn?: Array<string>;
+  /**
+   * Lt
+   */
+  lt?: string;
+  /**
+   * Lte
+   */
+  lte?: string;
+  /**
+   * Gt
+   */
+  gt?: string;
+  /**
+   * Gte
+   */
+  gte?: string;
+  /**
+   * Contains
+   */
+  contains?: string;
+  /**
+   * Startswith
+   */
+  startswith?: string;
+  /**
+   * Endswith
+   */
+  endswith?: string;
+  /**
+   * In
+   */
+  in?: Array<string>;
+  /**
+   * Not
+   */
+  not?: string | MediaModelsStringFilter;
+  /**
+   * Mode
+   */
+  mode?: "default" | "insensitive";
+  /**
+   * Search
+   */
+  search?: string;
+};
+
+/**
+ * MediaUpdateManyMutationInput
+ *
+ * Arguments for updating many records
+ */
+export type MediaModelsUpdateRequestData = {
+  /**
+   * Id
+   */
+  id?: string;
+  /**
+   * Name
+   */
+  name?: string;
+};
+
+export type MediaModelsUpdateRequestId = string;
+
+export type MediaModelsUpdateRequestInclude = MediaInclude | null;
+
+/**
+ * _BindingCompoundplaylistId_rankKey
+ */
+export type MediaModelsBindingCompoundplaylistIdRankKey = {
+  playlistidRank: MediaModelsBindingCompoundplaylistIdRankKeyInner;
+};
+
+/**
+ * _BindingCompoundplaylistId_rankKeyInner
+ */
+export type MediaModelsBindingCompoundplaylistIdRankKeyInner = {
+  /**
+   * Playlistid
+   */
+  playlistId: string;
+  /**
+   * Rank
+   */
+  rank: string;
+};
+
+/**
+ * _BindingWhereUnique_id_Input
+ */
+export type MediaModelsBindingWhereUniqueIdInput = {
+  /**
+   * Id
+   */
+  id: string;
+};
+
+/**
+ * _Binding_RelevanceInner
+ */
+export type MediaModelsBindingRelevanceInner = {
+  /**
+   * Fields
+   */
+  fields: Array<"id" | "playlistId" | "mediaId" | "rank">;
+  /**
+   * Search
+   */
+  search: string;
+  /**
+   * Sort
+   */
+  sort: "asc" | "desc";
+};
+
+/**
+ * _Binding_RelevanceOrderByInput
+ */
+export type MediaModelsBindingRelevanceOrderByInput = {
+  _relevance: MediaModelsBindingRelevanceInner;
+};
+
+/**
+ * _Binding_id_OrderByInput
+ */
+export type MediaModelsBindingIdOrderByInput = {
+  /**
+   * Id
+   */
+  id: "asc" | "desc";
+};
+
+/**
+ * _Binding_mediaId_OrderByInput
+ */
+export type MediaModelsBindingMediaIdOrderByInput = {
+  /**
+   * Mediaid
+   */
+  mediaId: "asc" | "desc";
+};
+
+/**
+ * _Binding_playlistId_OrderByInput
+ */
+export type MediaModelsBindingPlaylistIdOrderByInput = {
+  /**
+   * Playlistid
+   */
+  playlistId: "asc" | "desc";
+};
+
+/**
+ * _Binding_rank_OrderByInput
+ */
+export type MediaModelsBindingRankOrderByInput = {
+  /**
+   * Rank
+   */
+  rank: "asc" | "desc";
+};
+
+/**
  * Binding
  *
  * Binding data.
  */
-export type GetResponseBinding = {
+export type PlaylistsModelsBinding = {
   /**
    * Id
    *
@@ -2058,14 +1492,573 @@ export type GetResponseBinding = {
   /**
    * Playlist the binding belongs to.
    */
-  playlist: BindingsModelsPlaylist | null;
+  playlist: PlaylistsModelsPlaylist | null;
   /**
    * Media the binding belongs to.
    */
-  media: BindingsModelsMedia | null;
+  media: PlaylistsModelsMedia | null;
 };
 
-export type DownloadRequestId = string;
+/**
+ * BindingIncludeFromBinding
+ *
+ * Relational arguments for Binding
+ */
+export type PlaylistsModelsBindingIncludeFromBinding = {
+  /**
+   * Playlist
+   */
+  playlist?: boolean | PlaylistsModelsPlaylistArgsFromBinding;
+  /**
+   * Media
+   */
+  media?: boolean | PlaylistsModelsMediaArgsFromBinding;
+};
+
+/**
+ * BindingListRelationFilter
+ */
+export type PlaylistsModelsBindingListRelationFilter = {
+  some?: PlaylistsModelsBindingWhereInput;
+  none?: PlaylistsModelsBindingWhereInput;
+  every?: PlaylistsModelsBindingWhereInput;
+};
+
+/**
+ * BindingWhereInput
+ *
+ * Binding arguments for searching
+ */
+export type PlaylistsModelsBindingWhereInput = {
+  /**
+   * Id
+   */
+  id?: string | PlaylistsModelsStringFilter;
+  /**
+   * Playlistid
+   */
+  playlistId?: string | PlaylistsModelsStringFilter;
+  /**
+   * Mediaid
+   */
+  mediaId?: string | PlaylistsModelsStringFilter;
+  /**
+   * Rank
+   */
+  rank?: string | PlaylistsModelsStringFilter;
+  playlist?: PlaylistsModelsPlaylistRelationFilter;
+  media?: PlaylistsModelsMediaRelationFilter;
+  /**
+   * And
+   */
+  and?: Array<PlaylistsModelsBindingWhereInput>;
+  /**
+   * Or
+   */
+  or?: Array<PlaylistsModelsBindingWhereInput>;
+  /**
+   * Not
+   */
+  not?: Array<PlaylistsModelsBindingWhereInput>;
+};
+
+/**
+ * PlaylistCreateWithoutRelationsInput
+ *
+ * Required arguments to the Playlist create method, without relations
+ */
+export type PlaylistsModelsCreateRequestData = {
+  /**
+   * Id
+   */
+  id?: string;
+  /**
+   * Name
+   */
+  name: string;
+};
+
+export type PlaylistsModelsCreateRequestInclude = PlaylistInclude | null;
+
+export type PlaylistsModelsDeleteRequestId = string;
+
+/**
+ * FindManyBindingArgsFromMedia
+ *
+ * Arguments for Media
+ */
+export type PlaylistsModelsFindManyBindingArgsFromMedia = {
+  /**
+   * Take
+   */
+  take?: number;
+  /**
+   * Skip
+   */
+  skip?: number;
+  /**
+   * Orderby
+   */
+  orderBy?:
+    | PlaylistsModelsBindingIdOrderByInput
+    | PlaylistsModelsBindingPlaylistIdOrderByInput
+    | PlaylistsModelsBindingMediaIdOrderByInput
+    | PlaylistsModelsBindingRankOrderByInput
+    | PlaylistsModelsBindingRelevanceOrderByInput
+    | Array<
+        | PlaylistsModelsBindingIdOrderByInput
+        | PlaylistsModelsBindingPlaylistIdOrderByInput
+        | PlaylistsModelsBindingMediaIdOrderByInput
+        | PlaylistsModelsBindingRankOrderByInput
+        | PlaylistsModelsBindingRelevanceOrderByInput
+      >;
+  where?: PlaylistsModelsBindingWhereInput;
+  /**
+   * Cursor
+   */
+  cursor?:
+    | PlaylistsModelsBindingWhereUniqueIdInput
+    | PlaylistsModelsBindingCompoundplaylistIdRankKey;
+  /**
+   * Distinct
+   */
+  distinct?: Array<"id" | "playlistId" | "mediaId" | "rank">;
+  include?: PlaylistsModelsBindingIncludeFromBinding;
+};
+
+/**
+ * FindManyBindingArgsFromPlaylist
+ *
+ * Arguments for Playlist
+ */
+export type PlaylistsModelsFindManyBindingArgsFromPlaylist = {
+  /**
+   * Take
+   */
+  take?: number;
+  /**
+   * Skip
+   */
+  skip?: number;
+  /**
+   * Orderby
+   */
+  orderBy?:
+    | PlaylistsModelsBindingIdOrderByInput
+    | PlaylistsModelsBindingPlaylistIdOrderByInput
+    | PlaylistsModelsBindingMediaIdOrderByInput
+    | PlaylistsModelsBindingRankOrderByInput
+    | PlaylistsModelsBindingRelevanceOrderByInput
+    | Array<
+        | PlaylistsModelsBindingIdOrderByInput
+        | PlaylistsModelsBindingPlaylistIdOrderByInput
+        | PlaylistsModelsBindingMediaIdOrderByInput
+        | PlaylistsModelsBindingRankOrderByInput
+        | PlaylistsModelsBindingRelevanceOrderByInput
+      >;
+  where?: PlaylistsModelsBindingWhereInput;
+  /**
+   * Cursor
+   */
+  cursor?:
+    | PlaylistsModelsBindingWhereUniqueIdInput
+    | PlaylistsModelsBindingCompoundplaylistIdRankKey;
+  /**
+   * Distinct
+   */
+  distinct?: Array<"id" | "playlistId" | "mediaId" | "rank">;
+  include?: PlaylistsModelsBindingIncludeFromBinding;
+};
+
+export type PlaylistsModelsGetRequestId = string;
+
+export type PlaylistsModelsGetRequestInclude = PlaylistInclude | null;
+
+export type PlaylistsModelsListRequestInclude = PlaylistInclude | null;
+
+export type PlaylistsModelsListRequestLimit = number | null;
+
+export type PlaylistsModelsListRequestOffset = number | null;
+
+export type PlaylistsModelsListRequestOrder =
+  PlaylistOrderByInput | Array<PlaylistOrderByInput> | null;
+
+export type PlaylistsModelsListRequestWhere =
+  PlaylistsModelsPlaylistWhereInput | null;
+
+/**
+ * PlaylistList
+ *
+ * List of playlists.
+ */
+export type PlaylistsModelsListResponseResults = {
+  /**
+   * Count
+   *
+   * Total number of playlists that matched the query.
+   */
+  count: number;
+  /**
+   * Limit
+   *
+   * Maximum number of returned playlists.
+   */
+  limit: number | null;
+  /**
+   * Offset
+   *
+   * Number of playlists skipped.
+   */
+  offset: number | null;
+  /**
+   * Playlists
+   *
+   * Playlists that matched the request.
+   */
+  playlists: Array<PlaylistsModelsPlaylist>;
+};
+
+/**
+ * Media
+ *
+ * Media data.
+ */
+export type PlaylistsModelsMedia = {
+  /**
+   * Id
+   *
+   * Identifier of the media.
+   */
+  id: string;
+  /**
+   * Name
+   *
+   * Name of the media.
+   */
+  name: string;
+  /**
+   * Bindings
+   *
+   * Bindings the media belongs to.
+   */
+  bindings: Array<PlaylistsModelsBinding> | null;
+};
+
+/**
+ * MediaArgsFromBinding
+ *
+ * Arguments for Binding
+ */
+export type PlaylistsModelsMediaArgsFromBinding = {
+  include?: PlaylistsModelsMediaIncludeFromMedia;
+};
+
+/**
+ * MediaIncludeFromMedia
+ *
+ * Relational arguments for Media
+ */
+export type PlaylistsModelsMediaIncludeFromMedia = {
+  /**
+   * Bindings
+   */
+  bindings?: boolean | PlaylistsModelsFindManyBindingArgsFromMedia;
+};
+
+/**
+ * MediaRelationFilter
+ */
+export type PlaylistsModelsMediaRelationFilter = {
+  is?: PlaylistsModelsMediaWhereInput;
+  isNot?: PlaylistsModelsMediaWhereInput;
+};
+
+/**
+ * MediaWhereInput
+ *
+ * Media arguments for searching
+ */
+export type PlaylistsModelsMediaWhereInput = {
+  /**
+   * Id
+   */
+  id?: string | PlaylistsModelsStringFilter;
+  /**
+   * Name
+   */
+  name?: string | PlaylistsModelsStringFilter;
+  bindings?: PlaylistsModelsBindingListRelationFilter;
+  /**
+   * And
+   */
+  and?: Array<PlaylistsModelsMediaWhereInput>;
+  /**
+   * Or
+   */
+  or?: Array<PlaylistsModelsMediaWhereInput>;
+  /**
+   * Not
+   */
+  not?: Array<PlaylistsModelsMediaWhereInput>;
+};
+
+/**
+ * Playlist
+ *
+ * Playlist data.
+ */
+export type PlaylistsModelsPlaylist = {
+  /**
+   * Id
+   *
+   * Identifier of the playlist.
+   */
+  id: string;
+  /**
+   * Name
+   *
+   * Name of the playlist.
+   */
+  name: string;
+  /**
+   * Bindings
+   *
+   * Bindings the playlist belongs to.
+   */
+  bindings: Array<PlaylistsModelsBinding> | null;
+};
+
+/**
+ * PlaylistArgsFromBinding
+ *
+ * Arguments for Binding
+ */
+export type PlaylistsModelsPlaylistArgsFromBinding = {
+  include?: PlaylistsModelsPlaylistIncludeFromPlaylist;
+};
+
+/**
+ * PlaylistIncludeFromPlaylist
+ *
+ * Relational arguments for Playlist
+ */
+export type PlaylistsModelsPlaylistIncludeFromPlaylist = {
+  /**
+   * Bindings
+   */
+  bindings?: boolean | PlaylistsModelsFindManyBindingArgsFromPlaylist;
+};
+
+/**
+ * PlaylistRelationFilter
+ */
+export type PlaylistsModelsPlaylistRelationFilter = {
+  is?: PlaylistsModelsPlaylistWhereInput;
+  isNot?: PlaylistsModelsPlaylistWhereInput;
+};
+
+/**
+ * PlaylistWhereInput
+ *
+ * Playlist arguments for searching
+ */
+export type PlaylistsModelsPlaylistWhereInput = {
+  /**
+   * Id
+   */
+  id?: string | PlaylistsModelsStringFilter;
+  /**
+   * Name
+   */
+  name?: string | PlaylistsModelsStringFilter;
+  bindings?: PlaylistsModelsBindingListRelationFilter;
+  /**
+   * And
+   */
+  and?: Array<PlaylistsModelsPlaylistWhereInput>;
+  /**
+   * Or
+   */
+  or?: Array<PlaylistsModelsPlaylistWhereInput>;
+  /**
+   * Not
+   */
+  not?: Array<PlaylistsModelsPlaylistWhereInput>;
+};
+
+/**
+ * StringFilter
+ */
+export type PlaylistsModelsStringFilter = {
+  /**
+   * Equals
+   */
+  equals?: string;
+  /**
+   * Notin
+   */
+  notIn?: Array<string>;
+  /**
+   * Lt
+   */
+  lt?: string;
+  /**
+   * Lte
+   */
+  lte?: string;
+  /**
+   * Gt
+   */
+  gt?: string;
+  /**
+   * Gte
+   */
+  gte?: string;
+  /**
+   * Contains
+   */
+  contains?: string;
+  /**
+   * Startswith
+   */
+  startswith?: string;
+  /**
+   * Endswith
+   */
+  endswith?: string;
+  /**
+   * In
+   */
+  in?: Array<string>;
+  /**
+   * Not
+   */
+  not?: string | PlaylistsModelsStringFilter;
+  /**
+   * Mode
+   */
+  mode?: "default" | "insensitive";
+  /**
+   * Search
+   */
+  search?: string;
+};
+
+/**
+ * PlaylistUpdateManyMutationInput
+ *
+ * Arguments for updating many records
+ */
+export type PlaylistsModelsUpdateRequestData = {
+  /**
+   * Id
+   */
+  id?: string;
+  /**
+   * Name
+   */
+  name?: string;
+};
+
+export type PlaylistsModelsUpdateRequestId = string;
+
+export type PlaylistsModelsUpdateRequestInclude = PlaylistInclude | null;
+
+/**
+ * _BindingCompoundplaylistId_rankKey
+ */
+export type PlaylistsModelsBindingCompoundplaylistIdRankKey = {
+  playlistidRank: PlaylistsModelsBindingCompoundplaylistIdRankKeyInner;
+};
+
+/**
+ * _BindingCompoundplaylistId_rankKeyInner
+ */
+export type PlaylistsModelsBindingCompoundplaylistIdRankKeyInner = {
+  /**
+   * Playlistid
+   */
+  playlistId: string;
+  /**
+   * Rank
+   */
+  rank: string;
+};
+
+/**
+ * _BindingWhereUnique_id_Input
+ */
+export type PlaylistsModelsBindingWhereUniqueIdInput = {
+  /**
+   * Id
+   */
+  id: string;
+};
+
+/**
+ * _Binding_RelevanceInner
+ */
+export type PlaylistsModelsBindingRelevanceInner = {
+  /**
+   * Fields
+   */
+  fields: Array<"id" | "playlistId" | "mediaId" | "rank">;
+  /**
+   * Search
+   */
+  search: string;
+  /**
+   * Sort
+   */
+  sort: "asc" | "desc";
+};
+
+/**
+ * _Binding_RelevanceOrderByInput
+ */
+export type PlaylistsModelsBindingRelevanceOrderByInput = {
+  _relevance: PlaylistsModelsBindingRelevanceInner;
+};
+
+/**
+ * _Binding_id_OrderByInput
+ */
+export type PlaylistsModelsBindingIdOrderByInput = {
+  /**
+   * Id
+   */
+  id: "asc" | "desc";
+};
+
+/**
+ * _Binding_mediaId_OrderByInput
+ */
+export type PlaylistsModelsBindingMediaIdOrderByInput = {
+  /**
+   * Mediaid
+   */
+  mediaId: "asc" | "desc";
+};
+
+/**
+ * _Binding_playlistId_OrderByInput
+ */
+export type PlaylistsModelsBindingPlaylistIdOrderByInput = {
+  /**
+   * Playlistid
+   */
+  playlistId: "asc" | "desc";
+};
+
+/**
+ * _Binding_rank_OrderByInput
+ */
+export type PlaylistsModelsBindingRankOrderByInput = {
+  /**
+   * Rank
+   */
+  rank: "asc" | "desc";
+};
 
 export type BindingsListRequest = {
   body?: never;
@@ -2171,7 +2164,7 @@ export type BindingsCreateResponses = {
   /**
    * Document created, URL follows
    */
-  201: BindingsModelsBinding;
+  201: CreateResponseBinding;
 };
 
 export type BindingsCreateResponse =
@@ -2277,7 +2270,7 @@ export type BindingsIdGetResponses = {
   /**
    * Request fulfilled, document follows
    */
-  200: GetResponseBinding;
+  200: BindingsModelsBinding;
 };
 
 export type BindingsIdGetResponse =
@@ -2454,7 +2447,7 @@ export type MediaCreateResponses = {
   /**
    * Document created, URL follows
    */
-  201: MediaModelsMedia;
+  201: CreateResponseMedia;
 };
 
 export type MediaCreateResponse =
@@ -2559,7 +2552,7 @@ export type MediaIdGetResponses = {
   /**
    * Request fulfilled, document follows
    */
-  200: GetResponseMedia;
+  200: MediaModelsMedia;
 };
 
 export type MediaIdGetResponse = MediaIdGetResponses[keyof MediaIdGetResponses];
@@ -2927,7 +2920,7 @@ export type PlaylistsCreateResponses = {
   /**
    * Document created, URL follows
    */
-  201: PlaylistsModelsPlaylist;
+  201: CreateResponsePlaylist;
 };
 
 export type PlaylistsCreateResponse =
@@ -3034,7 +3027,7 @@ export type PlaylistsIdGetResponses = {
   /**
    * Request fulfilled, document follows
    */
-  200: GetResponsePlaylist;
+  200: PlaylistsModelsPlaylist;
 };
 
 export type PlaylistsIdGetResponse =

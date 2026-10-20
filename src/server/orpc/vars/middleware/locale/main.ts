@@ -16,7 +16,7 @@ export const localeMiddleware = headersMiddleware
             executed: context.localeMiddleware.executed,
             locale: context.localeMiddleware.locale,
           },
-        } satisfies LocaleMiddlewareOutputContext as LocaleMiddlewareOutputContext,
+        } satisfies LocaleMiddlewareOutputContext,
       });
 
     const headers = context.headersMiddleware.headers;
@@ -33,6 +33,6 @@ export const localeMiddleware = headersMiddleware
           executed: true,
           locale: locale,
         },
-      } satisfies LocaleMiddlewareOutputContext as LocaleMiddlewareOutputContext,
+      } satisfies LocaleMiddlewareOutputContext,
     });
   });

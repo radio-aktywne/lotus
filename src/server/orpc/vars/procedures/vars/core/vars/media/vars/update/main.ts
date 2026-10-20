@@ -20,8 +20,8 @@ export const update = orpcServerRootBase.core.media.update
       });
 
     if (mediaIdUpdateData === undefined) {
-      if (mediaIdUpdateResponse.status === 404) throw errors.NOT_FOUND();
-      if (mediaIdUpdateResponse.status === 409) throw errors.CONFLICT();
+      if (mediaIdUpdateResponse?.status === 404) throw errors.NOT_FOUND();
+      if (mediaIdUpdateResponse?.status === 409) throw errors.CONFLICT();
       throw errors.INTERNAL_SERVER_ERROR();
     }
 

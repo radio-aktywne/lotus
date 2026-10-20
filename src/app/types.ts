@@ -4,17 +4,23 @@ import type * as z from "zod";
 
 export type PathParameters<KeysType extends string = never> = Simplify<
   {
-    [KeyType in KeysType as KeyType extends `...${infer CatchAllKeyType}`
-      ? CatchAllKeyType
-      : never]: string[];
+    [
+      KeyType in KeysType as KeyType extends `...${infer CatchAllKeyType}`
+        ? CatchAllKeyType
+        : never
+    ]: string[];
   } & {
-    [KeyType in KeysType as KeyType extends `...${string}` | `[...${string}]`
-      ? never
-      : KeyType]: string;
+    [
+      KeyType in KeysType as KeyType extends `...${string}` | `[...${string}]`
+        ? never
+        : KeyType
+    ]: string;
   } & {
-    [KeyType in KeysType as KeyType extends `[...${infer OptionalCatchAllKeyType}]`
-      ? OptionalCatchAllKeyType
-      : never]?: string[];
+    [
+      KeyType in KeysType as KeyType extends `[...${infer OptionalCatchAllKeyType}]`
+        ? OptionalCatchAllKeyType
+        : never
+    ]?: string[];
   }
 >;
 

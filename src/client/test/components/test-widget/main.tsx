@@ -61,7 +61,7 @@ export function TestWidget({}: TestWidgetInput) {
   }, [notifications.error]);
 
   return (
-    <Stack gap="xl" w="80%">
+    <Stack gap="xl" w="90%">
       <Title ta="center">
         {dayjs.unix(timestamp).locale(localization.locale).format("LLLL")}
       </Title>

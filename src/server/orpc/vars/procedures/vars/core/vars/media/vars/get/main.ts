@@ -19,7 +19,7 @@ export const get = orpcServerRootBase.core.media.get
       });
 
     if (mediaIdGetData === undefined) {
-      if (mediaIdGetResponse.status === 404) throw errors.NOT_FOUND();
+      if (mediaIdGetResponse?.status === 404) throw errors.NOT_FOUND();
       throw errors.INTERNAL_SERVER_ERROR();
     }
 

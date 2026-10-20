@@ -1,7 +1,7 @@
 openapi: "3.1.0"
 info:
   title: pelican
-  version: "0.14.0"
+  version: "0.15.0"
 paths:
   /bindings:
     get:
@@ -2102,21 +2102,6 @@ components:
         - $ref: "#/components/schemas/bindings_models__Binding_mediaId_OrderByInput"
         - $ref: "#/components/schemas/bindings_models__Binding_rank_OrderByInput"
     CreateResponseBinding:
-      $ref: "#/components/schemas/bindings_models_Binding"
-    CreateResponseMedia:
-      $ref: "#/components/schemas/media_models_Media"
-    CreateResponsePlaylist:
-      $ref: "#/components/schemas/playlists_models_Playlist"
-    DownloadRequestId:
-      type: string
-      format: uuid
-    EventType:
-      type: string
-      enum:
-        - test
-      title: EventType
-      description: Event types.
-    GetResponseBinding:
       properties:
         id:
           type: string
@@ -2157,7 +2142,7 @@ components:
         - media
       title: Binding
       description: Binding data.
-    GetResponseMedia:
+    CreateResponseMedia:
       properties:
         id:
           type: string
@@ -2183,7 +2168,7 @@ components:
         - bindings
       title: Media
       description: Media data.
-    GetResponsePlaylist:
+    CreateResponsePlaylist:
       properties:
         id:
           type: string
@@ -2209,6 +2194,21 @@ components:
         - bindings
       title: Playlist
       description: Playlist data.
+    DownloadRequestId:
+      type: string
+      format: uuid
+    EventType:
+      type: string
+      enum:
+        - test
+      title: EventType
+      description: Event types.
+    GetResponseBinding:
+      $ref: "#/components/schemas/bindings_models_Binding"
+    GetResponseMedia:
+      $ref: "#/components/schemas/media_models_Media"
+    GetResponsePlaylist:
+      $ref: "#/components/schemas/playlists_models_Playlist"
     HeadDownloadRequestId:
       type: string
       format: uuid
