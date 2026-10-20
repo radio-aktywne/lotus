@@ -11,7 +11,7 @@ export const delete_ = orpcServerRootBase.core.playlists.delete
       await state.current.apis.pelican.playlistsIdDelete({ path: { id: id } });
 
     if (playlistsIdDeleteData === undefined) {
-      if (playlistsIdDeleteResponse.status === 404) throw errors.NOT_FOUND();
+      if (playlistsIdDeleteResponse?.status === 404) throw errors.NOT_FOUND();
       throw errors.INTERNAL_SERVER_ERROR();
     }
   });

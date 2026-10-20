@@ -9,6 +9,8 @@ export {
 } from "../core/bodySerializer";
 export { buildClientParams } from "../core/params";
 export { serializeQueryKeyValue } from "../core/queryKeySerializer";
+export type { ServerSentEventsResult } from "../core/serverSentEvents";
+export type { ClientMeta } from "../core/types";
 export { createClient } from "./clnt";
 export type {
   Client,

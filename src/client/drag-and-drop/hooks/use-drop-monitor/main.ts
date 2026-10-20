@@ -1,7 +1,7 @@
-import type { Edge } from "@atlaskit/pragmatic-drag-and-drop-hitbox/closest-edge";
+import type { Edge } from "@atlaskit/pragmatic-drag-and-drop-hitbox/types";
 
-import { extractClosestEdge } from "@atlaskit/pragmatic-drag-and-drop-hitbox/closest-edge";
-import { monitorForElements } from "@atlaskit/pragmatic-drag-and-drop/element/adapter";
+import { extractClosestEdge } from "@atlaskit/pragmatic-drag-and-drop-hitbox/closest-edge/extract-closest-edge";
+import { monitorForElements } from "@atlaskit/pragmatic-drag-and-drop/adapter/element-adapter";
 import { useEffect } from "react";
 
 import type {
@@ -50,7 +50,7 @@ export function useDropMonitor<
           return;
 
         onDrop({
-          edge: edge as E[number],
+          edge: edge,
           source: {
             data: parsedSource.data.data as SD,
             type: parsedSource.data.type as ST,

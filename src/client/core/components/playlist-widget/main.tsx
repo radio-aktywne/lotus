@@ -1,6 +1,6 @@
 "use client";
 
-import type { SetNonNullableDeep } from "type-fest";
+import type { SetNonNullableDeep, SetRequiredDeep } from "type-fest";
 
 import { msg } from "@lingui/core/macro";
 import { Button, Stack, Title } from "@mantine/core";
@@ -120,9 +120,9 @@ export function PlaylistWidget({ id, order }: PlaylistWidgetInput) {
     ],
   );
 
-  const playlist = playlistsGetQuery.data as SetNonNullableDeep<
-    typeof playlistsGetQuery.data,
-    "bindings" | "bindings.0.media" | "bindings.0.playlist"
+  const playlist = playlistsGetQuery.data as SetRequiredDeep<
+    SetNonNullableDeep<typeof playlistsGetQuery.data, "bindings">,
+    "bindings.0.media" | "bindings.0.playlist"
   >;
 
   const bindings = playlist.bindings;
@@ -174,7 +174,7 @@ export function PlaylistWidget({ id, order }: PlaylistWidgetInput) {
           component={Link}
           href="/playlists"
           style={{ flexShrink: 0 }}
-          variant="light"
+          variant="default"
         >
           {localization.localize(msg({ message: "Back" }))}
         </Button>

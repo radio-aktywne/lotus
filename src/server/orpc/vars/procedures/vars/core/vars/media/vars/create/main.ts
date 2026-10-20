@@ -19,8 +19,8 @@ export const create = orpcServerRootBase.core.media.create
       });
 
     if (mediaCreateData === undefined) {
-      if (mediaCreateResponse.status === 404) throw errors.NOT_FOUND();
-      if (mediaCreateResponse.status === 409) throw errors.CONFLICT();
+      if (mediaCreateResponse?.status === 404) throw errors.NOT_FOUND();
+      if (mediaCreateResponse?.status === 409) throw errors.CONFLICT();
       throw errors.INTERNAL_SERVER_ERROR();
     }
 

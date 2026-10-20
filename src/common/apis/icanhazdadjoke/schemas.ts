@@ -21,14 +21,14 @@ export const GetRandomJokeSuccessResponsePayloadSchema = z
     description: "Success response payload for getting a random joke",
   });
 
-export const GetRandomJokeRequestSchema = z.object({
-  body: z.never().optional(),
-  path: z.never().optional(),
-  query: z.never().optional(),
-});
-
 /**
  * Successful response with a random joke
  */
 export const GetRandomJokeResponseSchema =
   GetRandomJokeSuccessResponsePayloadSchema;
+
+export const GetRandomJokeRequestSchema = z.object({
+  body: z.never().optional(),
+  path: z.never().optional(),
+  query: z.never().optional(),
+});

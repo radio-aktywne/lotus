@@ -19,7 +19,7 @@ export const get = orpcServerRootBase.core.bindings.get
       });
 
     if (bindingsIdGetData === undefined) {
-      if (bindingsIdGetResponse.status === 404) throw errors.NOT_FOUND();
+      if (bindingsIdGetResponse?.status === 404) throw errors.NOT_FOUND();
       throw errors.INTERNAL_SERVER_ERROR();
     }
 

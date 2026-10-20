@@ -14,7 +14,7 @@ export const headersMiddleware = orpcServerImplementer.middleware(
             executed: context.headersMiddleware.executed,
             headers: context.headersMiddleware.headers,
           },
-        } satisfies HeadersMiddlewareOutputContext as HeadersMiddlewareOutputContext,
+        } satisfies HeadersMiddlewareOutputContext,
       });
 
     return next({
@@ -23,7 +23,7 @@ export const headersMiddleware = orpcServerImplementer.middleware(
           executed: true,
           headers: await headers(),
         },
-      } satisfies HeadersMiddlewareOutputContext as HeadersMiddlewareOutputContext,
+      } satisfies HeadersMiddlewareOutputContext,
     });
   },
 );

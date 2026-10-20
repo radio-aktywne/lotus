@@ -11,7 +11,7 @@ export const delete_ = orpcServerRootBase.core.media.delete
       await state.current.apis.pelican.mediaIdDelete({ path: { id: id } });
 
     if (mediaIdDeleteData === undefined) {
-      if (mediaIdDeleteResponse.status === 404) throw errors.NOT_FOUND();
+      if (mediaIdDeleteResponse?.status === 404) throw errors.NOT_FOUND();
       throw errors.INTERNAL_SERVER_ERROR();
     }
   });

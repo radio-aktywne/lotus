@@ -34,8 +34,8 @@ next-env.d.ts
 /.envrc
 /.gitattributes
 /.gitignore
+/compose.yaml
 /CONTRIBUTING.md
-/docker-compose.yaml
 /Dockerfile
 /eslint.config.mjs
 /LICENSE

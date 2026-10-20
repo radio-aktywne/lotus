@@ -105,7 +105,7 @@ export function NewPlaylistWidget({}: NewPlaylistWidgetInput) {
         disabled={creating}
         href="/playlists"
         style={{ flexShrink: 0 }}
-        variant="light"
+        variant="default"
       >
         {localization.localize(msg({ message: "Back" }))}
       </Button>

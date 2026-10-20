@@ -15,7 +15,7 @@ export const zodMiddleware = localeMiddleware.concat(
           zodMiddleware: {
             executed: context.zodMiddleware.executed,
           },
-        } satisfies ZodMiddlewareOutputContext as ZodMiddlewareOutputContext,
+        } satisfies ZodMiddlewareOutputContext,
       });
 
     const locale = context.localeMiddleware.locale;
@@ -34,7 +34,7 @@ export const zodMiddleware = localeMiddleware.concat(
           zodMiddleware: {
             executed: true,
           },
-        } satisfies ZodMiddlewareOutputContext as ZodMiddlewareOutputContext,
+        } satisfies ZodMiddlewareOutputContext,
       });
     });
   },

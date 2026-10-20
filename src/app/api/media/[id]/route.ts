@@ -31,24 +31,24 @@ export async function GET(
   });
 
   if (mediaIdContentDownloadData === undefined) {
-    if (mediaIdContentDownloadResponse.status === 400)
+    if (mediaIdContentDownloadResponse?.status === 400)
       return new Response(STATUS_CODES[400], { status: 400 });
 
-    if (mediaIdContentDownloadResponse.status === 404)
+    if (mediaIdContentDownloadResponse?.status === 404)
       return new Response(STATUS_CODES[404], { status: 404 });
 
     return new Response(STATUS_CODES[500], { status: 500 });
   }
 
-  return new Response(mediaIdContentDownloadResponse.body, {
+  return new Response(mediaIdContentDownloadResponse?.body, {
     headers: {
       "Content-Length":
-        mediaIdContentDownloadResponse.headers.get("Content-Length")!,
+        mediaIdContentDownloadResponse!.headers.get("Content-Length")!,
       "Content-Type":
-        mediaIdContentDownloadResponse.headers.get("Content-Type")!,
-      ETag: mediaIdContentDownloadResponse.headers.get("ETag")!,
+        mediaIdContentDownloadResponse!.headers.get("Content-Type")!,
+      ETag: mediaIdContentDownloadResponse!.headers.get("ETag")!,
       "Last-Modified":
-        mediaIdContentDownloadResponse.headers.get("Last-Modified")!,
+        mediaIdContentDownloadResponse!.headers.get("Last-Modified")!,
     },
     status: 200,
   });
@@ -81,10 +81,10 @@ export async function PUT(
   });
 
   if (mediaIdContentUploadData === undefined) {
-    if (mediaIdContentUploadResponse.status === 400)
+    if (mediaIdContentUploadResponse?.status === 400)
       return new Response(STATUS_CODES[400], { status: 400 });
 
-    if (mediaIdContentUploadResponse.status === 404)
+    if (mediaIdContentUploadResponse?.status === 404)
       return new Response(STATUS_CODES[404], { status: 404 });
 
     return new Response(STATUS_CODES[500], { status: 500 });

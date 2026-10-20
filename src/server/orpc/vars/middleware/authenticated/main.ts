@@ -14,7 +14,7 @@ export const authenticatedMiddleware = userMiddleware.concat(
             executed: context.authenticatedMiddleware.executed,
             user: context.authenticatedMiddleware.user,
           },
-        } satisfies AuthenticatedMiddlewareOutputContext as AuthenticatedMiddlewareOutputContext,
+        } satisfies AuthenticatedMiddlewareOutputContext,
       });
 
     const user = context.userMiddleware.user;
@@ -27,7 +27,7 @@ export const authenticatedMiddleware = userMiddleware.concat(
           executed: true,
           user: user,
         },
-      } satisfies AuthenticatedMiddlewareOutputContext as AuthenticatedMiddlewareOutputContext,
+      } satisfies AuthenticatedMiddlewareOutputContext,
     });
   },
 );

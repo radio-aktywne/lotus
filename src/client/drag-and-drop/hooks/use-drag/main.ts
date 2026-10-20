@@ -1,5 +1,5 @@
-import { draggable } from "@atlaskit/pragmatic-drag-and-drop/element/adapter";
-import { setCustomNativeDragPreview } from "@atlaskit/pragmatic-drag-and-drop/element/set-custom-native-drag-preview";
+import { draggable } from "@atlaskit/pragmatic-drag-and-drop/adapter/element-adapter";
+import { setCustomNativeDragPreview } from "@atlaskit/pragmatic-drag-and-drop/utils/set-custom-native-drag-preview";
 import { useEffect, useMemo, useRef, useState } from "react";
 
 import type { UseDragInput, UseDragOutput, UseDragState } from "./types";

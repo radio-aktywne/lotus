@@ -17,9 +17,7 @@ export type MediaWidgetUploadState = {
 };
 
 export type MediaWidgetState =
-  | MediaWidgetDisplayState
-  | MediaWidgetEditState
-  | MediaWidgetUploadState;
+  MediaWidgetDisplayState | MediaWidgetEditState | MediaWidgetUploadState;
 
 export type MediaWidgetInput = {
   limit: number;

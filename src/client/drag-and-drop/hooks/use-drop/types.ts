@@ -1,4 +1,4 @@
-import type { Edge } from "@atlaskit/pragmatic-drag-and-drop-hitbox/closest-edge";
+import type { Edge } from "@atlaskit/pragmatic-drag-and-drop-hitbox/types";
 import type { RefObject } from "react";
 
 export type UseDropDefaultEdges = readonly ["top", "bottom"];
@@ -23,8 +23,7 @@ export type UseDropIdleState = {
 };
 
 export type UseDropState<E extends readonly Edge[] = UseDropDefaultEdges> =
-  | UseDropDraggingOverState<E>
-  | UseDropIdleState;
+  UseDropDraggingOverState<E> | UseDropIdleState;
 
 export type UseDropInput<E extends readonly Edge[] = UseDropDefaultEdges> = {
   accept?: (type: string, data?: UseDropData) => boolean;
