@@ -2,6 +2,7 @@
 
 import { msg } from "@lingui/core/macro";
 import { UserMenu } from "@radio-aktywne/ui";
+import { MdLogout } from "react-icons/md";
 
 import type { IdentityWidgetInput } from "./types";
 
@@ -16,12 +17,14 @@ export function IdentityWidget({}: IdentityWidgetInput) {
 
   return (
     <UserMenu
-      items={{
-        logout: {
+      items={[
+        {
+          color: "red",
+          icon: MdLogout,
           label: localization.localize(msg({ message: "Logout" })),
           url: "/auth/logout",
         },
-      }}
+      ]}
       user={{ name: identity.user.traits.names.display }}
     />
   );
