@@ -52,3 +52,27 @@ You can configure the app at runtime using various environment variables:
 - `LOTUS__SERVER__PORT` -
   port to run the server on
   (default: `10230`)
+- `LOTUS__URLS__ORCHID__HOST` -
+  host of the public URL of the orchid app
+  (default: `localhost`)
+- `LOTUS__URLS__ORCHID__PATH` -
+  path of the public URL of the orchid app
+  (default: ``)
+- `LOTUS__URLS__ORCHID__PORT` -
+  port of the public URL of the orchid app
+  (default: `20120`)
+- `LOTUS__URLS__ORCHID__SCHEME` -
+  scheme of the public URL of the orchid app
+  (default: `http`)
+- `LOTUS__URLS__SUNFLOWER__HOST` -
+  host of the public URL of the sunflower app
+  (default: `localhost`)
+- `LOTUS__URLS__SUNFLOWER__PATH` -
+  path of the public URL of the sunflower app
+  (default: ``)
+- `LOTUS__URLS__SUNFLOWER__PORT` -
+  port of the public URL of the sunflower app
+  (default: `30000`)
+- `LOTUS__URLS__SUNFLOWER__SCHEME` -
+  scheme of the public URL of the sunflower app
+  (default: `http`)
