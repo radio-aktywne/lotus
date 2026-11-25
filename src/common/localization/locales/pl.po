@@ -149,7 +149,7 @@ msgstr "Nieprawidłowy plik"
 msgid "Invalid input"
 msgstr "Nieprawidłowe dane"
 
-#: src/isomorphic/identity/components/identity-widget/main.tsx:21
+#: src/isomorphic/identity/components/identity-widget/main.tsx:24
 msgid "Logout"
 msgstr "Wyloguj się"
 
@@ -311,6 +311,6 @@ msgstr "Dlaczego kura przeszła przez ulicę? Żeby dostać się na drugą stron
 msgid "You are not allowed to access this page"
 msgstr "Nie masz dostępu do tej strony"
 
-#: src/isomorphic/identity/components/identity-provider/components/user-synchronizer/main.tsx:56
+#: src/isomorphic/identity/components/identity-provider/components/user-synchronizer/main.tsx:36
 msgid "You are not authenticated. Reload the page to authenticate again."
 msgstr "Nie jesteś uwierzytelniony. Odśwież stronę, aby ponownie się uwierzytelnić."
