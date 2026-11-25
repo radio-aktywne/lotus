@@ -18,6 +18,10 @@ msgstr ""
 msgid "{playlistName} • lotus"
 msgstr "{playlistName} • lotus"
 
+#: src/isomorphic/identity/components/identity-widget/main.tsx:59
+msgid "Account"
+msgstr "Account"
+
 #: src/client/core/components/edit-playlist-widget/main.tsx:87
 #: src/client/core/components/list-playlists-widget/main.tsx:95
 #: src/client/core/components/media-widget/main.tsx:107
@@ -33,6 +37,10 @@ msgstr "{playlistName} • lotus"
 #: src/client/test/components/test-widget/main.tsx:50
 msgid "An unexpected error occurred"
 msgstr "An unexpected error occurred"
+
+#: src/isomorphic/identity/components/identity-widget/main.tsx:54
+msgid "Apps"
+msgstr "Apps"
 
 #: src/client/core/components/edit-playlist-widget/main.tsx:127
 #: src/client/core/components/media-widget/components/edit-media-widget/main.tsx:63
@@ -149,7 +157,7 @@ msgstr "Invalid file"
 msgid "Invalid input"
 msgstr "Invalid input"
 
-#: src/isomorphic/identity/components/identity-widget/main.tsx:24
+#: src/isomorphic/identity/components/identity-widget/main.tsx:65
 msgid "Logout"
 msgstr "Logout"
 
