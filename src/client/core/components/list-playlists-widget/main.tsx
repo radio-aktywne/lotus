@@ -8,8 +8,7 @@ import {
   useQueryClient,
   useSuspenseQuery,
 } from "@tanstack/react-query";
-import Link from "next/link";
-import { usePathname, useRouter, useSearchParams } from "next/navigation";
+import { useSearchParams } from "next/navigation";
 import { useCallback, useEffect, useMemo } from "react";
 import { useDeepCompareMemo } from "use-deep-compare";
 
@@ -18,6 +17,9 @@ import type { ListPlaylistsWidgetInput } from "./types";
 import { isOrpcDefinedError } from "../../../../common/orpc/lib/is-orpc-defined-error";
 import { useLocalization } from "../../../../isomorphic/localization/hooks/use-localization";
 import { useNotifications } from "../../../../isomorphic/notifications/hooks/use-notifications";
+import { LocalizedLink } from "../../../../isomorphic/routing/components/localized-link";
+import { useDelocalizedPathname } from "../../../../isomorphic/routing/hooks/use-delocalized-pathname";
+import { useLocalizedRouter } from "../../../../isomorphic/routing/hooks/use-localized-router";
 import { orpcClientSideQueryClient } from "../../../orpc/vars/clients";
 import { Controls } from "./components/controls";
 import { PlaylistItem } from "./components/playlist-item";
@@ -28,8 +30,8 @@ export function ListPlaylistsWidget({
   page,
   query,
 }: ListPlaylistsWidgetInput) {
-  const router = useRouter();
-  const path = usePathname();
+  const { router } = useLocalizedRouter();
+  const { pathname: path } = useDelocalizedPathname();
   const queryParameters = useSearchParams();
 
   const { localization } = useLocalization();
@@ -75,7 +77,7 @@ export function ListPlaylistsWidget({
       newQueryParameters.set("page", `${maxPage}`);
 
       const queryString = newQueryParameters.toString();
-      router.push(path + queryString ? `?${queryString}` : "");
+      router.push(path + (queryString ? `?${queryString}` : ""));
     }
   }, [maxPage, page, path, queryParameters, router]);
 
@@ -135,7 +137,7 @@ export function ListPlaylistsWidget({
       newQueryParameters.set("page", `${newPage}`);
 
       const queryString = newQueryParameters.toString();
-      router.push(path + queryString ? `?${queryString}` : "");
+      router.push(path + (queryString ? `?${queryString}` : ""));
     },
     [
       limit,
@@ -160,7 +162,7 @@ export function ListPlaylistsWidget({
       }
 
       const queryString = newQueryParameters.toString();
-      router.push(path + queryString ? `?${queryString}` : "");
+      router.push(path + (queryString ? `?${queryString}` : ""));
     },
     [path, queryParameters, router],
   );
@@ -201,7 +203,7 @@ export function ListPlaylistsWidget({
         </List>
       )}
       <Button
-        component={Link}
+        component={LocalizedLink}
         href="/playlists/new"
         mt="auto"
         style={{ flexShrink: 0 }}

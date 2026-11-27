@@ -1,15 +1,16 @@
 import { isEqual } from "es-toolkit/predicate";
-import { usePathname, useSearchParams } from "next/navigation";
+import { useSearchParams } from "next/navigation";
 import { useEffect } from "react";
 
 import type { HistorySynchronizerInput } from "./types";
 
+import { useDelocalizedPathname } from "../../../../../routing/hooks/use-delocalized-pathname";
 import { useGlobalState } from "../../../../../state/hooks/use-global-state";
 
 export function HistorySynchronizer({}: HistorySynchronizerInput) {
   const { state } = useGlobalState();
 
-  const pathname = usePathname();
+  const { pathname } = useDelocalizedPathname();
   const searchParams = useSearchParams();
 
   useEffect(() => {

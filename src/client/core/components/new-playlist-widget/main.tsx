@@ -3,8 +3,6 @@
 import { msg } from "@lingui/core/macro";
 import { Button, Stack, Title } from "@mantine/core";
 import { useMutation } from "@tanstack/react-query";
-import Link from "next/link";
-import { useRouter } from "next/navigation";
 import { useCallback, useState } from "react";
 
 import type { NewPlaylistWidgetInput } from "./types";
@@ -13,6 +11,8 @@ import { getValidationIssue } from "../../../../common/orpc/lib/get-validation-i
 import { isOrpcDefinedError } from "../../../../common/orpc/lib/is-orpc-defined-error";
 import { useLocalization } from "../../../../isomorphic/localization/hooks/use-localization";
 import { useNotifications } from "../../../../isomorphic/notifications/hooks/use-notifications";
+import { LocalizedLink } from "../../../../isomorphic/routing/components/localized-link";
+import { useLocalizedRouter } from "../../../../isomorphic/routing/hooks/use-localized-router";
 import { orpcClientSideQueryClient } from "../../../orpc/vars/clients";
 import {
   CreatePlaylistForm,
@@ -22,7 +22,7 @@ import {
 export function NewPlaylistWidget({}: NewPlaylistWidgetInput) {
   const [creating, setCreating] = useState(false);
 
-  const router = useRouter();
+  const { router } = useLocalizedRouter();
 
   const { localization } = useLocalization();
   const { notifications } = useNotifications();
@@ -101,7 +101,7 @@ export function NewPlaylistWidget({}: NewPlaylistWidgetInput) {
       <CreatePlaylistForm onError={handleError} onSubmit={handleCreate} />
       <Button
         color="gray"
-        component={Link}
+        component={LocalizedLink}
         disabled={creating}
         href="/playlists"
         style={{ flexShrink: 0 }}

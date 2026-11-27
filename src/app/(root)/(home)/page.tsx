@@ -1,11 +1,12 @@
-import { redirect } from "next/navigation";
 import { connection } from "next/server";
 
 import type { PageInput } from "../../types";
 import type { Keys } from "./types";
 
+import { localizedRedirect } from "../../../server/routing/lib/localized-redirect";
+
 export default async function HomePage({}: PageInput<Keys.Path, Keys.Query>) {
   await connection();
 
-  redirect("/playlists");
+  return await localizedRedirect({ href: "/playlists" });
 }
