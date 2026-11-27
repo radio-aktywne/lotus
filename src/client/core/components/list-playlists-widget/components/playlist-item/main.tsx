@@ -1,10 +1,11 @@
 import { ActionIcon, Group, Text, UnstyledButton } from "@mantine/core";
 import { ListItem } from "@radio-aktywne/ui";
-import Link from "next/link";
 import { useCallback, useState } from "react";
 import { MdDelete } from "react-icons/md";
 
 import type { PlaylistItemInput } from "./types";
+
+import { LocalizedLink } from "../../../../../../isomorphic/routing/components/localized-link";
 
 export function PlaylistItem({ onDelete, playlist }: PlaylistItemInput) {
   const [deleting, setDeleting] = useState(false);
@@ -24,7 +25,10 @@ export function PlaylistItem({ onDelete, playlist }: PlaylistItemInput) {
   return (
     <ListItem>
       <Group gap="xs">
-        <UnstyledButton component={Link} href={`/playlists/${playlist.id}`}>
+        <UnstyledButton
+          component={LocalizedLink}
+          href={`/playlists/${playlist.id}`}
+        >
           <Text fw="bold" size="xs">
             {playlist.name}
           </Text>

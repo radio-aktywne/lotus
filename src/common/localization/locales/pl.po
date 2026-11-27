@@ -18,12 +18,32 @@ msgstr ""
 msgid "{playlistName} • lotus"
 msgstr "{playlistName} • lotus"
 
+#: src/common/routing/constants.ts:5
+msgid "/"
+msgstr "/"
+
+#: src/common/routing/constants.ts:6
+msgid "/playlists"
+msgstr "/playlisty"
+
+#: src/common/routing/constants.ts:7
+msgid "/playlists/[id]"
+msgstr "/playlisty/[id]"
+
+#: src/common/routing/constants.ts:8
+msgid "/playlists/[id]/edit"
+msgstr "/playlisty/[id]/edytuj"
+
+#: src/common/routing/constants.ts:9
+msgid "/playlists/new"
+msgstr "/playlisty/nowa"
+
 #: src/isomorphic/identity/components/identity-widget/main.tsx:59
 msgid "Account"
 msgstr "Konto"
 
 #: src/client/core/components/edit-playlist-widget/main.tsx:87
-#: src/client/core/components/list-playlists-widget/main.tsx:95
+#: src/client/core/components/list-playlists-widget/main.tsx:97
 #: src/client/core/components/media-widget/main.tsx:107
 #: src/client/core/components/media-widget/main.tsx:215
 #: src/client/core/components/media-widget/main.tsx:273
@@ -34,7 +54,7 @@ msgstr "Konto"
 #: src/client/core/components/playlist-widget/components/move-monitor/main.tsx:174
 #: src/client/core/components/playlist-widget/main.tsx:79
 #: src/client/core/components/playlist-widget/main.tsx:108
-#: src/client/test/components/test-widget/main.tsx:50
+#: src/client/example/components/example-widget/main.tsx:50
 msgid "An unexpected error occurred"
 msgstr "Wystąpił nieoczekiwany błąd"
 
@@ -50,7 +70,7 @@ msgstr "Aplikacje"
 msgid "Back"
 msgstr "Cofnij"
 
-#: src/app/(root)/layout.tsx:37
+#: src/app/(root)/layout.tsx:39
 msgid "Broadcast playlists app 💽"
 msgstr "Broadcast playlists app 💽"
 
@@ -61,7 +81,7 @@ msgstr "Broadcast playlists app 💽"
 msgid "Conflicting input"
 msgstr "Konfliktujące dane"
 
-#: src/client/core/components/list-playlists-widget/main.tsx:209
+#: src/client/core/components/list-playlists-widget/main.tsx:211
 #: src/client/core/components/new-playlist-widget/components/create-playlist-form/main.tsx:46
 msgid "Create"
 msgstr "Utwórz"
@@ -100,7 +120,7 @@ msgstr "Wprowadź nazwę utworu"
 msgid "Enter playlist name"
 msgstr "Wprowadź nazwę playlisty"
 
-#: src/client/test/components/test-widget/components/test-form/main.tsx:30
+#: src/client/example/components/example-widget/components/example-form/main.tsx:34
 msgid "Enter some value"
 msgstr "Wprowadź jakąś wartość"
 
@@ -152,8 +172,8 @@ msgstr "Nieprawidłowy plik"
 #: src/client/core/components/media-widget/main.tsx:290
 #: src/client/core/components/new-playlist-widget/main.tsx:55
 #: src/client/core/components/new-playlist-widget/main.tsx:93
-#: src/client/test/components/test-widget/main.tsx:39
-#: src/client/test/components/test-widget/main.tsx:60
+#: src/client/example/components/example-widget/main.tsx:39
+#: src/client/example/components/example-widget/main.tsx:60
 msgid "Invalid input"
 msgstr "Nieprawidłowe dane"
 
@@ -161,7 +181,7 @@ msgstr "Nieprawidłowe dane"
 msgid "Logout"
 msgstr "Wyloguj się"
 
-#: src/app/(root)/layout.tsx:43
+#: src/app/(root)/layout.tsx:45
 msgid "lotus"
 msgstr "lotus"
 
@@ -218,7 +238,7 @@ msgstr "Nazwa"
 msgid "No media"
 msgstr "Brak utworów"
 
-#: src/client/core/components/list-playlists-widget/main.tsx:190
+#: src/client/core/components/list-playlists-widget/main.tsx:192
 msgid "No playlists"
 msgstr "Brak playlist"
 
@@ -231,7 +251,7 @@ msgstr "Nie znaleziono • lotus"
 msgid "Page not found"
 msgstr "Nie znaleziono strony"
 
-#: src/client/core/components/list-playlists-widget/main.tsx:89
+#: src/client/core/components/list-playlists-widget/main.tsx:91
 #: src/client/core/components/playlist-widget/main.tsx:71
 msgid "Playlist already deleted"
 msgstr "Playlista jest już usunięta"
@@ -240,7 +260,7 @@ msgstr "Playlista jest już usunięta"
 msgid "Playlist created"
 msgstr "Utworzono playlistę"
 
-#: src/client/core/components/list-playlists-widget/main.tsx:100
+#: src/client/core/components/list-playlists-widget/main.tsx:102
 #: src/client/core/components/playlist-widget/main.tsx:84
 msgid "Playlist deleted"
 msgstr "Usunięto playlistę"
@@ -257,7 +277,7 @@ msgstr "Nie znaleziono playlisty • lotus"
 msgid "Playlist updated"
 msgstr "Zaktualizowano playlistę"
 
-#: src/client/core/components/list-playlists-widget/main.tsx:179
+#: src/client/core/components/list-playlists-widget/main.tsx:181
 msgid "Playlists"
 msgstr "Playlisty"
 
@@ -290,7 +310,7 @@ msgstr "Wybierz plik utworu"
 msgid "Something went wrong"
 msgstr "Coś poszło nie tak"
 
-#: src/client/test/components/test-widget/components/test-form/main.tsx:36
+#: src/client/example/components/example-widget/components/example-form/main.tsx:40
 msgid "Submit"
 msgstr "Wyślij"
 
@@ -311,7 +331,7 @@ msgstr "Prześlij utwór"
 msgid "Warning"
 msgstr "Ostrzeżenie"
 
-#: src/server/orpc/vars/procedures/vars/test/vars/validate/main.ts:29
+#: src/server/orpc/vars/procedures/vars/example/vars/validate/main.ts:29
 msgid "Why did the chicken cross the road? To get to the other side."
 msgstr "Dlaczego kura przeszła przez ulicę? Żeby dostać się na drugą stronę."
 

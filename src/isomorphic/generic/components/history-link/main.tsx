@@ -6,8 +6,8 @@ import { useDeepCompareMemo } from "use-deep-compare";
 
 import type { HistoryLinkInput } from "./types";
 
+import { LocalizedLink } from "../../../routing/components/localized-link";
 import { useGlobalState } from "../../../state/hooks/use-global-state";
-import { ClientLink } from "../client-link";
 
 export function HistoryLink({ actions, ...input }: HistoryLinkInput) {
   const { state } = useGlobalState();
@@ -26,5 +26,5 @@ export function HistoryLink({ actions, ...input }: HistoryLinkInput) {
     }
   }, [cachedActions, state.current.history.entries]);
 
-  return <ClientLink {...input} onNavigate={handleNavigate} />;
+  return <LocalizedLink {...input} onNavigate={handleNavigate} />;
 }

@@ -1,5 +1,5 @@
+import type { LocalizedLinkInput } from "../../../routing/components/localized-link";
 import type { HistoryEntry } from "../../../state/types";
-import type { ClientLinkInput } from "../client-link";
 
 export type HistoryLinkPopAction = {
   count?: number;
@@ -15,6 +15,6 @@ export type HistoryLinkAction = HistoryLinkPopAction | HistoryLinkPushAction;
 
 export type HistoryLinkActions = HistoryLinkAction[];
 
-export type HistoryLinkInput = ClientLinkInput & {
+export type HistoryLinkInput = LocalizedLinkInput & {
   actions: HistoryLinkActions;
 };

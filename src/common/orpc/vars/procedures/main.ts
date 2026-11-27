@@ -1,11 +1,11 @@
 import { core } from "./vars/core";
+import { example } from "./vars/example";
 import { identity } from "./vars/identity";
 import { localization } from "./vars/localization";
-import { test } from "./vars/test";
 
 export const orpcContractProcedures = {
   core: core,
+  example: example,
   identity: identity,
   localization: localization,
-  test: test,
 };

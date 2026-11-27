@@ -20,6 +20,7 @@ import { LocalizationProvider } from "../../isomorphic/localization/components/l
 import { Metadata } from "../../isomorphic/metadata/components/metadata";
 import { MetadataProvider } from "../../isomorphic/metadata/components/metadata-provider";
 import { QueryProvider } from "../../isomorphic/query/components/query-provider";
+import { RoutingProvider } from "../../isomorphic/routing/components/routing-provider";
 import { StateProvider } from "../../isomorphic/state/components/state-provider";
 import { ThemeProvider } from "../../isomorphic/theme/components/theme-provider";
 import { getIdentity } from "../../server/identity/lib/get-identity";
@@ -27,6 +28,7 @@ import { resolveLocale } from "../../server/localization/lib/resolve-locale";
 import { createMetadata } from "../../server/metadata/lib/create-metadata";
 import { createViewport } from "../../server/metadata/lib/create-viewport";
 import { getQueryClient } from "../../server/query/lib/get-query-client";
+import { getLocalizedRoutes } from "../../server/routing/lib/get-localized-routes";
 import { constants } from "./constants";
 import "./layout.styles.css";
 import { RootLayoutView } from "./layout.view";
@@ -88,6 +90,7 @@ export default async function RootLayout({
 
   const { queryClient } = getQueryClient();
   const { locale } = await resolveLocale({ queryClient: queryClient });
+  const { localizedRoutes } = getLocalizedRoutes();
   const { identity } = await getIdentity({ queryClient: queryClient });
 
   return (
@@ -97,30 +100,32 @@ export default async function RootLayout({
       </head>
       <body>
         <StateProvider>
-          <HistoryProvider>
-            <MetadataProvider>
-              <QueryProvider>
-                <HydrationBoundary state={dehydrate(queryClient)}>
-                  <LocalizationProvider locale={locale}>
-                    <ThemeProvider
-                      colors={constants.colors.all}
-                      colorScheme={constants.colors.scheme}
-                      primaryColor={constants.colors.primary.name}
-                      primaryShade={constants.colors.primary.shade}
-                    >
-                      <IdentityProvider user={identity.user}>
-                        <Metadata
-                          description={await getDescription()}
-                          title={await getTitle()}
-                        />
-                        <RootLayoutView>{children}</RootLayoutView>
-                      </IdentityProvider>
-                    </ThemeProvider>
-                  </LocalizationProvider>
-                </HydrationBoundary>
-              </QueryProvider>
-            </MetadataProvider>
-          </HistoryProvider>
+          <MetadataProvider>
+            <QueryProvider>
+              <HydrationBoundary state={dehydrate(queryClient)}>
+                <LocalizationProvider locale={locale}>
+                  <RoutingProvider localizedRoutes={localizedRoutes}>
+                    <HistoryProvider>
+                      <ThemeProvider
+                        colors={constants.colors.all}
+                        colorScheme={constants.colors.scheme}
+                        primaryColor={constants.colors.primary.name}
+                        primaryShade={constants.colors.primary.shade}
+                      >
+                        <IdentityProvider user={identity.user}>
+                          <Metadata
+                            description={await getDescription()}
+                            title={await getTitle()}
+                          />
+                          <RootLayoutView>{children}</RootLayoutView>
+                        </IdentityProvider>
+                      </ThemeProvider>
+                    </HistoryProvider>
+                  </RoutingProvider>
+                </LocalizationProvider>
+              </HydrationBoundary>
+            </QueryProvider>
+          </MetadataProvider>
         </StateProvider>
       </body>
     </html>

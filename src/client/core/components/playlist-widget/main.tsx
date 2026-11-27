@@ -6,8 +6,6 @@ import { msg } from "@lingui/core/macro";
 import { Button, Stack, Title } from "@mantine/core";
 import { List } from "@radio-aktywne/ui";
 import { useMutation, useSuspenseQuery } from "@tanstack/react-query";
-import Link from "next/link";
-import { useRouter } from "next/navigation";
 import { useCallback, useMemo } from "react";
 import { useDeepCompareMemo } from "use-deep-compare";
 
@@ -16,13 +14,15 @@ import type { PlaylistWidgetInput } from "./types";
 import { isOrpcDefinedError } from "../../../../common/orpc/lib/is-orpc-defined-error";
 import { useLocalization } from "../../../../isomorphic/localization/hooks/use-localization";
 import { useNotifications } from "../../../../isomorphic/notifications/hooks/use-notifications";
+import { LocalizedLink } from "../../../../isomorphic/routing/components/localized-link";
+import { useLocalizedRouter } from "../../../../isomorphic/routing/hooks/use-localized-router";
 import { orpcClientSideQueryClient } from "../../../orpc/vars/clients";
 import { BindingItem } from "./components/binding-item";
 import { EmptyNotice } from "./components/empty-notice";
 import { MoveMonitor } from "./components/move-monitor";
 
 export function PlaylistWidget({ id, order }: PlaylistWidgetInput) {
-  const router = useRouter();
+  const { router } = useLocalizedRouter();
 
   const { localization } = useLocalization();
   const { notifications } = useNotifications();
@@ -155,7 +155,7 @@ export function PlaylistWidget({ id, order }: PlaylistWidgetInput) {
           </List>
         )}
         <Button
-          component={Link}
+          component={LocalizedLink}
           href={`/playlists/${playlist.id}/edit`}
           mt="auto"
           style={{ flexShrink: 0 }}
@@ -171,7 +171,7 @@ export function PlaylistWidget({ id, order }: PlaylistWidgetInput) {
         </Button>
         <Button
           color="gray"
-          component={Link}
+          component={LocalizedLink}
           href="/playlists"
           style={{ flexShrink: 0 }}
           variant="default"
